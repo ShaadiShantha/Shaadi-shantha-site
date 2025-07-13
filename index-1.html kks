@@ -1,0 +1,130 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shaadi Sanstha</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background: #f9f9f9;
+            color: #333;
+        }
+        header, footer {
+            background-color: #8e44ad;
+            color: white;
+            padding: 20px;
+            text-align: center;
+        }
+        nav {
+            background: #f1f1f1;
+            padding: 10px 20px;
+            text-align: center;
+        }
+        nav a {
+            margin: 0 15px;
+            color: #8e44ad;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        main {
+            padding: 40px 20px;
+            max-width: 900px;
+            margin: auto;
+            background: white;
+        }
+        h1, h2, h3 {
+            color: #8e44ad;
+        }
+        section {
+            margin-bottom: 40px;
+        }
+        .service {
+            margin-bottom: 20px;
+        }
+        .service span {
+            font-size: 1.5em;
+            margin-right: 10px;
+        }
+        footer small {
+            display: block;
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>Shaadi Sanstha</h1>
+        <p>Trusted & Transparent Matrimonial Service</p>
+    </header>
+
+    <nav>
+        <a href="#about">About</a>
+        <a href="#services">Services</a>
+        <a href="#contact">Contact</a>
+    </nav>
+
+    <main>
+        <section id="about">
+            <h2>About Us</h2>
+            <p>
+                Shaadi Sanstha is a trusted, value-driven matrimonial service dedicated to helping individuals and families find compatible life partners. 
+                We offer a personalized matchmaking experience rooted in tradition, transparency, and care. Our mission is to foster lifelong relationships built on mutual respect and cultural understanding.
+            </p>
+            <p>We bring together families and individuals who truly value meaningful connections.</p>
+        </section>
+
+        <section id="services">
+            <h2>Our Services</h2>
+
+            <div class="service">
+                <h3><span>💍</span>Personalized Matchmaking</h3>
+                <p>Carefully curated biodatas for genuine and serious inquiries only.</p>
+            </div>
+
+            <div class="service">
+                <h3><span>🔮</span>Horoscope Compatibility</h3>
+                <p>Optional Kundali matching available for those who value traditional alignment.</p>
+            </div>
+
+            <div class="service">
+                <h3><span>✅</span>Verified Profiles</h3>
+                <p>Every profile is verified—no fake accounts, only authentic connections.</p>
+            </div>
+
+            <div class="service">
+                <h3><span>📞</span>Telephonic Guidance</h3>
+                <p>Call or WhatsApp us for personal support throughout your journey.</p>
+            </div>
+
+            <div class="service">
+                <h3><span>👪</span>Family-Focused Approach</h3>
+                <p>We work closely with families to understand their expectations and preferences.</p>
+            </div>
+
+            <div class="service">
+                <h3><span>📋</span>Verified Biodata Sharing</h3>
+                <p>Exchange profiles only with sincere and verified candidates.</p>
+            </div>
+        </section>
+
+        <section id="contact">
+            <h2>Contact Us</h2>
+            <p><strong>Shaadi Sanstha</strong></p>
+            <p><strong>Location:</strong> Bihar</p>
+            <p><strong>Call or WhatsApp:</strong> <a href="tel:7808817710">7808817710</a></p>
+            <p><strong>Email:</strong> <a href="mailto:shaadishanstha.in@gmail.com">shaadishanstha.in@gmail.com</a></p>
+        </section>
+    </main>
+
+    <footer>
+        &copy; 2025 Shaadi Sanstha | All rights reserved
+    </footer>
+
+</body>
+</html>
