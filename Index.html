@@ -85,7 +85,19 @@
     h2::before {
       content: '💖 ';
     }
-  </style>
+  
+html, body {
+  height: 100%;
+  margin: 0;
+}
+body {
+  display: flex;
+  flex-direction: column;
+}
+main {
+  flex: 1;
+}
+</style>
 <meta content="Shaadi Sanstha is a trusted matrimonial service based in Bihar. We help you find verified, compatible matches with cultural values and full family support." name="description"/>
 <meta content="matrimonial, shaadi, marriage bureau, bihar matrimony, indian matchmaking, verified profiles, shaadi sanstha" name="keywords"/>
 <meta content="Shaadi Sanstha | Verified Matrimonial Service in Bihar" property="og:title"/>
@@ -220,6 +232,23 @@
 </strong>
     to begin your journey.
    </p>
+
+<div style="text-align: center; margin-top: 30px;">
+  <a href="registration.html" style="
+    display: inline-block;
+    background-color: #28a745;
+    color: white;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+    transition: background-color 0.3s ease;
+  " onmouseover="this.style.backgroundColor='#218838'" onmouseout="this.style.backgroundColor='#28a745'">
+    👉 Register Now
+  </a>
+</div>
 </div>
 <section style="padding: 40px; background-color: #fff0f5; border-radius: 12px; margin: 50px auto; max-width: 900px;">
 <h2 style="color: #c2185b; text-align: center;">
@@ -389,9 +418,5 @@
 <footer>
    © 2025 Shaadi Sanstha | All rights reserved
   </footer>
-<div style="text-align: center; margin: 40px 0;">
-<a href="registration.html" style="padding: 15px 30px; background-color: #28a745; color: white; text-decoration: none; font-size: 18px; border-radius: 5px;">
-  👉 Register Now
-</a>
-</div></body>
+</body>
 </html>
