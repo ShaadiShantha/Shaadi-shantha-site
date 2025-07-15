@@ -1,66 +1,136 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <title>Shaadi Sanstha - Registration</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      padding: 20px;
-      background-color: #fff0f5;
-    }
-    h1 {
-      text-align: center;
-      color: #880e4f;
-    }
+    body { font-family: Arial, sans-serif; padding: 20px; background-color: #fff0f5; }
+    h1 { text-align: center; color: #880e4f; }
     form {
-      max-width: 600px;
+      max-width: 800px;
       margin: auto;
-      background: #fffafc;
+      background: #fff;
       padding: 30px;
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0,0,0,0.1);
     }
-    label {
-      font-weight: bold;
-      display: block;
-      margin-top: 15px;
-      color: #6a1b9a;
-    }
-    input, textarea, select, button {
-      width: 100%;
-      padding: 10px;
-      margin-top: 5px;
-      border: 1px solid #ccc;
-      border-radius: 5px;
+    h2 { color: #6a1b9a; margin-top: 30px; }
+    label { font-weight: bold; display: block; margin-top: 15px; color: #4a148c; }
+    input, textarea, select {
+      width: 100%; padding: 10px; margin-top: 5px;
+      border: 1px solid #ccc; border-radius: 5px;
     }
     button {
-      background-color: #c2185b;
-      color: white;
-      font-weight: bold;
-      border: none;
-      cursor: pointer;
+      margin-top: 30px; background-color: #c2185b;
+      color: white; font-weight: bold; padding: 12px;
+      border: none; border-radius: 6px; cursor: pointer;
     }
-    button:hover {
-      background-color: #880e4f;
-    }
+    button:hover { background-color: #880e4f; }
   </style>
 </head>
 <body>
-  <h1>Shaadi Sanstha - Registration Form</h1>
+  <h1>Shaadi Sanstha - Matrimonial Registration</h1>
   <form action="https://formsubmit.co/shaadishanstha.in@gmail.com" method="POST">
-    <input type="hidden" name="_captcha" value="false">
-    <input type="hidden" name="_next" value="https://shaadis.netlify.app/thank-you2.html">
+    <input type="hidden" name="_captcha" value="false" />
+    <input type="hidden" name="_next" value="https://shaadis.netlify.app/thank-you2.html" />
+
+    <h2>👤 Personal Information</h2>
     <label>Full Name:</label>
-    <input type="text" name="name" required>
+    <input type="text" name="full_name" required>
+    <label>Gender:</label>
+    <select name="gender" required>
+      <option value="">Select Gender</option><option>Male</option><option>Female</option><option>Other</option>
+    </select>
+    <label>Date of Birth:</label>
+    <input type="date" name="dob" required>
+    <label>Age:</label>
+    <input type="number" name="age" required>
+    <label>Caste:</label>
+    <input type="text" name="caste">
+    <label>Religion:</label>
+    <input type="text" name="religion">
+    <label>Height (cm):</label>
+    <input type="number" name="height">
+    <label>Complexion:</label>
+    <select name="complexion">
+      <option value="">Select Complexion</option><option>Fair</option><option>Wheatish</option><option>Dark</option>
+    </select>
+
+    <h2>📞 Contact Details</h2>
     <label>Mobile Number:</label>
     <input type="tel" name="mobile" required>
     <label>Email:</label>
     <input type="email" name="email" required>
+    <label>State:</label>
+    <input type="text" name="state" required>
+
+    <label>District:</label>
+    <input type="text" name="district" required>
+
     <label>City:</label>
-    <input type="text" name="city" required>
-    <button type="submit">Register Now</button>
+    <input type="text" name="city">
+    <label>Pin Code:</label>
+    <input type="text" name="pincode">
+
+    <h2>📚 Education & Job</h2>
+    <label>Education:</label>
+    <select name="education" required>
+      <option value="">Select Education</option>
+      <option>10th Pass</option><option>12th Pass</option><option>Diploma</option>
+      <option>B.A.</option><option>B.Sc.</option><option>B.Com</option>
+      <option>BCA</option><option>BBA</option><option>B.Tech</option><option>LLB</option>
+      <option>M.A.</option><option>M.Sc.</option><option>M.Com</option>
+      <option>MBA</option><option>MCA</option><option>M.Tech</option>
+      <option>MBBS</option><option>MD</option><option>PhD</option><option>Other</option>
+    </select>
+
+    <label>Profession:</label>
+    <select name="profession" required>
+      <option value="">Select Profession</option>
+      <option>Private Job</option><option>Government Job</option>
+      <option>Doctor</option><option>Engineer</option><option>Teacher</option>
+      <option>Business</option><option>Farming</option><option>Student</option><option>Other</option>
+    </select>
+    <label>Monthly Income (₹):</label>
+    <input type="text" name="income">
+
+    <h2>🏠 Family Background</h2>
+    <label>Father's Name:</label>
+    <input type="text" name="father_name">
+    <label>Father's Occupation:</label>
+    <input type="text" name="father_occupation">
+    <label>Mother's Name:</label>
+    <input type="text" name="mother_name">
+    <label>Mother's Occupation:</label>
+    <input type="text" name="mother_occupation">
+    <label>Siblings:</label>
+    <input type="text" name="siblings">
+
+    <h2>💍 Marriage Preferences</h2>
+    <label>Looking For:</label>
+    <select name="looking_for">
+      <option value="">Select</option><option>Bride</option><option>Groom</option>
+    </select>
+    <label>Preferred Age Range:</label>
+    <input type="text" name="preferred_age">
+    <label>Preferred Caste:</label>
+    <input type="text" name="preferred_caste">
+
+    <h2>🔮 Horoscope Info (Optional)</h2>
+    <label>Birth Time:</label>
+    <input type="text" name="birth_time">
+    <label>Birth Place:</label>
+    <input type="text" name="birth_place">
+    <label>Gotra:</label>
+    <input type="text" name="gotra">
+
+    <h2>📝 Other Notes</h2>
+    <label>Additional Information:</label>
+    <textarea name="notes" rows="4"></textarea>
+
+    <button type="submit">Submit Registration</button>
   </form>
 </body>
 </html>
