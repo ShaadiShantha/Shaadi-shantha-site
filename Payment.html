@@ -1,0 +1,75 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Shaadi Sanstha - Payment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff0f5;
+      padding: 30px;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #880e4f;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    img {
+      margin: 20px auto;
+      width: 200px;
+      display: block;
+    }
+    input, button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+    }
+    button {
+      background-color: #c2185b;
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #880e4f;
+    }
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
+  </style>
+</head>
+<body>
+  <h1>Shaadi Sanstha</h1>
+  <div class="container">
+    <h2>💳 Registration Payment</h2>
+    <p>Registration Charges: ₹35,500 (One-time)</p>
+    <img src="qr-placeholder.png" alt="QR Code (To be added)">
+    <p><strong>Pay to UPI ID:</strong> yourupi@upi</p>
+    <p>After making payment via any UPI app, please enter your UPI Transaction ID below:</p>
+
+    <form action="https://formsubmit.co/shaadishanstha.in@gmail.com" method="POST">
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_next" value="thank-you3.html" />
+
+      <input type="text" name="name" placeholder="Your Name" required />
+      <input type="text" name="transaction_id" placeholder="Enter UPI Transaction ID" required />
+
+      <button type="submit">Confirm Payment</button>
+    </form>
+  </div>
+</body>
+</html>
