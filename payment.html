@@ -6,8 +6,15 @@
   <title>Shaadi Sanstha - Payment</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
-    body { font-family: Arial, sans-serif; background-color: #fff0f5; padding: 30px; }
-    h1, h2 { text-align: center; color: #880e4f; }
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff0f5;
+      padding: 30px;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #880e4f;
+    }
     .container {
       max-width: 600px;
       margin: auto;
@@ -39,7 +46,10 @@
     button:hover {
       background-color: #880e4f;
     }
-    p { font-size: 16px; line-height: 1.6; }
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+    }
   </style>
 </head>
 <body>
@@ -50,11 +60,14 @@
     <img src="qr-placeholder.png" alt="QR Code (To be added)">
     <p><strong>Pay to UPI ID:</strong> yourupi@upi</p>
     <p>After making payment via any UPI app, please enter your UPI Transaction ID below:</p>
+
     <form action="https://formsubmit.co/shaadishanstha.in@gmail.com" method="POST">
       <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_next" value="thank-you3.html" />
+
       <input type="text" name="name" placeholder="Your Name" required />
       <input type="text" name="transaction_id" placeholder="Enter UPI Transaction ID" required />
+
       <button type="submit">Confirm Payment</button>
     </form>
   </div>
