@@ -1,12 +1,106 @@
-<form action="https://formsubmit.co/shaadishanstha.in@gmail.com" method="POST">
-  <input type="hidden" name="_captcha" value="false">
-  <input type="hidden" name="_next" value="https://shaadishantha.github.io/Shaadi-shantha-site/thank-you3.html">
-  <input type="hidden" name="_subject" value="New Shaadi Sanstha Payment Received!">
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <title>Shaadi Sanstha - Payment</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff0f5; /* Light pinkish background */
+      padding: 30px;
+      margin: 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      box-sizing: border-box;
+    }
+    h1, h2 {
+      text-align: center;
+      color: #880e4f; /* Darker pink/purple */
+      margin-bottom: 20px;
+    }
+    .container {
+      max-width: 600px;
+      width: 90%; /* Responsive width */
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    img {
+      margin: 20px auto;
+      width: 200px;
+      max-width: 100%; /* Ensure image is responsive */
+      height: auto;
+      display: block;
+    }
+    input[type="text"],
+    input[type="email"],
+    button {
+      width: calc(100% - 24px); /* Adjust for padding and border */
+      padding: 12px;
+      margin-top: 15px;
+      border: 1px solid #ccc;
+      border-radius: 6px;
+      font-size: 16px;
+      box-sizing: border-box;
+    }
+    button {
+      background-color: #c2185b; /* Dark pink */
+      color: white;
+      font-weight: bold;
+      border: none;
+      cursor: pointer;
+      transition: background-color 0.3s ease;
+    }
+    button:hover {
+      background-color: #880e4f; /* Darker pink/purple */
+    }
+    p {
+      font-size: 16px;
+      line-height: 1.6;
+      color: #555;
+    }
+    strong {
+        color: #333;
+    }
+  </style>
+</head>
+<body>
+  <h1>Shaadi Sanstha</h1>
+  <div class="container">
+    <h2>💳 Registration Payment</h2>
+    <p>Registration Charges: ₹35,500 (One-time)</p>
+    
+    <img src="qr-placeholder.png" alt="Scan to Pay QR Code">
+    
+    <p><strong>Pay to UPI ID:</strong> yourupi@upi</p>
+    
+    <p>After making payment via any UPI app, please enter your UPI Transaction ID and other details below:</p>
 
-  <input type="text" name="UPI Transaction ID" placeholder="Enter UPI Transaction ID (Required)" required>
-  <input type="text" name="Your Name" placeholder="Your Full Name (Required)" required>
-  <input type="email" name="Your Email" placeholder="Your Email Address (Required)" required>
-  <input type="tel" name="Your Phone Number" placeholder="Your Phone Number (Optional)">
+    <form action="https://formsubmit.co/shaadishanstha.in@gmail.com" method="POST">
+      <input type="hidden" name="_captcha" value="false">
+      
+      <input type="hidden" name="_next" value="https://shaadishantha.github.io/Shaadi-shanths-site/thank-you3.html"> 
+      
+      <input type="hidden" name="_subject" value="New Shaadi Sanstha Payment Received!">
 
-  <button type="submit">Submit Payment Details</button>
-</form>
+      <input type="text" name="UPI Transaction ID" placeholder="Enter UPI Transaction ID (Required)" required>
+      <input type="text" name="Your Name" placeholder="Your Full Name (Required)" required>
+      <input type="email" name="Your Email" placeholder="Your Email Address (Required)" required>
+      <input type="tel" name="Your Phone Number" placeholder="Your Phone Number (Optional)">
+
+      <button type="submit">Submit Payment Details</button>
+    </form>
+    
+    <p style="font-size: 14px; margin-top: 25px; color: #777;">
+        Please ensure all details are correct for faster processing.
+    </p>
+  </div>
+</body>
+</html>
