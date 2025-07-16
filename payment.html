@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -7,7 +8,7 @@
   <style>
     body {
       font-family: Arial, sans-serif;
-      background-color: #fff0f5; /* Light pinkish background */
+      background-color: #fff0f5;
       padding: 30px;
       margin: 0;
       display: flex;
@@ -19,12 +20,12 @@
     }
     h1, h2 {
       text-align: center;
-      color: #880e4f; /* Darker pink/purple */
+      color: #880e4f;
       margin-bottom: 20px;
     }
     .container {
       max-width: 600px;
-      width: 90%; /* Responsive width */
+      width: 90%;
       margin: auto;
       background: #fff;
       padding: 30px;
@@ -35,14 +36,15 @@
     img {
       margin: 20px auto;
       width: 200px;
-      max-width: 100%; /* Ensure image is responsive */
+      max-width: 100%;
       height: auto;
       display: block;
     }
     input[type="text"],
     input[type="email"],
+    input[type="tel"],
     button {
-      width: calc(100% - 24px); /* Adjust for padding and border */
+      width: calc(100% - 24px);
       padding: 12px;
       margin-top: 15px;
       border: 1px solid #ccc;
@@ -51,7 +53,7 @@
       box-sizing: border-box;
     }
     button {
-      background-color: #c2185b; /* Dark pink */
+      background-color: #c2185b;
       color: white;
       font-weight: bold;
       border: none;
@@ -59,7 +61,7 @@
       transition: background-color 0.3s ease;
     }
     button:hover {
-      background-color: #880e4f; /* Darker pink/purple */
+      background-color: #880e4f;
     }
     p {
       font-size: 16px;
@@ -76,18 +78,16 @@
   <div class="container">
     <h2>💳 Registration Payment</h2>
     <p>Registration Charges: ₹35,500 (One-time)</p>
-    
+
     <img src="qr-placeholder.png" alt="Scan to Pay QR Code">
-    
+
     <p><strong>Pay to UPI ID:</strong> yourupi@upi</p>
-    
+
     <p>After making payment via any UPI app, please enter your UPI Transaction ID and other details below:</p>
 
     <form action="https://formsubmit.co/shaadishanstha.in@gmail.com" method="POST">
       <input type="hidden" name="_captcha" value="false">
-      
-      <input type="hidden" name="_next" value="https://shaadishantha.github.io/Shaadi-shanths-site/thank-you3.html"> 
-      
+      <input type="hidden" name="_next" value="https://shaadishantha.github.io/Shaadi-shantha-site/thank-you3.html">
       <input type="hidden" name="_subject" value="New Shaadi Sanstha Payment Received!">
 
       <input type="text" name="UPI Transaction ID" placeholder="Enter UPI Transaction ID (Required)" required>
@@ -97,7 +97,7 @@
 
       <button type="submit">Submit Payment Details</button>
     </form>
-    
+
     <p style="font-size: 14px; margin-top: 25px; color: #777;">
         Please ensure all details are correct for faster processing.
     </p>
