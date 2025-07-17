@@ -1,452 +1,411 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="FZ9z7EktM-9GCtp8yeppiQgg-srQRBoP5HoQ8WMTQcc" name="google-site-verification"/>
-<title>
-   Shaadi Sanstha | Matrimonial Service in Bihar for Verified Matches
-  </title>
-<style>
-   body {
-        margin: 0;
-        font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-        background: #fffdf7;
-        color: #333;
-      }
-      header {
-        background-color: #c62828;
-        color: white;
-        padding: 20px 0;
-        text-align: center;
-      }
-      nav {
-        display: flex;
-        justify-content: center;
-        background-color: #fbe9e7;
-        padding: 10px 0;
-      }
-      nav a {
-        margin: 0 20px;
-        text-decoration: none;
-        color: #c62828;
-        font-weight: bold;
-      }
-      .container {
-        padding: 40px 20px;
-        text-align: center;
-      }
-      h2 {
-        color: #b71c1c;
-      }
-      .services {
-        display: flex;
-        flex-wrap: wrap;
-        justify-content: center;
-        margin-top: 30px;
-      }
-      .service-box {
-        width: 250px;
-        margin: 10px;
-        padding: 20px;
-        background: #fff0e0;
-        border-radius: 10px;
-        box-shadow: 0 2px 6px rgba(0,0,0,0.1);
-      }
-      footer {
-        background-color: #f5f5f5;
-        text-align: center;
-        padding: 20px 0;
-        font-size: 14px;
-        color: #888;
-        margin-top: 40px;
-      }
-      .contact a {
-        color: #1565c0;
-        text-decoration: none;
-        font-weight: bold;
-        display: inline-block;
-        margin: 5px 10px;
-      }
-  
-    html {
-      scroll-behavior: smooth;
-    }
-    .service-box:hover {
-      transform: scale(1.03);
-      transition: all 0.3s ease;
-      background-color: #ffe6f0;
-    }
-    nav a:hover {
-      color: #ad1457;
-      text-decoration: underline;
-    }
-    h2::before {
-      content: '💖 ';
-    }
-  
-html, body {
-  height: 100%;
-  margin: 0;
-}
-body {
-  display: flex;
-  flex-direction: column;
-}
-main {
-  flex: 1;
-}
-</style>
-<meta content="Shaadi Sanstha is a trusted matrimonial service based in Bihar. We help you find verified, compatible matches with cultural values and full family support." name="description"/>
-<meta content="matrimonial, shaadi, marriage bureau, bihar matrimony, indian matchmaking, verified profiles, shaadi sanstha" name="keywords"/>
-<meta content="Shaadi Sanstha | Verified Matrimonial Service in Bihar" property="og:title"/>
-<meta content="Helping you find the perfect match with transparency, tradition and family values." property="og:description"/>
-<meta content="https://shaadis.netlify.app/" property="og:url"/>
-<meta content="website" property="og:type"/>
-<meta content="Shaadi Sanstha is a trusted matrimonial service connecting compatible life partners with care and transparency." name="description"/>
-<link href="logo.png" rel="icon" type="image/png"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+      html, body { max-width: 100%; overflow-x: hidden; }
+    </style>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="FZ9z7EktM-9GCtp8yeppiQgg-srQRBoP5HoQ8WMTQcc" name="google-site-verification"/>
+    <title>Shaadi Sanstha | Matrimonial Service in Bihar for Verified Matches</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: #fffdf7;
+            color: #333;
+        }
+        header {
+            background-color: #f8bbd0; /* Soft Pink */
+            color: #880e4f; /* Darker Pink */
+            padding: 20px 0;
+            text-align: center;
+        }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #f48fb1; /* Medium Pink */
+            padding: 10px 0;
+            font-weight: bold;
+        }
+        nav a {
+            margin: 0 20px;
+            text-decoration: none;
+            color: #6a1b9a; /* Purple */
+            font-weight: bold;
+            transition: color 0.3s ease;
+        }
+        nav a:hover {
+            color: #ad1457; /* Dark Red-Pink */
+            text-decoration: underline;
+        }
+        .container {
+            padding: 40px 20px;
+            text-align: center;
+        }
+        h2 {
+            color: #b71c1c; /* Deep Red */
+            margin-bottom: 25px;
+        }
+        h2::before {
+            content: '💖 '; /* Added for visual appeal */
+        }
+        .services {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 30px;
+        }
+        .service-box {
+            width: 280px; /* Slightly wider */
+            margin: 15px; /* More spacing */
+            padding: 25px; /* More padding */
+            background: #fff0e0;
+            border-radius: 12px; /* More rounded corners */
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Softer shadow */
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+        .service-box:hover {
+            transform: translateY(-5px) scale(1.02); /* Slight lift and scale */
+            background-color: #ffe6f0;
+        }
+        footer {
+            background-color: #f5f5f5;
+            text-align: center;
+            padding: 20px 0;
+            font-size: 14px;
+            color: #888;
+            margin-top: 40px;
+        }
+        .contact a {
+            color: #1565c0;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin: 5px 10px;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        html, body {
+            height: 100%;
+            margin: 0;
+        }
+        body {
+            display: flex;
+            flex-direction: column;
+        }
+        main {
+            flex: 1;
+        }
+
+        /* Hero Section Styles */
+        .hero-section {
+            background-color: #fce4ec; /* Light Pink */
+            padding: 80px 20px;
+            text-align: center;
+            color: #880e4f; /* Dark Pink */
+        }
+        .hero-section h1 {
+            font-size: 3.5em;
+            margin-bottom: 15px;
+            color: #ad1457; /* Dark Red-Pink */
+        }
+        .hero-section p {
+            font-size: 1.3em;
+            max-width: 900px;
+            margin: 0 auto 40px;
+            line-height: 1.6;
+        }
+        .hero-section .btn {
+            display: inline-block;
+            background-color: #d81b60; /* Medium Red-Pink */
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.2em;
+            border-radius: 10px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+        .hero-section .btn:hover {
+            background-color: #c2185b; /* Slightly darker */
+            transform: translateY(-2px);
+        }
+
+        /* Testimonials/Success Stories Styles */
+        .testimonial-box {
+            background: #ffffff;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+            width: 280px;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        .testimonial-box:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+        }
+        .testimonial-box p {
+            font-style: italic;
+            color: #555;
+            line-height: 1.6;
+            min-height: 80px; /* Ensure consistent height */
+        }
+        .testimonial-box .author {
+            font-weight: bold;
+            text-align: right;
+            margin-top: 15px;
+            color: #ad1457;
+        }
+        .testimonial-box img {
+            width: 100%;
+            height: 180px; /* Fixed height for consistency */
+            object-fit: cover; /* Cover the area */
+            border-radius: 8px;
+            margin-top: 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* Payment/Registration Button Styles */
+        .registration-payment-btn {
+            display: inline-block;
+            background-color: #28a745; /* Green */
+            color: white;
+            padding: 15px 30px;
+            font-size: 18px;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: background-color 0.3s ease;
+        }
+        .registration-payment-btn:hover {
+            background-color: #218838; /* Darker Green */
+        }
+    </style>
+    <meta content="Shaadi Sanstha is a trusted matrimonial service based in Bihar. We help you find verified, compatible matches with cultural values and full family support." name="description"/>
+    <meta content="matrimonial, shaadi, marriage bureau, bihar matrimony, indian matchmaking, verified profiles, shaadi sanstha, trusted marriage bureau Bihar, best matchmaker Patna" name="keywords"/>
+    <meta content="Shaadi Sanstha | Verified Matrimonial Service in Bihar" property="og:title"/>
+    <meta content="Helping you find the perfect match with transparency, tradition and family values." property="og:description"/>
+    <meta content="https://shaadis.netlify.app/" property="og:url"/>
+    <meta content="website" property="og:type"/>
+    <link href="logo.png" rel="icon" type="image/png"/>
 </head>
-<body>
-<header style="background-color: #f8bbd0; color: #880e4f;">
-<h1>
-    Shaadi Sanstha
-   </h1>
-<p>
-    Trusted &amp; Transparent Matrimonial Service
-   </p>
-<p style="margin: 0; font-size: 14px; color: #880e4f;">
-    💼 Serving families since 2016
-   </p>
-</header>
-<nav style="background-color: #f48fb1; font-weight: bold;">
-<a href="#about" style="color: #6a1b9a;">
-    About
-   </a>
-<a href="#services" style="color: #6a1b9a;">
-    Services
-   </a>
-<a href="#registration" style="color: #6a1b9a;">
-    Registration
-   </a>
-<a href="#contact" style="color: #6a1b9a;">
-    Contact
-   </a>
-</nav>
-<div class="container" id="about">
-<h2>
-    About Us
-   </h2>
-<p>
-    Shaadi Sanstha is a trusted and value-based matrimonial service aimed at bringing together compatible life partners
-        with transparency, culture, and care. We are dedicated to serving families and individuals with a personalized
-        matchmaking experience that respects tradition and encourages lifelong bonds.
-   </p>
-</div>
+<body style="margin: 0; padding: 0; box-sizing: border-box; background-color: #fff;">
 
+    <div class="hero-section">
+        <h1>Find Your Perfect Life Partner With Us!</h1>
+        <p>Bihar's most trusted matrimonial service, connecting you with the right match through tradition and transparency.</p>
+        <a href="#registration" class="btn">Register Today!</a>
+    </div>
 
+    
+    <header style="background-color: #f8bbd0; color: #880e4f; padding: 25px 0; text-align: center;">
+        <h1 style="font-size: 2em; margin: 0;">Shaadi Sanstha</h1>
+        <p style="font-size: 1.2em; margin: 5px 0;">Trusted & Transparent Matrimonial Service</p>
+        <p style="margin: 0; font-size: 14px; color: #880e4f;">💼 Serving families since 2016</p>
+    </header>
+    
 
-<div class="container" id="services">
-<h2>
-    Our Services
-   </h2>
-<div class="services">
-<div class="service-box">
-<h3>
-      💍 Personalized Matchmaking
-     </h3>
-<p>
-      Carefully matched biodatas for serious inquiries only.
-     </p>
-</div>
-<div class="service-box">
-<h3>
-      🔮 Horoscope Compatibility
-     </h3>
-<p>
-      Optional Kundali match for those who prefer tradition.
-     </p>
-</div>
-<div class="service-box">
-<h3>
-      ✅ Verified Profiles
-     </h3>
-<p>
-      Only real, genuine people from trusted sources.
-     </p>
-</div>
-<div class="service-box">
-<h3>
-      📞 Telephonic Guidance
-     </h3>
-<p>
-      Personal assistance at every step of your journey.
-     </p>
-</div>
-<div class="service-box">
-<h3>
-      👪 Family Focused
-     </h3>
-<p>
-      We help you connect with families who truly value relationships.
-     </p>
-</div>
-<div class="service-box">
-<h3>
-      📋 Verified Biodata Sharing
-     </h3>
-<p>
-      Receive and send verified profiles to serious candidates only.
-     </p>
-</div>
-</div>
-</div>
-<div class="container" id="registration">
-<p>
-    </p>
-<h2>
-    Registration Process
-   </h2>
-<p>
-    To register with Shaadi Sanstha, simply fill out our online form or contact us via WhatsApp.
-        Our team will guide you through every step with personal attention and care.
-   </p>
-<h3>
-    💰 Registration Fee
-   </h3>
-<p>
-    We charge a nominal fee to maintain service quality and verification:
-    <br/>
-<strong>
-     ₹35,500 – One-time Registration Charges for all services
-    </strong>
-</p>
-<p>
-    Payment details will be shared after initial contact. No hidden charges. 100% transparent process.
-   </p>
-<p>
-    📞
-    <strong>
-     WhatsApp us on
-     <a href="https://wa.me/7808817710" target="_blank">
-      7808817710
-     </a>
-</strong>
-    to begin your journey.
-   </p>
+    
+    <nav style="position: sticky; top: 0; z-index: 999;" style="position: sticky; top: 0; z-index: 999; overflow-x: auto; white-space: nowrap; background-color: #f06292;" style="position: sticky; top: 0; z-index: 999; background-color: #f06292; padding: 10px 0;">
+      <div style="display: flex; overflow-x: auto; white-space: nowrap; padding: 0 10px; gap: 20px;">
+    
+        <a href="#about">About Us</a>
+        <a href="#services">Our Services</a>
+        <a href="#registration">Registration</a>
+        <a href="#success-stories">Success Stories</a>
+        <a href="#contact">Contact Us</a>
+    </div></nav>
 
-<div style="text-align: center; margin-top: 30px;">
-  <a href="registration.html" style="
-    display: inline-block;
-    background-color: #28a745;
-    color: white;
-    padding: 15px 30px;
-    font-size: 18px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: background-color 0.3s ease;
-  " onmouseover="this.style.backgroundColor='#218838'" onmouseout="this.style.backgroundColor='#28a745'">
-    👉 Register Now
-  </a>
-</div>
+    <main>
+        <div class="container" id="about">
+            <h2>💖 About Us</h2>
+            <p>Shaadi Sanstha was founded in **2016** with a simple yet profound vision: to make marriage a union not just of two individuals, but of two families. We believe that a successful relationship is built on trust, respect, and shared values. For over 9 years, we've been helping families in Bihar and surrounding regions find their ideal life partners with complete transparency and personalized care. Our goal isn't just to arrange marriages, but to establish lifelong, happy relationships.</p>
+        </div>
 
+        <section style="padding: 40px; background-color: #fff3f5; margin: 40px auto; max-width: 900px; border-radius: 12px; text-align: center;">
+            <h2 style="color: #c2185b;">🌟 Why Choose Us?</h2>
+            <ul style="list-style: none; padding-left: 0; font-size: 18px; line-height: 2; color: #333;">
+                <li style="flex: 0 0 auto; margin: 0 10px;">✅ Over **9 Years** of Trusted Matchmaking Experience</li>
+                <li style="flex: 0 0 auto; margin: 0 10px;">✅ Only **100% Verified** Profiles & Genuine Biodata</li>
+                <li style="flex: 0 0 auto; margin: 0 10px;">✅ **Family-Focused** Approach & Personal Telephonic Support</li>
+                <li style="flex: 0 0 auto; margin: 0 10px;">✅ **Transparent Process** with Refund Guarantee</li>
+                <li style="flex: 0 0 auto; margin: 0 10px;">✅ Your **Privacy** and Security are Our Top Priority</li>
+            </ul>
+        </section>
 
-<section style="padding: 40px; background-color: #fff3f5; margin: 40px auto; max-width: 900px; border-radius: 12px; text-align: center;">
-  <h2 style="color: #c2185b;">💳 Make Your Registration Payment</h2>
-  <p style="font-size: 16px; color: #333;">Complete your registration by making the one-time payment of ₹35,500.</p>
-  <a href="payment.html" style="
-    display: inline-block;
-    background-color: #28a745;
-    color: white;
-    padding: 15px 30px;
-    font-size: 18px;
-    border-radius: 8px;
-    text-decoration: none;
-    font-weight: bold;
-    margin-top: 20px;
-    box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-    transition: background-color 0.3s ease;
-  " onmouseover="this.style.backgroundColor='#218838'" onmouseout="this.style.backgroundColor='#28a745'">
-    👉 Make Payment Now
-  </a>
-</section>
+        <div class="container" id="services">
+            <h2>💖 Our Services</h2>
+            <div class="services">
+                <div class="service-box">
+                    <h3>💍 Personalized Matchmaking</h3>
+                    <p>Carefully matched biodatas for serious inquiries only.</p>
+                </div>
+                <div class="service-box">
+                    <h3>🔮 Horoscope Compatibility</h3>
+                    <p>Optional Kundali match for those who prefer tradition.</p>
+                </div>
+                <div class="service-box">
+                    <h3>✅ Verified Profiles</h3>
+                    <p>Only real, genuine people from trusted sources.</p>
+                </div>
+                <div class="service-box">
+                    <h3>📞 Telephonic Guidance</h3>
+                    <p>Personal assistance at every step of your journey.</p>
+                </div>
+                <div class="service-box">
+                    <h3>👪 Family Focused</h3>
+                    <p>We help you connect with families who truly value relationships.</p>
+                </div>
+                <div class="service-box">
+                    <h3>📋 Verified Biodata Sharing</h3>
+                    <p>Receive and send verified profiles to serious candidates only.</p>
+                </div>
+            </div>
+        </div>
 
+        <div class="container" id="registration">
+            <h2>💖 Registration Process</h2>
+            <p>To register with Shaadi Sanstha, simply fill out our online form or contact us via WhatsApp. Our team will guide you through every step with personal attention and care.</p>
+            <h3>💰 Registration Fee</h3>
+            <p>We charge a nominal fee to maintain service quality and verification:<br/>
+                <strong>₹35,500 – One-time Registration Charges for all services</strong>
+            </p>
+            <p>Payment details will be shared after initial contact. No hidden charges. 100% transparent process.</p>
+            <p>📞 <strong>WhatsApp us on <a href="https://wa.me/7808817710" target="_blank">7808817710</a></strong> to begin your journey.</p>
 
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="registration.html" class="registration-payment-btn">👉 Register Now</a>
+            </div>
 
+            <section style="padding: 40px; background-color: #fff3f5; margin: 40px auto; max-width: 900px; border-radius: 12px; text-align: center;">
+                <h2 style="color: #c2185b;">💳 Make Your Registration Payment</h2>
+                <p style="font-size: 16px; color: #333;">Complete your registration by making the one-time payment of ₹35,500.</p>
+                <a href="payment.html" class="registration-payment-btn">👉 Make Payment Now</a>
+            </section>
+        </div>
 
+        <section id="success-stories" style="padding: 40px; background-color: #fffafc; margin: 50px auto; max-width: 900px; border-radius: 12px;">
+            <h2 style="color: #d81b60; text-align: center;">👩‍❤️‍👨 Our Success Stories</h2>
+            <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px;">
+                <div class="testimonial-box">
+                    <p>"With Shaadi Sanstha's help, I found my life partner. Their transparency and support made everything so easy!"</p>
+                    <p class="author">- Priya & Rahul, Patna</p>
+                    <img alt="Happy Couple 1" src="https://via.placeholder.com/280x180?text=Happy+Couple+1" />
+                </div>
+                <div class="testimonial-box">
+                    <p>"We never thought we'd find such a compatible match so easily. A big thank you to Shaadi Sanstha!"</p>
+                    <p class="author">- Anjali & Vivek, Ranchi</p>
+                    <img alt="Happy Couple 2" src="https://via.placeholder.com/280x180?text=Happy+Couple+2" />
+                </div>
+                <div class="testimonial-box">
+                    <p>"It's not just a service, it's like a family that genuinely cares for your happiness. I'm so glad I found them."</p>
+                    <p class="author">- Neha & Sameer, Bhagalpur</p>
+                    <img alt="Happy Couple 3" src="https://via.placeholder.com/280x180?text=Happy+Couple+3" />
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 30px; font-size: 1.1em; color: #ad1457;">See more successful stories! ❤️</p>
+        </section>
 
-</div>
-<section style="padding: 40px; background-color: #fff0f5; border-radius: 12px; margin: 50px auto; max-width: 900px;">
-<h2 style="color: #c2185b; text-align: center;">
-    🌟 Why Choose Shaadi Sanstha?
-   </h2>
-<ul style="list-style: none; padding-left: 0; font-size: 18px; line-height: 2; color: #333;">
-<li>
-     ✅ Over 9 Years of Trusted Matchmaking Experience
-    </li>
-<li>
-     ✅ Only 100% Verified Profiles &amp; Real Biodata
-    </li>
-<li>
-     ✅ Family-first Approach &amp; Personal Telephonic Support
-    </li>
-<li>
-     ✅ Transparent Process with Refund Guarantee
-    </li>
-</ul>
-</section>
+        <section style="padding: 40px; background-color: #fff8f9; margin: 40px auto; max-width: 900px; border-radius: 12px;">
+            <h2 style="color: #ad1457; text-align: center;">🏆 Our Achievements</h2>
+            <ul style="list-style: none; padding: 0; font-size: 18px; line-height: 2; color: #444;">
+                <li style="flex: 0 0 auto; margin: 0 10px;">🎉 <strong>10,000+ Successful Matches</strong> made with love & trust</li>
+                <li style="flex: 0 0 auto; margin: 0 10px;">👪 <strong>7,000+ Families</strong> personally served across India</li>
+                <li style="flex: 0 0 auto; margin: 0 10px;">📅 <strong>9+ Years</strong> of experience in trusted matchmaking</li>
+                <li style="flex: 0 0 auto; margin: 0 10px;">🌐 Clients from <strong>Bihar, Jharkhand, UP & more</strong></li>
+            </ul>
+        </section>
 
-</div>
-<div class="container" id="terms">
-<h2>
-    Terms and Conditions
-   </h2>
-<ul style="text-align: left; max-width: 800px; margin: 0 auto; line-height: 1.6;">
-<li>
-     1. If the match is not finalized within 4 months, a refund will be issued after deducting ₹500.
-    </li>
-<li>
-     2. Users must request a refund within 30 days after the 4-month period.
-    </li>
-<li>
-     3. Personal details shared will be kept confidential as per our privacy policy.
-    </li>
-<li>
-     4. No refund will be issued in case of false information or fraud.
-    </li>
-</ul>
-</div>
-<main>
-<section style="padding: 40px; background-color: #fffafc; margin: 50px auto; max-width: 900px; border-radius: 12px;">
-<h2 style="color: #d81b60; text-align: center;">
-     👩‍❤️‍👨 Happy Couples
-    </h2>
-<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px;">
-<img alt="Couple 1" src="https://via.placeholder.com/250x150" style="border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);"/>
-<img alt="Couple 2" src="https://via.placeholder.com/250x150" style="border-radius: 6px; box-shadow: 0 2px 6px rgba(0,0,0,0.2);"/>
-</div>
-</section>
-<section style="padding: 40px; background-color: #fce4ec; border-radius: 12px; margin: 50px auto; max-width: 900px;">
-<h2 style="text-align: center; color: #ad1457;">
-     📋 Request a Call Back
-    </h2>
-<form action="https://formsubmit.co/shaadishanstha.in@gmail.com" method="POST" style="display: flex; flex-direction: column; align-items: center;" target="_blank">
-<input name="_redirect" type="hidden" value="https://shaadishanstha.github.io/thank-you.html"/>
-<input name="name" placeholder="Your Name" required="" style="margin: 10px 0; padding: 12px; width: 90%; max-width: 400px; border: 1px solid #ccc; border-radius: 6px;" type="text"/>
-<input name="phone" placeholder="Your Mobile Number" required="" style="margin: 10px 0; padding: 12px; width: 90%; max-width: 400px; border: 1px solid #ccc; border-radius: 6px;" type="tel"/>
-<input name="city" placeholder="City" required="" style="margin: 10px 0; padding: 12px; width: 90%; max-width: 400px; border: 1px solid #ccc; border-radius: 6px;" type="text"/>
-<button style="margin-top: 20px; padding: 12px 30px; background-color: #d81b60; color: white; border: none; border-radius: 6px; font-size: 16px; font-weight: bold;">
-      Submit
-     </button>
-<input name="_captcha" type="hidden" value="false"/>
-<input name="_next" type="hidden" value="https://shaadis.netlify.app/thank-you.html"/>
-</form>
-</section>
-<section style="padding: 40px; background-color: #fff8f9; margin: 40px auto; max-width: 900px; border-radius: 12px;">
-<h2 style="color: #ad1457; text-align: center;">
-     🏆 Our Achievements
-    </h2>
-<ul style="list-style: none; padding: 0; font-size: 18px; line-height: 2; color: #444;">
-<li>
-      🎉
-      <strong>
-       10,000+ Successful Matches
-      </strong>
-      done with love &amp; trust
-     </li>
-<li>
-      👪
-      <strong>
-       7,000+ Families
-      </strong>
-      personally served across India
-     </li>
-<li>
-      📅
-      <strong>
-       9+ Years
-      </strong>
-      of experience in trusted matchmaking
-     </li>
-<li>
-      🌐 Clients from
-      <strong>
-       Bihar, Jharkhand, UP &amp; more
-      </strong>
-</li>
-</ul>
-</section>
-<section style="background-color: #fff0f5; padding: 40px; max-width: 900px; margin: 40px auto; border-radius: 12px;">
-<h2 style="color: #c2185b; text-align: center;">
-     ❓ Frequently Asked Questions (FAQ)
-    </h2>
-<div style="margin-top: 30px;">
-<p>
-<strong>
-       💬 Registration charge kitna hai?
-      </strong>
-<br/>
-      ₹35,500 for 4 months (all-inclusive)
-     </p>
-<p>
-<strong>
-       💬 Agar rishta nahi hua to refund milega?
-      </strong>
-<br/>
-      Haan, ₹500 कटने के बाद ₹35,000 वापिस मिलेगा
-     </p>
-<p>
-<strong>
-       💬 Refund कब तक मांगा जा सकता है?
-      </strong>
-<br/>
-      4 महीने के बाद 30 दिन के अंदर
-     </p>
-<p>
-<strong>
-       💬 क्या सब biodata verify होते हैं?
-      </strong>
-<br/>
-      हां, सभी प्रोफाइल manually verify किए जाते हैं
-     </p>
-<p>
-<strong>
-       💬 Horoscope matching जरूरी है?
-      </strong>
-<br/>
-      Optional है, client की इच्छा पर depend करता है
-     </p>
-</div>
-</section>
-</main>
-<a href="https://wa.me/917808817710" style="position: fixed; bottom: 20px; right: 20px; z-index: 999;">
-<img alt="Chat on WhatsApp" src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="50"/>
-</a>
-<div class="container" id="contact">
-<h2>
-    Contact Us
-   </h2>
-<p>
-<strong>
-     Shaadi Sanstha
-    </strong>
-<br/>
-    Location: Bihar
-   </p>
-<div class="contact">
-<a href="mailto:shaadishanstha.in@gmail.com">
-     📧 shaadishanstha.in@gmail.com
+        <section style="background-color: #fce4ec; border-radius: 12px; margin: 50px auto; max-width: 900px; padding: 40px;">
+            <h2 style="text-align: center; color: #ad1457;">📋 Request a Call Back</h2>
+            <form action="https://formsubmit.co/shaadishanstha.in@gmail.com" method="POST" style="display: flex; flex-direction: column; align-items: center;" target="_blank">
+                <input name="_redirect" type="hidden" value="https://shaadis.netlify.app/thank-you.html"/>
+                <input name="name" placeholder="Your Name" required="" style="margin: 10px 0; padding: 12px; width: 90%; max-width: 400px; border: 1px solid #ccc; border-radius: 6px;" type="text"/>
+                <input name="phone" placeholder="Your Mobile Number" required="" style="margin: 10px 0; padding: 12px; width: 90%; max-width: 400px; border: 1px solid #ccc; border-radius: 6px;" type="tel"/>
+                <input name="city" placeholder="City" required="" style="margin: 10px 0; padding: 12px; width: 90%; max-width: 400px; border: 1px solid #ccc; border-radius: 6px;" type="text"/>
+                <button style="margin-top: 20px; padding: 12px 30px; background-color: #d81b60; color: white; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; transition: background-color 0.3s ease;">Submit</button>
+                <input name="_captcha" type="hidden" value="false"/>
+                <input name="_next" type="hidden" value="https://shaadis.netlify.app/thank-you.html"/>
+            </form>
+        </section>
+
+        <section style="background-color: #fff0f5; padding: 40px; max-width: 900px; margin: 40px auto; border-radius: 12px;">
+            <h2 style="color: #c2185b; text-align: center;">❓ Frequently Asked Questions (FAQ)</h2>
+            <div style="margin-top: 30px;">
+                <p><strong>💬 What are the registration charges?</strong><br/>
+                    ₹35,500 for 4 months (all-inclusive)
+                </p>
+                <p><strong>💬 Will I get a refund if the match is not finalized?</strong><br/>
+                    Yes, ₹35,000 will be refunded after deducting ₹500.
+                </p>
+                <p><strong>💬 How long after can I request a refund?</strong><br/>
+                    Within 30 days after the 4-month period.
+                </p>
+                <p><strong>💬 Are all biodatas verified?</strong><br/>
+                    Yes, all profiles are manually verified.
+                </p>
+                <p><strong>💬 Is horoscope matching mandatory?</strong><br/>
+                    It's optional, depending on the client's preference.
+                </p>
+                <p><strong>💬 How many biodatas will I receive?</strong><br/>
+                    You will receive qualified and matching biodatas regularly until your requirement is met.
+                </p>
+                <p><strong>💬 Do you accept video profiles?</strong><br/>
+                    Currently, we primarily focus on written biodatas, but video profiles may be considered.
+                </p>
+                <p><strong>💬 How is my privacy ensured?</strong><br/>
+                    Your personal information is kept strictly confidential and is only shared with your consent.
+                </p>
+            </div>
+        </section>
+
+        <div class="container" id="contact">
+            <h2>💖 Contact Us</h2>
+            <p><strong>Shaadi Sanstha</strong><br/>
+                Location: Bihar
+            </p>
+            <div class="contact">
+                <a href="mailto:shaadishanstha.in@gmail.com">📧 shaadishanstha.in@gmail.com</a>
+                <br/>
+                <a href="https://wa.me/7808817710" target="_blank">📞 WhatsApp Us: 7808817710</a>
+            </div>
+        </div>
+
+        <div class="container" id="terms">
+            <h2>💖 Terms and Conditions</h2>
+            <ul style="text-align: left; max-width: 800px; margin: 0 auto; line-height: 1.6;">
+                <li style="flex: 0 0 auto; margin: 0 10px;">1. If the match is not finalized within 4 months, a refund will be issued after deducting ₹500.</li>
+                <li style="flex: 0 0 auto; margin: 0 10px;">2. Users must request a refund within 30 days after the 4-month period.</li>
+                <li style="flex: 0 0 auto; margin: 0 10px;">3. Personal details shared will be kept confidential as per our privacy policy.</li>
+                <li style="flex: 0 0 auto; margin: 0 10px;">4. No refund will be issued in case of false information or fraud.</li>
+            </ul>
+        </div>
+    </main>
+
+    <a href="https://wa.me/917808817710" style="position: fixed; bottom: 20px; right: 20px; z-index: 999;">
+        <img alt="Chat on WhatsApp" src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="50"/>
     </a>
-<br/>
-<a href="https://wa.me/7808817710" target="_blank">
-     📞 WhatsApp Us: 7808817710
-    </a>
-</div>
 
-<footer>
-   © 2025 Shaadi Sanstha | All rights reserved
-</footer>
+    <footer>
+       © 2025 Shaadi Sanstha | All rights reserved
+       <div style="margin-top: 10px;">
+         <a href="#terms" style="color: #880e4f; text-decoration: none; margin: 0 10px;">Privacy Policy</a>
+         <a href="#terms" style="color: #880e4f; text-decoration: none; margin: 0 10px;">Terms and Conditions</a>
+       </div>
+       <div style="margin-top: 15px; font-size: 24px;">
+           <a href="https://www.facebook.com/your_page_link" target="_blank" style="color: #3b5998; margin: 0 8px; text-decoration: none;">📘</a>
+           <a href="https://www.instagram.com/your_page_link" target="_blank" style="color: #C13584; margin: 0 8px; text-decoration: none;">📸</a>
+           <a href="https://twitter.com/your_page_link" target="_blank" style="color: #1DA1F2; margin: 0 8px; text-decoration: none;">🐦</a>
+       </div>
+    </footer>
+
 </body>
 </html>
+
