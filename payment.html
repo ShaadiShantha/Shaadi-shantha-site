@@ -4,22 +4,64 @@
   <meta charset="UTF-8" />
   <title>Shaadi Sanstha - Payment</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #fff0f5;
+      padding: 30px;
+    }
+    .container {
+      max-width: 600px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      border-radius: 10px;
+      text-align: center;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    input, button {
+      width: 100%;
+      padding: 10px;
+      margin-top: 10px;
+      font-size: 16px;
+    }
+    button {
+      background-color: #c2185b;
+      color: white;
+      font-weight: bold;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #a3154e;
+    }
+    img {
+      width: 200px;
+      margin: 20px auto;
+    }
+  </style>
 </head>
-<body style="font-family: Arial; background-color: #fff0f5; padding: 30px;">
-  <div style="max-width: 600px; margin: auto; background: #fff; padding: 30px; border-radius: 10px; text-align: center;">
+<body>
+  <div class="container">
     <h2>💳 Registration Payment</h2>
-    <p>Registration Charges: ₹35,500 (One-time)</p>
-    <img src="qr-placeholder.png" alt="Scan to Pay QR Code" style="width: 200px; margin: 20px auto;" />
+    <p><strong>Registration Charges:</strong> ₹35,500 (One-time)</p>
+    <img src="qr-placeholder.png" alt="Scan to Pay QR Code" />
     <p><strong>Pay to UPI ID:</strong> yourupi@upi</p>
+
     <form action="https://formsubmit.co/shaadishanstha.in@gmail.com" method="POST">
+      <!-- FormSubmit Hidden Inputs -->
       <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_next" value="https://shaadishantha.github.io/Shaadi-shantha-site/thank-you3.html" />
       <input type="hidden" name="_subject" value="New Shaadi Sanstha Payment Received!" />
-      <input type="text" name="UPI Transaction ID" placeholder="Enter UPI Transaction ID" required style="width: 100%; padding: 10px; margin-top: 10px;" />
-      <input type="text" name="Your Name" placeholder="Your Full Name" required style="width: 100%; padding: 10px; margin-top: 10px;" />
-      <input type="email" name="Your Email" placeholder="Your Email Address" required style="width: 100%; padding: 10px; margin-top: 10px;" />
-      <input type="tel" name="Your Phone Number" placeholder="Your Phone Number (Optional)" style="width: 100%; padding: 10px; margin-top: 10px;" />
-      <button type="submit" style="background-color: #c2185b; color: white; font-weight: bold; padding: 12px 20px; margin-top: 20px; border: none; border-radius: 5px;">Submit Payment Details</button>
+
+      <!-- Visible Inputs -->
+      <input type="text" name="UPI Transaction ID" placeholder="Enter UPI Transaction ID" required />
+      <input type="text" name="Your Name" placeholder="Your Full Name" required />
+      <input type="email" name="Your Email" placeholder="Your Email Address" required />
+      <input type="tel" name="Your Phone Number" placeholder="Your Phone Number (Optional)" />
+
+      <button type="submit">Submit Payment Details</button>
     </form>
   </div>
 </body>
