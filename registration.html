@@ -50,28 +50,65 @@
   <form action="https://formsubmit.co/shaadishanstha.in@gmail.com" method="POST" enctype="multipart/form-data">
     <input type="hidden" name="_captcha" value="false" />
     <input type="hidden" name="_next" value="https://shaadis.netlify.app/thank-you2.html" />
-    <input type="hidden" name="_subject" value="Shaadi Sanstha - New Registration Form Submission!" /> <h2>👤 Personal Information</h2>
+    <input type="hidden" name="_subject" value="Shaadi Sanstha - New Registration Form Submission!" />
+    <h2>👤 Personal Information</h2>
     <label>Full Name:</label>
     <input type="text" name="full_name" required>
     <label>Gender:</label>
     <select name="gender" required>
-      <option value="">Select Gender</option><option>Male</option><option>Female</option><option>Other</option>
+      <option value="">Select Gender</option>
+      <option>Male</option>
+      <option>Female</option>
+      <option>Other</option>
     </select>
     <label>Date of Birth:</label>
     <input type="date" name="dob" required>
     <label>Age:</label>
     <input type="number" name="age" required>
     <label>Caste:</label>
-    <input type="text" name="caste">
+    <select name="caste" required>
+      <option value="">Select Caste</option>
+      <option>Brahmin</option>
+      <option>Rajput</option>
+      <option>Bhumihar</option>
+      <option>Kayastha</option>
+      <option>Yadav</option>
+      <option>Kushwaha</option>
+      <option>Kurmi</option>
+      <option>Bania</option>
+      <option>Maithil</option>
+      <option>Marwari</option>
+      <option>Khatri</option>
+      <option>Jat</option>
+      <option>Gujjar</option>
+      <option>Vaishya</option>
+      <option>Thakur</option>
+      <option>Muslim</option>
+      <option>Christian</option>
+      <option>Sikh</option>
+      <option>Other</option>
+    </select>
     <label>Sub-Caste (Optional):</label>
     <input type="text" name="sub_caste">
     <label>Religion:</label>
-    <input type="text" name="religion">
+    <select name="religion" required>
+      <option value="">Select Religion</option>
+      <option>Hindu</option>
+      <option>Muslim</option>
+      <option>Christian</option>
+      <option>Sikh</option>
+      <option>Buddhist</option>
+      <option>Jain</option>
+      <option>Other</option>
+    </select>
     <label>Height (cm):</label>
     <input type="number" name="height">
     <label>Complexion:</label>
     <select name="complexion">
-      <option value="">Select Complexion</option><option>Fair</option><option>Wheatish</option><option>Dark</option>
+      <option value="">Select Complexion</option>
+      <option>Fair</option>
+      <option>Wheatish</option>
+      <option>Dark</option>
     </select>
     <label>Any Disability (Optional):</label>
     <select name="disability">
@@ -113,27 +150,61 @@
     <select name="education_level" required>
       <option value="">Select Education Level</option>
       <option>Below 10th</option>
-      <option>10th Pass</option><option>12th Pass</option><option>Diploma</option>
-      <option>Graduate (B.A., B.Sc., B.Com, B.Tech, etc.)</option>
-      <option>Post Graduate (M.A., M.Sc., M.Com, M.Tech, etc.)</option>
+      <option>10th Pass</option>
+      <option>12th Pass</option>
+      <option>Diploma</option>
+      <option>Graduate (B.A., B.Sc., B.Com, B.Tech, MBBS, BCA, BBA, B.Arch, B.Pharm, etc.)</option>
+      <option>Post Graduate (M.A., M.Sc., M.Com, M.Tech, MD, MCA, MBA, M.Arch, M.Pharm, etc.)</option>
       <option>Doctorate (Ph.D.)</option>
-      <option>Professional Degree (MBBS, MD, LLB, CA, etc.)</option>
+      <option>Professional Degree (CA, CS, ICWA, LLB, IIT, IIM, AIIMS, etc.)</option>
       <option>Other</option>
     </select>
-    <label>Specific Degree/Field of Study (e.g., B.Tech in Computer Science):</label>
+    <label>Specific Degree/Field of Study (e.g., B.Tech in Computer Science, IIT Delhi):</label>
     <input type="text" name="specific_education">
     <label>Profession:</label>
     <select name="profession" required>
       <option value="">Select Profession</option>
-      <option>Private Job</option><option>Government Job</option>
-      <option>Business/Entrepreneur</option><option>Doctor</option><option>Engineer</option>
-      <option>Teacher/Professor</option><option>Defence/Police</option><option>IT Professional</option>
-      <option>Artist/Creative</option><option>Farmer</option><option>Student</option><option>Homemaker</option><option>Retired</option><option>Not Working</option><option>Other</option>
+      <option>Government Job (IAS, IPS, IRS, IFS, PCS, etc.)</option>
+      <option>Private Job</option>
+      <option>Business/Entrepreneur</option>
+      <option>Doctor</option>
+      <option>Engineer</option>
+      <option>Teacher/Professor</option>
+      <option>Defence/Police</option>
+      <option>IT Professional</option>
+      <option>Artist/Creative</option>
+      <option>Farmer</option>
+      <option>Student</option>
+      <option>Homemaker</option>
+      <option>Retired</option>
+      <option>Not Working</option>
+      <option>Self Employed</option>
+      <option>Management Professional</option>
+      <option>Banking Professional</option>
+      <option>Lawyer</option>
+      <option>Architect</option>
+      <option>Designer</option>
+      <option>Journalist</option>
+      <option>Scientist</option>
+      <option>Research Scholar</option>
+      <option>Pilot</option>
+      <option>Merchant Navy</option>
+      <option>Other</option>
     </select>
-    <label>Company/Organization Name (Optional):</label>
-    <input type="text" name="company_name">
     <label>Monthly Income (₹):</label>
-    <input type="text" name="income" placeholder="e.g., 50000 - 80000 or Specify Amount">
+    <select name="income">
+        <option value="">Select Income Range</option>
+        <option value="Below ₹20,000">Below ₹20,000</option>
+        <option value="₹20,000 - ₹40,000">₹20,000 - ₹40,000</option>
+        <option value="₹40,000 - ₹60,000">₹40,000 - ₹60,000</option>
+        <option value="₹60,000 - ₹80,000">₹60,000 - ₹80,000</option>
+        <option value="₹80,000 - ₹1,00,000">₹80,000 - ₹1,00,000</option>
+        <option value="₹1,00,000 - ₹1,50,000">₹1,00,000 - ₹1,50,000</option>
+        <option value="₹1,50,000 - ₹2,00,000">₹1,50,000 - ₹2,00,000</option>
+        <option value="₹2,00,000 - ₹3,00,000">₹2,00,000 - ₹3,00,000</option>
+        <option value="₹3,00,000 - ₹5,00,000">₹3,00,000 - ₹5,00,000</option>
+        <option value="Above ₹5,00,000">Above ₹5,00,000</option>
+    </select>
 
     <h2>🏠 Family Background</h2>
     <label>Father's Name:</label>
@@ -163,7 +234,9 @@
     <h2>💍 Lifestyle & Marriage Preferences</h2>
     <label>Looking For:</label>
     <select name="looking_for">
-      <option value="">Select</option><option>Bride</option><option>Groom</option>
+      <option value="">Select</option>
+      <option>Bride</option>
+      <option>Groom</option>
     </select>
     <label>Marital Status:</label>
     <select name="marital_status">
@@ -233,7 +306,7 @@
     // Indian States and their Districts data (Same as before, extended for more accuracy if needed)
     const indiaStatesAndDistricts = {
         "Andhra Pradesh": ["Anantapur", "Chittoor", "East Godavari", "Guntur", "Krishna", "Kurnool", "Nellore", "Prakasam", "Srikakulam", "Visakhapatnam", "Vizianagaram", "West Godavari", "YSR Kadapa"],
-        "Arunachal Pradesh": ["Anjaw", "Changlang", "Dibang Valley", "East Kameng", "East Siang", "Kra Daadi", "Kurung Kumey", "Lohit", "Longding", "Lower Dibang Valley", "Lower Siang", "Lower Subansiri", "Namsai", "Pakke-Kessang", "Papum Pare", "Shi Yomi", "Siang", "Tawang", "Tirap", "Upper Siang", "Upper Subansiri", "West Kameng", "West Siang"],
+        "Arunachal Pradesh": ["Anjaw", "Changlang", "Dibang Valley", "East Kameng", "East Siang", "Kra Raadi", "Kurung Kumey", "Lohit", "Longding", "Lower Dibang Valley", "Lower Siang", "Lower Subansiri", "Namsai", "Pakke-Kessang", "Papum Pare", "Shi Yomi", "Siang", "Tawang", "Tirap", "Upper Siang", "Upper Subansiri", "West Kameng", "West Siang"],
         "Assam": ["Baksa", "Barpeta", "Biswanath", "Bongaigaon", "Cachar", "Charaideo", "Chirang", "Darrang", "Dhemaji", "Dhubri", "Dibrugarh", "Dima Hasao", "Goalpara", "Golaghat", "Hailakandi", "Hojai", "Jorhat", "Kamrup Metropolitan", "Kamrup", "Karbi Anglong", "Karimganj", "Kokrajhar", "Lakhimpur", "Majuli", "Morigaon", "Nagaon", "Nalbari", "Sivasagar", "Sonitpur", "South Salmara-Mankachar", "Tinsukia", "Udalguri", "West Karbi Anglong"],
         "Bihar": ["Araria", "Arwal", "Aurangabad", "Banka", "Begusarai", "Bhagalpur", "Bhojpur", "Buxar", "Darbhanga", "East Champaran", "Gaya", "Gopalganj", "Jamui", "Jehanabad", "Kaimur (Bhabua)", "Katihar", "Khagaria", "Kishanganj", "Lakhisarai", "Madhepura", "Madhubani", "Munger", "Muzaffarpur", "Nalanda", "Nawada", "Patna", "Purnia", "Rohtas", "Saharsa", "Samastipur", "Saran", "Sheikhpura", "Sheohar", "Sitamarhi", "Siwan", "Supaul", "Vaishali", "West Champaran"],
         "Chhattisgarh": ["Balod", "Baloda Bazar", "Balrampur", "Bastar", "Bemetara", "Bijapur", "Bilaspur", "Dantewada", "Dhamtari", "Durg", "Gariaband", "Gaurela Pendra Marwahi", "Janjgir-Champa", "Jashpur", "Kanker", "Kawardha", "Kondagaon", "Korba", "Koriya", "Mahasamund", "Mungeli", "Narayanpur", "Raigarh", "Raipur", "Rajnandgaon", "Sukma", "Surajpur", "Surguja"],
@@ -306,4 +379,3 @@
   </script>
 </body>
 </html>
-
