@@ -6,6 +6,8 @@
     <meta content="FZ9z7EktM-9GCtp8yeppiQgg-srQRBoP5HoQ8WMTQcc" name="google-site-verification"/>
     <title>Shaadi Sanstha | Matrimonial Service in Bihar for Verified Matches</title>
     
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    
     <style>
         /* Base styles */
         * {
@@ -414,13 +416,27 @@
         }
 
         /* Contact links */
-        .contact a {
-            color: #1565c0;
+        .contact-icon-link {
+            display: inline-flex; /* Use flexbox for icon and text alignment */
+            align-items: center; /* Vertically align items */
+            background-color: #d81b60; /* Button background */
+            color: white; /* Text color */
+            padding: 10px 20px;
+            border-radius: 25px; /* Rounded corners for pill shape */
             text-decoration: none;
             font-weight: bold;
-            display: inline-block;
-            margin: 3px 8px;
-            font-size: 0.9em;
+            font-size: 1.1em;
+            margin: 10px 10px; /* Space between buttons */
+            transition: background-color 0.3s ease, transform 0.2s ease;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .contact-icon-link i {
+            margin-right: 8px; /* Space between icon and text */
+            font-size: 1.2em; /* Icon size */
+        }
+        .contact-icon-link:hover {
+            background-color: #ad1457; /* Darker pink on hover */
+            transform: translateY(-2px);
         }
 
         /* Hero Section Styles */
@@ -512,6 +528,40 @@
         .registration-payment-btn:hover {
             background-color: #218838; /* Darker Green */
         }
+        
+        /* Floating Action Buttons */
+        .fab-container {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 999;
+            display: flex;
+            flex-direction: column; /* Stack icons vertically */
+            gap: 10px; /* Space between icons */
+        }
+        .fab-button {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            color: white;
+            font-size: 1.8em;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            transition: transform 0.2s ease, background-color 0.3s ease;
+            text-decoration: none; /* Remove underline for links */
+        }
+        .fab-button:hover {
+            transform: scale(1.1);
+        }
+        .fab-whatsapp {
+            background-color: #25D366; /* WhatsApp Green */
+        }
+        .fab-call {
+            background-color: #007bff; /* Blue for Call */
+        }
+
 
         /* Responsive behavior */
         @media (max-width: 768px) {
@@ -623,7 +673,10 @@
             <li><a href="#how-it-works" class="menu-link">How It Works</a></li>
             <li><a href="#registration" class="menu-link">Registration</a></li>
             <li><a href="#success-stories" class="menu-link">Success Stories</a></li>
+            <li><a href="#achievements" class="menu-link">Our Achievements</a></li>
             <li><a href="#contact" class="menu-link">Contact Us</a></li>
+            <li><a href="#request-callback" class="menu-link">Request a Call Back</a></li>
+            <li><a href="#terms" class="menu-link">Terms and Conditions</a></li>
         </ul>
 
         <a href="#registration" class="menu-cta-button menu-link">Register Now!</a>
@@ -647,7 +700,10 @@
         <a href="#how-it-works">How It Works</a>
         <a href="#registration">Registration</a>
         <a href="#success-stories">Success Stories</a>
+        <a href="#achievements">Our Achievements</a>
         <a href="#contact">Contact Us</a>
+        <a href="#request-callback">Request a Call Back</a>
+        <a href="#terms">Terms and Conditions</a>
     </div>
 </nav>
 
@@ -790,7 +846,7 @@
         <p style="text-align: center; margin-top: 30px; font-size: 1.1em; color: #ad1457;">Ready to share your own success story? <a href="#contact" style="color: #d81b60; text-decoration: none; font-weight: bold;">Contact Us!</a></p>
     </section>
 
-    <section style="padding: 40px; background-color: #fff8f9; margin: 40px auto; max-width: 900px; border-radius: 12px;">
+    <section id="achievements" style="padding: 40px; background-color: #fff8f9; margin: 40px auto; max-width: 900px; border-radius: 12px;">
         <h2 style="color: #ad1457; text-align: center;">🏆 Our Achievements</h2>
         <ul style="list-style: none; padding: 0; font-size: 18px; line-height: 2; color: #444;">
             <li>🎉 <strong>10,000+ Successful Matches</strong> made with love &amp; trust</li>
@@ -800,7 +856,7 @@
         </ul>
     </section>
 
-    <section style="background-color: #fce4ec; border-radius: 12px; margin: 50px auto; max-width: 900px; padding: 40px;">
+    <section id="request-callback" style="padding: 40px; background-color: #fce4ec; border-radius: 12px; margin: 50px auto; max-width: 900px; padding: 40px;">
         <h2 style="text-align: center; color: #ad1457;">📋 Request a Call Back</h2>
         <form action="https://formsubmit.co/shaadishanstha.in@gmail.com" method="POST" style="display: flex; flex-direction: column; align-items: center;" target="_blank">
             <input name="_redirect" type="hidden" value="https://shaadis.netlify.app/thank-you.html"/>
@@ -853,28 +909,49 @@
             Location: Bihar, India<br/>
             Working Hours: Monday - Sunday, 10:00 AM - 8:00 PM IST
         </p>
-        <div class="contact" style="margin-top: 20px;">
-            <p style="margin-bottom: 10px;"><strong>Direct Contacts:</strong></p>
-            <a href="mailto:shaadishanstha.in@gmail.com" style="display: block; margin-bottom: 10px; font-size: 1.1em;">📧 shaadishanstha.in@gmail.com</a>
-            <a href="https://wa.me/7808817710" target="_blank" style="display: block; font-size: 1.1em;">📞 WhatsApp Us: +91 7808817710</a>
+        <div class="contact-buttons" style="margin-top: 20px;">
+            <a href="https://wa.me/917808817710" target="_blank" class="contact-icon-link" style="background-color: #25D366;">
+                <i class="fab fa-whatsapp"></i> WhatsApp Us
+            </a>
+            <a href="tel:+917808817710" class="contact-icon-link" style="background-color: #007bff;">
+                <i class="fas fa-phone"></i> Call Us
+            </a>
+            <a href="mailto:shaadishanstha.in@gmail.com" class="contact-icon-link" style="background-color: #EA4335;">
+                <i class="fas fa-envelope"></i> Email Us
+            </a>
         </div>
         <p style="margin-top: 30px; font-size: 1.1em; color: #ad1457; font-weight: bold;">We're committed to helping you find your perfect match with trust and transparency.</p>
     </div>
 
     <div class="container" id="terms">
         <h2>💖 Terms and Conditions</h2>
-        <ul style="text-align: left; max-width: 800px; margin: 0 auto; line-height: 1.6;">
+        <ul style="text-align: left; max-width: 800px; margin: 0 auto; line-height: 1.8; font-size: 1.05em; color: #333;">
             <li>1. If the match is not finalized within 4 months, a refund will be issued after deducting ₹500.</li>
             <li>2. Users must request a refund within 30 days after the 4-month period.</li>
             <li>3. Personal details shared will be kept strictly confidential as per our privacy policy.</li>
             <li>4. No refund will be issued in case of false information or fraud.</li>
+            <li>5. **Age Requirement:** All registrants must meet the legal age of marriage as per Indian law (currently 18 for brides and 21 for grooms).</li>
+            <li>6. **Accurate Information:** Users are solely responsible for providing true, accurate, and complete information in their profiles. Any misrepresentation may lead to account termination without refund.</li>
+            <li>7. **Profile Sharing Consent:** By registering, you consent to your profile information (excluding sensitive contact details unless explicitly shared by you) being shared with potential matches and their families based on compatibility.</li>
+            <li>8. **Final Decision:** Shaadi Sanstha facilitates connections; the final decision regarding a match rests entirely with the individuals and their families. We are not liable for any personal disagreements or issues arising post-match finalization.</li>
+            <li>9. **Misuse of Service:** Any attempt to misuse the service, engage in fraudulent activities, or harass other members will result in immediate termination of service with no refund.</li>
+            <li>10. **Service Scope:** Our service involves providing verified matches and facilitating initial introductions. Any subsequent interactions, meetings, or background checks are the responsibility of the concerned parties.</li>
+            <li>11. **Client Responsibility:** It is the client's responsibility to review profiles carefully and perform any desired personal verifications before proceeding with a match.</li>
+            <li>12. **Grievance Redressal:** Any complaints or disputes should be reported to our customer service within 7 days of the incident for resolution.</li>
+            <li>13. **Data Security:** We employ robust data encryption and security measures to protect your personal information, though no online transmission can be guaranteed 100% secure.</li>
+            <li>14. **Changes to Terms:** Shaadi Sanstha reserves the right to modify these terms and conditions at any time. Users will be notified of significant changes.</li>
         </ul>
     </div>
 </main>
 
-<a href="https://wa.me/917808817710" style="position: fixed; bottom: 20px; right: 20px; z-index: 999;">
-    <img alt="Chat on WhatsApp" src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="50"/>
-</a>
+<div class="fab-container">
+    <a href="https://wa.me/917808817710" target="_blank" class="fab-button fab-whatsapp">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+    <a href="tel:+917808817710" class="fab-button fab-call">
+        <i class="fas fa-phone-alt"></i>
+    </a>
+</div>
 
 <footer>
     © 2025 Shaadi Sanstha | All rights reserved
@@ -946,8 +1023,6 @@
         // Close menu when a link inside the menu is clicked
         menuLinks.forEach(link => {
             link.addEventListener('click', function() {
-                // Check if the clicked link is the "Register Now!" button
-                // If it is, and it leads to #registration, the menu should still close
                 toggleMenu(); // Close menu after clicking a link
             });
         });
