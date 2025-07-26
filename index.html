@@ -1,193 +1,499 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="utf-8">
-<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
-<meta content="FZ9z7EktM-9GCtp8yeppiQgg-srQRBoP5HoQ8WMTQcc" name="google-site-verification"/>
-<title>Shaadi Sanstha | Matrimonial Service in Bihar for Verified Matches</title>
-<style>
-      * { box-sizing: border-box; margin: 0; padding: 0; }
-      html, body { max-width: 100%; overflow-x: hidden; }
-    </style>
-<style>
-        body {
+    <meta charset="utf-8">
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <meta content="FZ9z7EktM-9GCtp8yeppiQgg-srQRBoP5HoQ8WMTQcc" name="google-site-verification"/>
+    <title>Shaadi Sanstha | Matrimonial Service in Bihar for Verified Matches</title>
+    
+    <style>
+        /* Base styles */
+        * {
+            box-sizing: border-box;
             margin: 0;
+            padding: 0;
+        }
+        html, body {
+            max-width: 100%;
+            overflow-x: hidden; /* Keeps horizontal scrollbar away */
+        }
+        body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             background: #fffdf7;
             color: #333;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure footer sticks to bottom */
+            scroll-behavior: smooth;
+            padding-top: 60px; /* Space for the fixed top brand bar */
         }
+        /* New: Stop scrolling when menu is open */
+        body.no-scroll {
+            overflow: hidden !important; /* Ensure no scrolling on body */
+        }
+        html.no-scroll-html { /* New: class for html to handle scrolling on some browsers */
+            overflow: hidden !important;
+        }
+
+        main {
+            flex: 1;
+        }
+
+        /* Prevent right-click and dragging on images */
+        img {
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none;    /* Firefox */
+            -ms-user-select: none;     /* IE10+ */
+            user-select: none;         /* Standard syntax */
+            -webkit-touch-callout: none; /* iOS Safari */
+            -webkit-user-drag: none;   /* Safari, Chrome */
+            pointer-events: auto; /* Ensure events still fire, override if needed */
+        }
+        .no-download-img { /* Apply this class to specific images */
+            pointer-events: none; /* Disables all mouse events on the image, making it unclickable and undeportable */
+            -webkit-user-select: none; /* Safari */
+            -moz-user-select: none;    /* Firefox */
+            -ms-user-select: none;     /* IE10+ */
+            user-select: none;         /* Standard syntax */
+            -webkit-touch-callout: none; /* iOS Safari */
+            -webkit-user-drag: none;   /* Safari, Chrome */
+        }
+
+        /* Fixed Top Branding Section (including hamburger) */
+        .top-fixed-brand {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 60px; /* Height of the fixed bar */
+            background-color: #f8bbd0; /* Soft Pink, matching header */
+            color: #880e4f; /* Darker Pink */
+            display: flex;
+            align-items: center; /* Vertically align items */
+            padding: 0 15px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            z-index: 1000; /* Ensure it stays on top */
+            gap: 15px; /* Space between hamburger/line/text */
+        }
+
+        .vertical-line {
+            width: 3px; /* Thickness of the line */
+            height: 40px; /* Height of the line */
+            background-color: #ad1457; /* Dark Red-Pink color for the line */
+            border-radius: 2px; /* Slightly rounded corners for the line */
+            flex-shrink: 0; /* Prevent it from shrinking */
+        }
+
+        .brand-text {
+            font-family: 'Georgia', serif; /* A more elegant font */
+            font-size: 1.8em; /* Large and prominent */
+            font-weight: bold;
+            color: #880e4f; /* Darker Pink */
+            letter-spacing: 1px; /* Slightly spaced letters */
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Subtle shadow */
+            white-space: nowrap; /* Prevent text wrapping */
+            overflow: hidden;
+            text-overflow: ellipsis; /* Add ellipsis if text overflows */
+        }
+
+        /* Hamburger Menu Icon (now inside top-fixed-brand, on left) */
+        .hamburger-menu-container {
+            display: block; /* Always display as it's the primary mobile nav trigger */
+            z-index: 1001; /* Above other content */
+            margin-right: 5px; /* Space between hamburger and vertical line */
+        }
+
+        .hamburger {
+            width: 35px; /* Larger width for bolder look */
+            height: 25px; /* Larger height */
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: 5px; /* Add padding for larger clickable area */
+        }
+
+        .hamburger .line {
+            width: 100%;
+            height: 4px; /* Thicker lines for bolder look */
+            background-color: #ad1457;
+            transition: all 0.3s ease;
+            border-radius: 2px; /* Slightly rounded lines */
+        }
+
+        /* Styles for when menu is open */
+        .hamburger.open .line:nth-child(1) {
+            transform: translateY(10.5px) rotate(45deg); /* Adjusted for new height */
+        }
+        .hamburger.open .line:nth-child(2) {
+            opacity: 0;
+        }
+        .hamburger.open .line:nth-child(3) {
+            transform: translateY(-10.5px) rotate(-45deg); /* Adjusted for new height */
+        }
+
+        /* Sidebar/Off-canvas Menu Styles */
+        .off-canvas-menu {
+            position: fixed;
+            top: 0;
+            left: -85%; /* Hidden by default, adjusted for left side */
+            width: 85%;
+            max-width: 300px;
+            height: 100%;
+            background-color: #fff;
+            box-shadow: 2px 0 10px rgba(0,0,0,0.2);
+            transition: left 0.3s ease-in-out;
+            z-index: 999;
+            padding-top: 20px;
+            overflow-y: auto; /* Enable scrolling for long content inside the menu */
+        }
+
+        .off-canvas-menu.open {
+            left: 0; /* Slide in from left */
+        }
+
+        .off-canvas-menu .menu-content {
+            padding: 20px;
+        }
+
+        /* Close button styling for off-canvas menu */
+        .off-canvas-menu .close-btn-container {
+            text-align: right;
+            padding: 0 15px;
+        }
+        .off-canvas-menu .close-btn-container #close-menu {
+            font-size: 2.5em;
+            color: #ad1457;
+            text-decoration: none;
+            line-height: 1;
+            display: inline-block;
+            padding: 5px;
+        }
+
+        /* Menu Logo and Heading */
+        .off-canvas-menu .menu-header {
+            text-align: center;
+            margin-bottom: 20px;
+            padding-top: 10px;
+        }
+        .off-canvas-menu .menu-header img {
+            max-width: 100px;
+            height: auto;
+            margin-bottom: 5px;
+        }
+        .off-canvas-menu .menu-header h3 {
+            color: #d81b60;
+            font-size: 1.4em;
+            margin: 0;
+        }
+        .off-canvas-menu .menu-header p {
+            font-size: 0.9em;
+            color: #777;
+            margin-top: 5px;
+        }
+
+        /* Important Message Box */
+        .off-canvas-menu .important-message-box {
+            background-color: #fff0f5;
+            color: #c2185b;
+            text-align: center;
+            padding: 15px;
+            font-size: 0.95em;
+            font-weight: bold;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            border: 1px solid #d81b60;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .off-canvas-menu .important-message-box strong {
+            color: #880e4f;
+        }
+        .off-canvas-menu .important-message-box span {
+            color: #b71c1c;
+        }
+
+        /* Menu Section Headings */
+        .off-canvas-menu .menu-section-heading {
+            color: #ad1457;
+            margin-top: 25px;
+            margin-bottom: 15px;
+            font-size: 1.2em;
+            text-align: center;
+            border-bottom: 1px solid #eee;
+            padding-bottom: 5px;
+        }
+
+        /* Menu Links */
+        .off-canvas-menu .menu-content ul {
+            list-style: none;
+            padding: 0;
+            text-align: center;
+            margin-bottom: 20px; /* Added margin to push button down */
+        }
+        .off-canvas-menu .menu-content ul li {
+            margin-bottom: 10px;
+        }
+        .off-canvas-menu .menu-content ul li a {
+            text-decoration: none;
+            color: #6a1b9a;
+            font-weight: bold;
+            font-size: 1.05em;
+            display: block;
+            padding: 10px 15px;
+            border-radius: 5px;
+            transition: background-color 0.3s ease, color 0.3s ease;
+            position: relative;
+        }
+        .off-canvas-menu .menu-content ul li a:hover {
+            background-color: #f8bbd0;
+            color: #880e4f;
+        }
+        .off-canvas-menu .menu-content ul li a::before {
+            content: '➤ ';
+            color: #d81b60;
+            margin-right: 8px;
+            font-weight: normal;
+        }
+
+        /* Call-to-Action button in menu */
+        .off-canvas-menu .menu-cta-button {
+            display: block !important; /* Ensured display block with !important */
+            background-color: #28a745;
+            color: white;
+            padding: 12px 20px;
+            font-size: 1em;
+            border-radius: 8px;
+            text-decoration: none;
+            font-weight: bold;
+            text-align: center;
+            margin: 30px auto 10px;
+            max-width: 200px;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
+            transition: background-color 0.3s ease;
+        }
+        .off-canvas-menu .menu-cta-button:hover {
+            background-color: #218838;
+        }
+
+        /* Overlay for background when menu is open */
+        .menu-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0,0,0,0.4);
+            z-index: 998;
+            opacity: 0;
+            visibility: hidden;
+            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+
+        .menu-overlay.active {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Header styles (original header will be below the fixed top bar) */
         header {
             background-color: #f8bbd0; /* Soft Pink */
             color: #880e4f; /* Darker Pink */
-            padding: 20px 0;
+            padding: 15px 0; /* Reduced header padding */
             text-align: center;
+            margin-top: 0; /* No top margin needed, padding-top on body handles space */
         }
-        /* Logo Styles */
         .header-logo {
-            max-width: 180px; /* लोगो की अधिकतम चौड़ाई कम की ताकि वह कॉम्पैक्ट दिखे */
-            height: auto; /* ऊंचाई अपने आप एडजस्ट होगी */
-            display: block; /* ब्लॉक एलिमेंट ताकि यह अपनी लाइन ले */
-            margin: 0 auto 15px; /* ऊपर नीचे मार्gin, सेंटर में */
+            max-width: 150px; /* Reduced logo size */
+            height: auto;
+            display: block;
+            margin: 0 auto 10px; /* Reduced margin */
         }
+        header h1 {
+            font-size: 1.8em; /* Reduced header text size */
+            margin: 5px 0;
+        }
+        header p {
+            font-size: 1em; /* Reduced subtitle size */
+            margin: 3px 0;
+        }
+        header p:last-child {
+            font-size: 11px; /* Reduced info size */
+            margin-top: 5px;
+        }
+
+        /* Navigation (for desktop) */
         nav {
-            display: flex;
+            display: flex; /* Hidden by default on mobile, shown by media query on desktop */
             justify-content: center;
-            background-color: #f48fb1; /* Medium Pink */
+            background-color: #f06292; /* Medium Pink */
             padding: 10px 0;
             font-weight: bold;
+            position: sticky;
+            top: 60px; /* Sticks right below the fixed brand bar */
+            z-index: 999;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
         }
         nav a {
-            margin: 0 20px;
+            margin: 0 15px;
             text-decoration: none;
-            color: #6a1b9a; /* Purple */
+            color: #6a1b9a;
             font-weight: bold;
             transition: color 0.3s ease;
+            font-size: 0.95em;
         }
         nav a:hover {
-            color: #ad1457; /* Dark Red-Pink */
+            color: #ad1457;
             text-decoration: underline;
         }
+
+        /* General container */
         .container {
-            padding: 40px 20px;
+            padding: 30px 15px;
             text-align: center;
         }
         h2 {
-            color: #b71c1c; /* Deep Red */
-            margin-bottom: 25px;
+            color: #b71c1c;
+            margin-bottom: 20px;
+            font-size: 1.8em;
         }
         h2::before {
-            content: '💖 '; /* Added for visual appeal */
+            content: '💖 ';
         }
+
+        /* Services and How It Works boxes */
         .services {
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
-            margin-top: 30px;
+            margin-top: 20px;
         }
-        .service-box {
-            width: 280px; /* Slightly wider */
-            margin: 15px; /* More spacing */
-            padding: 25px; /* More padding */
+        .service-box, .how-it-works-step {
+            width: 240px;
+            margin: 10px;
+            padding: 20px;
             background: #fff0e0;
-            border-radius: 12px; /* More rounded corners */
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1); /* Softer shadow */
-            transition: transform 0 3s ease, background-color 0.3s ease;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+            transition: transform 0.3s ease, background-color 0.3s ease;
+            font-size: 0.9em;
+            text-align: left;
         }
-        .service-box:hover {
-            transform: translateY(-5px) scale(1.02); /* Slight lift and scale */
+        .service-box:hover, .how-it-works-step:hover {
+            transform: translateY(-3px) scale(1.01);
             background-color: #ffe6f0;
         }
+        .how-it-works-step h3, .service-box h3 {
+            color: #d81b60;
+            margin-bottom: 8px;
+            font-size: 1.2em;
+        }
+        .how-it-works-step p, .service-box p {
+            color: #555;
+            font-size: 0.9em;
+        }
+
+        /* Footer styles */
         footer {
             background-color: #f5f5f5;
             text-align: center;
-            padding: 20px 0;
-            font-size: 14px;
+            padding: 15px 0;
+            font-size: 12px;
             color: #888;
-            margin-top: 40px;
+            margin-top: 30px;
         }
-        /* Footer Links Specific Style */
         footer a {
-            color: #d81b60; /* A strong pink/red for better visibility */
+            color: #d81b60;
             text-decoration: none;
-            font-weight: bold; /* Make them bold */
-            margin: 0 10px;
+            font-weight: bold;
+            margin: 0 8px;
             transition: color 0.3s ease, text-decoration 0.3s ease;
         }
         footer a:hover {
-            color: #ad1457; /* Slightly darker on hover */
+            color: #ad1457;
             text-decoration: underline;
         }
 
+        /* Contact links */
         .contact a {
             color: #1565c0;
             text-decoration: none;
             font-weight: bold;
             display: inline-block;
-            margin: 5px 10px;
-        }
-        html {
-            scroll-behavior: smooth;
-        }
-        html, body {
-            height: 100%;
-            margin: 0;
-        }
-        body {
-            display: flex;
-            flex-direction: column;
-        }
-        main {
-            flex: 1;
+            margin: 3px 8px;
+            font-size: 0.9em;
         }
 
         /* Hero Section Styles */
         .hero-section {
             background-color: #fce4ec; /* Light Pink */
-            padding: 80px 20px;
+            padding: 60px 15px; /* Reduced hero padding */
             text-align: center;
             color: #880e4f; /* Dark Pink */
         }
         .hero-section h1 {
-            font-size: 3.5em;
-            margin-bottom: 15px;
-            color: #ad1457; /* Dark Red-Pink */
+            font-size: 2.8em; /* Reduced hero heading size */
+            margin-bottom: 10px;
+            color: #ad1457;
         }
         .hero-section p {
-            font-size: 1.3em;
-            max-width: 900px;
-            margin: 0 auto 40px;
-            line-height: 1.6;
+            font-size: 1.1em;
+            max-width: 90%;
+            margin: 0 auto 25px;
+            line-height: 1.5;
         }
         .hero-section .btn {
             display: inline-block;
-            background-color: #d81b60; /* Medium Red-Pink */
+            background-color: #d81b60;
             color: white;
-            padding: 18px 40px;
-            font-size: 1.2em;
-            border-radius: 10px;
+            padding: 14px 30px;
+            font-size: 1em;
+            border-radius: 8px;
             text-decoration: none;
             font-weight: bold;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
             transition: background-color 0.3s ease, transform 0.3s ease;
         }
         .hero-section .btn:hover {
-            background-color: #c2185b; /* Slightly darker */
-            transform: translateY(-2px);
+            background-color: #c2185b;
+            transform: translateY(-1px);
         }
 
         /* Testimonials/Success Stories Styles */
         .testimonial-box {
             background: #ffffff;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-            width: 280px;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+            width: 260px;
             text-align: left;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 0.9em;
         }
         .testimonial-box:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 6px 15px rgba(0,0,0,0.15);
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.1);
         }
         .testimonial-box p {
             font-style: italic;
             color: #555;
-            line-height: 1.6;
-            min-height: 80px; /* Ensure consistent height */
+            line-height: 1.5;
+            min-height: 70px;
+            margin-bottom: 10px;
         }
         .testimonial-box .author {
             font-weight: bold;
             text-align: right;
-            margin-top: 15px;
+            margin-top: 10px;
             color: #ad1457;
+            font-size: 0.95em;
         }
         .testimonial-box img {
             width: 100%;
-            height: 180px; /* Fixed height for consistency */
-            object-fit: cover; /* Cover the area */
-            border-radius: 8px;
-            margin-top: 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            height: 160px;
+            object-fit: cover;
+            border-radius: 6px;
+            margin-top: 10px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
         /* Payment/Registration Button Styles */
@@ -195,288 +501,457 @@
             display: inline-block;
             background-color: #28a745; /* Green */
             color: white;
-            padding: 15px 30px;
-            font-size: 18px;
-            border-radius: 8px;
+            padding: 12px 25px;
+            font-size: 1em;
+            border-radius: 6px;
             text-decoration: none;
             font-weight: bold;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
             transition: background-color 0.3s ease;
         }
         .registration-payment-btn:hover {
             background-color: #218838; /* Darker Green */
         }
 
-        /* How It Works Specific Styles */
-        .how-it-works-step {
-            background: #fff8f9;
-            padding: 25px;
-            border-radius: 12px;
-            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
-            margin: 15px;
-            max-width: 280px;
-            text-align: left;
-            transition: transform 0.3s ease;
+        /* Responsive behavior */
+        @media (max-width: 768px) {
+            nav {
+                display: none; /* Hide regular nav on smaller screens */
+            }
+            .hero-section {
+                padding: 40px 10px;
+            }
+            .hero-section h1 {
+                font-size: 2.2em;
+            }
+            .hero-section p {
+                font-size: 1em;
+                margin-bottom: 15px;
+            }
+            .hero-section .btn {
+                padding: 12px 25px;
+                font-size: 0.9em;
+            }
+            .testimonial-box {
+                width: 90%;
+                max-width: 300px;
+            }
+            .service-box, .how-it-works-step {
+                width: 90%;
+                max-width: 300px;
+            }
+            .container {
+                padding: 20px 10px;
+            }
+            /* No change to body padding-top here, it's consistent for the fixed bar */
         }
-        .how-it-works-step:hover {
-            transform: translateY(-3px);
-        }
-        .how-it-works-step h3 {
-            color: #d81b60;
-            margin-bottom: 10px;
-            font-size: 1.4em;
-        }
-        .how-it-works-step p {
-            color: #555;
-            font-size: 1em;
+
+        @media (min-width: 769px) {
+            nav {
+                display: flex; /* Show regular nav on larger screens */
+            }
+            /* Hide hamburger on larger screens */
+            .hamburger-menu-container {
+                display: none;
+            }
+            /* Ensure the side menu and overlay are hidden on large screens */
+            .off-canvas-menu, .menu-overlay {
+                display: none !important; /* Force hide */
+            }
+            /* Adjust body padding for desktop if needed, though current padding-top 60px should be fine */
+            .top-fixed-brand .vertical-line {
+                display: block; /* Show vertical line on desktop as it's part of brand identity */
+            }
+            .top-fixed-brand .brand-text {
+                /* On desktop, keep brand text to the right of the line */
+                margin-left: 0; 
+                margin-right: 0; 
+                text-align: left; /* Ensure text alignment is good */
+                flex-grow: 0; /* Don't let it grow to push others away */
+            }
+            .top-fixed-brand {
+                justify-content: flex-start; /* Align items to the start */
+                gap: 15px; /* Maintain small gap */
+            }
         }
     </style>
-<meta content="Shaadi Sanstha is a trusted matrimonial service based in Bihar. We help you find verified, compatible matches with cultural values and full family support." name="description"/>
-<meta content="matrimonial, shaadi, marriage bureau, bihar matrimony, indian matchmaking, verified profiles, shaadi sanstha, trusted marriage bureau Bihar, best matchmaker Patna" name="keywords"/>
-<meta content="Shaadi Sanstha | Verified Matrimonial Service in Bihar" property="og:title"/>
-<meta content="Helping you find the perfect match with transparency, tradition and family values." property="og:description"/>
-<meta content="https://shaadis.netlify.app/" property="og:url"/>
-<meta content="website" property="og:type"/>
-<link href="logo.png" rel="icon" type="image/png"/>
+    <meta content="Shaadi Sanstha is a trusted matrimonial service based in Bihar. We help you find verified, compatible matches with cultural values and full family support." name="description"/>
+    <meta content="matrimonial, shaadi, marriage bureau, bihar matrimony, indian matchmaking, verified profiles, shaadi sanstha, trusted marriage bureau Bihar, best matchmaker Patna" name="keywords"/>
+    <meta content="Shaadi Sanstha | Verified Matrimonial Service in Bihar" property="og:title"/>
+    <meta content="Helping you find the perfect match with transparency, tradition and family values." property="og:description"/>
+    <meta content="https://shaadis.netlify.app/" property="og:url"/>
+    <meta content="website" property="og:type"/>
+    <link href="logo.png" rel="icon" type="image/png"/>
 </head>
-<body style="margin: 0; padding: 0; box-sizing: border-box; background-color: #fff;">
-<div class="hero-section">
-<h1>Your Perfect Life Partner Awaits!</h1>
-<div style="background-color: #ffebee; color: #c2185b; text-align: center; padding: 20px 15px; font-size: 1.3em; font-weight: bold;">
-  💖 We support dowry-free marriages – All marriages on <strong>Shaadi Sanstha</strong> are <span style="color: #d81b60;">completely dowry-free</span> 💍
-</div>
+<body>
 
-<p>Bihar's most trusted matrimonial service, connecting you with the right match through tradition and transparency.</p>
-<p style="font-size: 1.5em; margin-bottom: 25px; color: #ad1457; font-weight: bold;">Take the first step towards your dream wedding today!</p>
-<a class="btn" href="#registration">Start Your Journey Now!</a>
-</div>
-<header style="background-color: #f8bbd0; color: #880e4f; padding: 25px 0; text-align: center;">
-<img src="https://i.imgur.com/H0bLJPq.png" alt="Shaadi Sanstha Logo" class="header-logo">
-<h1 style="font-size: 2em; margin: 0;">Shaadi Sanstha</h1>
-<p style="font-size: 1.2em; margin: 5px 0;">Trusted &amp; Transparent Matrimonial Service</p>
-<p style="margin: 0; font-size: 14px; color: #880e4f;">💼 Serving families since 2016</p>
-</header>
-<nav style="position: sticky; top: 0; z-index: 999; background-color: #f06292; padding: 10px 0;">
-<div style="display: flex; overflow-x: auto; white-space: nowrap; padding: 0 10px; gap: 20px;">
-<a href="#about">About Us</a>
-<a href="#services">Our Services</a>
-<a href="#how-it-works">How It Works</a>
-<a href="#registration">Registration</a>
-<a href="#success-stories">Success Stories</a>
-<a href="#contact">Contact Us</a>
-</div></nav>
-<main>
-<div class="container" id="about">
-<h2>💖 About Us</h2>
-<p>Shaadi Sanstha was founded in **2016** with a simple yet profound vision: to make marriage a union not just of two individuals, but of two families. We believe that a successful relationship is built on trust, respect, and shared values. For over 9 years, we've been helping families in Bihar and surrounding regions find their ideal life partners with complete transparency and personalized care. Our goal isn't just to arrange marriages, but to establish lifelong, happy relationships.</p>
-<p>We believe in dowry-free marriages that are respectful, value-based, and dignified. Every match we help build is focused on equality and shared family values, free from financial burdens.</p>
-<div style="text-align: center; margin-top: 30px;">
-    <a class="btn" href="#services" style="background-color: #c2185b; padding: 15px 30px; font-size: 1em;">Learn More About Our Vision</a>
-</div>
-</div>
-<section style="padding: 40px; background-color: #fff3f5; margin: 40px auto; max-width: 900px; border-radius: 12px; text-align: center;">
-<h2 style="color: #c2185b;">🌟 Why Choose Us?</h2>
-<ul style="list-style: none; padding-left: 0; font-size: 18px; line-height: 2; color: #333;">
-<li style="flex: 0 0 auto; margin: 0 10px;">✅ Over **9 Years** of Trusted Matchmaking Experience</li>
-<li style="flex: 0 0 auto; margin: 0 10px;">✅ Only **100% Verified** Profiles &amp; Genuine Biodata</li>
-<li style="flex: 0 0 auto; margin: 0 10px;">✅ **Family-Focused** Approach &amp; Personal Telephonic Support</li>
-<li style="flex: 0 0 auto; margin: 0 10px;">✅ **Transparent Process** with Refund Guarantee</li>
-<li style="flex: 0 0 auto; margin: 0 10px;">✅ Your **Privacy** and Security are Our Top Priority</li>
-<li>✅ We actively support dowry-free marriages to promote equality and integrity</li></ul>
-</section>
-
-<div class="container" id="how-it-works">
-    <h2>💖 How It Works</h2>
-    <p style="font-size: 1.1em; max-width: 800px; margin: 0 auto 30px; color: #555;">Finding your perfect match with Shaadi Sanstha is simple and transparent. Follow these easy steps:</p>
-    <div class="services"> <div class="how-it-works-step">
-            <h3>Step 1: Register Your Profile</h3>
-            <p>Fill out our online form or contact us via WhatsApp to create your detailed profile. Provide accurate information about yourself and your preferences.</p>
-        </div>
-        <div class="how-it-works-step">
-            <h3>Step 2: Profile Verification</h3>
-            <p>Our team meticulously verifies all submitted biodatas to ensure authenticity and genuineness, maintaining a trustworthy environment.</p>
-        </div>
-        <div class="how-it-works-step">
-            <h3>Step 3: Receive Curated Matches</h3>
-            <p>Based on your preferences and our extensive database, we'll share highly compatible and verified profiles directly with you.</p>
-        </div>
-        <div class="how-it-works-step">
-            <h3>Step 4: Connect & Interact</h3>
-            <p>Once you find an interesting profile, we facilitate the connection process, helping families interact and get to know each other.</p>
-        </div>
-        <div class="how-it-works-step">
-            <h3>Step 5: Finalize Your Alliance</h3>
-            <p>With our personalized guidance and support, proceed with confidence towards finalizing your alliance and building a happy future!</p>
+<div class="top-fixed-brand">
+    <div class="hamburger-menu-container">
+        <div class="hamburger" id="hamburger-icon">
+            <div class="line"></div>
+            <div class="line"></div>
+            <div class="line"></div>
         </div>
     </div>
-    <a class="btn" href="#registration" style="margin-top: 40px; background-color: #28a745;">Ready to Start? Register Now!</a>
+    
+    <div style="display: flex; align-items: center;">
+        <div class="vertical-line"></div>
+        <span class="brand-text">Shaadi Sanstha</span>
+    </div>
 </div>
 
-<div class="container" id="services">
-<h2>💖 Our Services</h2>
-<div class="services">
-<div class="service-box">
-<h3>💍 Personalized Matchmaking</h3>
-<p>Carefully matched biodatas for serious inquiries only.</p>
-</div>
-<div class="service-box">
-<h3>🔮 Horoscope Compatibility</h3>
-<p>Optional Kundali match for those who prefer tradition.</p>
-</div>
-<div class="service-box">
-<h3>✅ Verified Profiles</h3>
-<p>Only real, genuine people from trusted sources.</p>
-</div>
-<div class="service-box">
-<h3>📞 Telephonic Guidance</h3>
-<p>Personal assistance at every step of your journey.</p>
-</div>
-<div class="service-box">
-<h3>👪 Family Focused</h3>
-<p>We help you connect with families who truly value relationships.</p>
-</div>
-<div class="service-box">
-<h3>📋 Verified Biodata Sharing</h3>
-<p>Receive and send verified profiles to serious candidates only.</p>
-</div>
-</div>
-<div style="text-align: center; margin-top: 30px;">
-    <a class="btn" href="#registration" style="background-color: #d81b60; padding: 15px 30px; font-size: 1em;">Explore Our Matchmaking Services</a>
-</div>
+<div class="off-canvas-menu" id="off-canvas-menu">
+    <div class="menu-content">
+        <div class="close-btn-container">
+            <a href="#" id="close-menu">&times;</a>
+        </div>
+        
+        <div class="menu-header">
+            <img src="https://i.imgur.com/H0bLJPq.png" alt="Shaadi Sanstha Logo">
+            <h3>Shaadi Sanstha</h3>
+            <p>Where Trust Meets Tradition</p>
+        </div>
+
+        <div class="important-message-box">
+            💖 We support dowry-free marriages – All marriages on <strong>Shaadi Sanstha</strong> are <span style="color: #d81b60;">completely dowry-free</span> 💍
+        </div>
+
+        <h4 class="menu-section-heading">Explore Shaadi Sanstha</h4>
+        <ul>
+            <li><a href="#about" class="menu-link">About Us</a></li>
+            <li><a href="#services" class="menu-link">Our Services</a></li>
+            <li><a href="#how-it-works" class="menu-link">How It Works</a></li>
+            <li><a href="#registration" class="menu-link">Registration</a></li>
+            <li><a href="#success-stories" class="menu-link">Success Stories</a></li>
+            <li><a href="#contact" class="menu-link">Contact Us</a></li>
+        </ul>
+
+        <a href="#registration" class="menu-cta-button menu-link">Register Now!</a>
+    </div>
 </div>
 
-<div class="container" id="registration">
-<h2 class="section-title">💖 Registration Process</h2> <p>To register with Shaadi Sanstha, simply fill out our online form or contact us via WhatsApp. Our team will guide you through every step with personal attention and care.</p>
-<h3>💰 Registration Fee</h3>
-<p>We charge a nominal fee to maintain service quality and verification:<br/>
-<strong>₹35,500 – One-time Registration Charges for all services</strong>
-</p>
-<p>Payment details will be shared after initial contact. No hidden charges. 100% transparent process.</p>
-<p style="font-size: 1.1em; color: #ad1457; font-weight: bold; margin-top: 20px;">Your journey to a happy marriage begins here!</p>
-<p>📞 <strong>WhatsApp us on <a href="https://wa.me/7808817710" target="_blank">7808817710</a></strong> to begin your journey.</p>
-<div style="text-align: center; margin-top: 30px;">
-<a class="registration-payment-btn" href="registration.html">👉 Register Your Profile!</a>
-</div>
-<section style="padding: 40px; background-color: #fff3f5; margin: 40px auto; max-width: 900px; border-radius: 12px; text-align: center;">
-<h2 style="color: #c2185b;">💳 Make Your Registration Payment</h2>
-<p style="font-size: 16px; color: #333;">Complete your registration by making the one-time payment of ₹35,500.</p>
-<p style="font-size: 1.1em; color: #555; margin-bottom: 20px;">Your privacy and security are our top priority.</p>
-<a class="registration-payment-btn" href="payment.html">👉 Complete Payment Now!</a>
-</section>
-</div>
-<section id="success-stories" style="padding: 40px; background-color: #fffafc; margin: 50px auto; max-width: 900px; border-radius: 12px;">
-<h2 style="color: #d81b60; text-align: center;">👩‍❤️‍👨 Our Success Stories</h2>
-<div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px;">
-<div class="testimonial-box">
-<p>"With Shaadi Sanstha's help, I found my life partner. Their transparency and support made everything so easy!"</p>
-<p class="author">- Priya &amp; Rahul, Patna</p>
-<img alt="Happy Couple 1" src="https://i.imgur.com/OnAviii.jpeg"/>
-</div>
-<div class="testimonial-box">
-<p>"We never thought we'd find such a compatible match so easily. A big thank you to Shaadi Sanstha!"</p>
-<p class="author">- Anjali &amp; Vivek, Ranchi</p>
-<img alt="Happy Couple 2" src="https://i.imgur.com/OKpFGCb.jpeg"/>
-</div>
-<div class="testimonial-box">
-<p>"It's not just a service, it's like a family that genuinely cares for your happiness. I'm so glad I found them."</p>
-<p class="author">- Neha &amp; Sameer, Bhagalpur</p>
-<img alt="Happy Couple 3" src="https://i.imgur.com/onxrwmr.jpeg"/>
-</div>
-<div class="testimonial-box"><p>"Thanks to Shaadi Sanstha, we were able to marry without any dowry and they supported us throughout the process."</p><p class="author">— Anjali &amp; Rohit (Married in 2023)</p><img alt="Dowry-Free Couple" src="https://i.imgur.com/cxCQBsr.jpeg"/></div>
-</div>
-<p style="text-align: center; margin-top: 30px; font-size: 1.1em; color: #ad1457;">Ready to share your own success story? <a href="#contact" style="color: #d81b60; text-decoration: none; font-weight: bold;">Contact Us!</a></p>
-</section>
-<section style="padding: 40px; background-color: #fff8f9; margin: 40px auto; max-width: 900px; border-radius: 12px;">
-<h2 style="color: #ad1457; text-align: center;">🏆 Our Achievements</h2>
-<ul style="list-style: none; padding: 0; font-size: 18px; line-height: 2; color: #444;">
-<li style="flex: 0 0 auto; margin: 0 10px;">🎉 <strong>10,000+ Successful Matches</strong> made with love &amp; trust</li>
-<li style="flex: 0 0 auto; margin: 0 10px;">👪 <strong>7,000+ Families</strong> personally served across India</li>
-<li style="0 0 auto; margin: 0 10px;">📅 <strong>9+ Years</strong> of experience in trusted matchmaking</li>
-<li style="flex: 0 0 auto; margin: 0 10px;">🌐 Clients from <strong>Bihar, Jharkhand, UP &amp; more</strong></li>
-</ul>
-</section>
-<section style="background-color: #fce4ec; border-radius: 12px; margin: 50px auto; max-width: 900px; padding: 40px;">
-<h2 style="text-align: center; color: #ad1457;">📋 Request a Call Back</h2>
-<form action="https://formsubmit.co/shaadishanstha.in@gmail.com" method="POST" style="display: flex; flex-direction: column; align-items: center;" target="_blank">
-<input name="_redirect" type="hidden" value="https://shaadis.netlify.app/thank-you.html"/>
-<input name="name" placeholder="Your Name" required="" style="margin: 10px 0; padding: 12px; width: 90%; max-width: 400px; border: 1px solid #ccc; border-radius: 6px;" type="text"/>
-<input name="phone" placeholder="Your Mobile Number" required="" style="margin: 10px 0; padding: 12px; width: 90%; max-width: 400px; border: 1px solid #ccc; border-radius: 6px;" type="tel"/>
-<input name="city" placeholder="City" required="" style="margin: 10px 0; padding: 12px; width: 90%; max-width: 400px; border: 1px solid #ccc; border-radius: 6px;" type="text"/>
-<button style="margin-top: 20px; padding: 12px 30px; background-color: #d81b60; color: white; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; transition: background-color 0.3s ease;">Submit</button>
-<input name="_captcha" type="hidden" value="false"/>
-<input name="_next" type="hidden" value="https://shaadis.netlify.app/thank-you.html"/>
-</form>
-</section>
-<section style="background-color: #fff0f5; padding: 40px; max-width: 900px; margin: 40px auto; border-radius: 12px;">
-<h2 style="color: #c2185b;">❓ Frequently Asked Questions (FAQ)</h2>
-<div style="margin-top: 30px;">
-<p><strong>💬 What are the registration charges?</strong><br/>
-                    ₹35,500 for 4 months (all-inclusive)
-                </p>
-<p><strong>💬 Will I get a refund if the match is not finalized?</strong><br/>
-                    Yes, ₹35,000 will be refunded after deducting ₹500.
-                </p>
-<p><strong>💬 How long after can I request a refund?</strong><br/>
-                    Within 30 days after the 4-month period.
-                </p>
-<p><strong>💬 Are all biodatas verified?</strong><br/>
-                    Yes, all profiles are manually verified.
-                </p>
-<p><strong>💬 Is horoscope matching mandatory?</strong><br/>
-                    It's optional, depending on the client's preference.
-                </p>
-<p><strong>💬 How many biodatas will I receive?</strong><br/>
-                    You will receive qualified and matching biodatas regularly until your requirement is met.
-                </p>
-<p><strong>💬 Do you accept video profiles?</strong><br/>
-                    Currently, we primarily focus on written biodatas, but video profiles may be considered.
-                </p>
-<p><strong>💬 How is my privacy ensured?</strong><br/>
-                    Your personal information is kept strictly confidential and is only shared with your consent. We employ industry-standard security measures to protect your data.
-                </p>
-<p><strong>💬 How can I report suspicious activity or fraud?</strong><br/>
-                    If you encounter any suspicious behavior or believe you've been targeted by fraud, please contact us immediately via WhatsApp or email. We take such reports seriously and investigate promptly.
-                </p>
-</div>
-</section>
-<div class="container" id="contact">
-<h2>💖 Contact Us</h2>
-<p style="font-size: 1.1em; max-width: 700px; margin: 0 auto 20px; color: #555;">Have questions or need assistance? Feel free to reach out to us! Our team is here to help you every step of the way.</p>
-<p><strong>Shaadi Sanstha Office</strong><br/>
-                Location: Bihar, India<br/>
-                Working Hours: Monday - Sunday, 10:00 AM - 8:00 PM IST
+<div class="menu-overlay" id="menu-overlay"></div>
+
+
+<header>
+    <img src="https://i.imgur.com/H0bLJPq.png" alt="Shaadi Sanstha Logo" class="header-logo">
+    <h1>Shaadi Sanstha</h1>
+    <p>Trusted &amp; Transparent Matrimonial Service</p>
+    <p>💼 Serving families since 2016</p>
+</header>
+
+<nav>
+    <div style="display: flex; overflow-x: auto; white-space: nowrap; padding: 0 10px; gap: 20px;">
+        <a href="#about">About Us</a>
+        <a href="#services">Our Services</a>
+        <a href="#how-it-works">How It Works</a>
+        <a href="#registration">Registration</a>
+        <a href="#success-stories">Success Stories</a>
+        <a href="#contact">Contact Us</a>
+    </div>
+</nav>
+
+<main>
+    <div class="hero-section">
+        <h1>Your Perfect Life Partner Awaits!</h1>
+        <p>Bihar's most trusted matrimonial service, connecting you with the right match through tradition and transparency.</p>
+        <p style="font-size: 1.5em; margin-bottom: 25px; color: #ad1457; font-weight: bold;">Take the first step towards your dream wedding today!</p>
+        <a class="btn" href="#registration">Start Your Journey Now!</a>
+    </div>
+
+    <section id="about" class="container" style="background: #f9f9f9;">
+        <div style="max-width: 800px; margin: auto; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.1);">
+            <h2>🕊️ Shaadi Sanstha – Where Relationships Begin with Trust</h2>
+            <p style="text-align: center; font-size: 16px; color: #444;">Founded in <strong>2016</strong></p>
+            <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
+            <p style="font-size: 17px; line-height: 1.8; color: #333;">
+                Shaadi Sanstha was established with a deep belief — <em>“Marriage is not just the union of two individuals, but of two families.”</em><br><br>
+                We believe that the foundation of a successful marriage is built on <strong>trust, respect, and shared family values</strong>. For over <strong>9 years</strong>, we’ve been helping families across Bihar and surrounding regions find the right life partner with complete <strong>honesty and transparency</strong>.
             </p>
-<div class="contact" style="margin-top: 20px;">
-<p style="margin-bottom: 10px;"><strong>Direct Contacts:</strong></p>
-<a href="mailto:shaadishanstha.in@gmail.com" style="display: block; margin-bottom: 10px; font-size: 1.1em;">📧 shaadishanstha.in@gmail.com</a>
-<a href="https://wa.me/7808817710" target="_blank" style="display: block; font-size: 1.1em;">📞 WhatsApp Us: +91 7808817710</a>
-</div>
-<p style="margin-top: 30px; font-size: 1.1em; color: #ad1457; font-weight: bold;">We're committed to helping you find your perfect match with trust and transparency.</p>
-</div>
-<div class="container" id="terms">
-<h2>💖 Terms and Conditions</h2>
-<ul style="text-align: left; max-width: 800px; margin: 0 auto; line-height: 1.6;">
-<li style="flex: 0 0 auto; margin: 0 10px;">1. If the match is not finalized within 4 months, a refund will be issued after deducting ₹500.</li>
-<li style="flex: 0 0 auto; margin: 0 10px;">2. Users must request a refund within 30 days after the 4-month period.</li>
-<li style="flex: 0 0 auto; margin: 0 10px;">3. Personal details shared will be kept strictly confidential as per our privacy policy.</li>
-<li style="flex: 0 0 auto; margin: 0 10px;">4. No refund will be issued in case of false information or fraud.</li>
-</ul>
-</div>
+            <h3 style="margin-top: 30px; color: #B22222;">💖 Our Commitment:</h3>
+            <ul style="font-size: 16px; line-height: 1.8; color: #333; padding-left: 20px;">
+                <li>✔️ Promoting dowry-free marriages</li>
+                <li>✔️ Dignified and respectful matchmaking</li>
+                <li>✔️ Relationships built on equality and values</li>
+                <li>✔️ Personalized care and guidance for every family</li>
+            </ul>
+            <p style="font-size: 17px; line-height: 1.8; color: #333; margin-top: 20px;">
+                Our goal is not just to arrange a match — but to lay the foundation for a <strong>happy, lifelong, and value-driven relationship</strong>.
+            </p>
+            <div style="margin-top: 30px; text-align: center;">
+                <p style="font-size: 18px; font-weight: 500; color: #555;">🙏 Join us on this journey and find the perfect match for your family —</p>
+                <p style="font-size: 20px; font-weight: bold; color: #8B0000;">where love, respect, and understanding walk hand in hand.</p>
+            </div>
+        </div>
+    </section>
+
+    <div class="container" id="how-it-works">
+        <h2>💖 How It Works</h2>
+        <p style="font-size: 1.1em; max-width: 800px; margin: 0 auto 30px; color: #555;">Finding your perfect match with Shaadi Sanstha is simple and transparent. Follow these easy steps:</p>
+        <div class="services"> 
+            <div class="how-it-works-step">
+                <h3>Step 1: Register Your Profile</h3>
+                <p>Fill out our online form or contact us via WhatsApp to create your detailed profile. Provide accurate information about yourself and your preferences.</p>
+            </div>
+            <div class="how-it-works-step">
+                <h3>Step 2: Profile Verification</h3>
+                <p>Our team meticulously verifies all submitted biodatas to ensure authenticity and genuineness, maintaining a trustworthy environment.</p>
+            </div>
+            <div class="how-it-works-step">
+                <h3>Step 3: Receive Curated Matches</h3>
+                <p>Based on your preferences and our extensive database, we'll share highly compatible and verified profiles directly with you.</p>
+            </div>
+            <div class="how-it-works-step">
+                <h3>Step 4: Connect & Interact</h3>
+                <p>Once you find an interesting profile, we facilitate the connection process, helping families interact and get to know each other.</p>
+            </div>
+            <div class="how-it-works-step">
+                <h3>Step 5: Finalize Your Alliance</h3>
+                <p>With our personalized guidance and support, proceed with confidence towards finalizing your alliance and building a happy future!</p>
+            </div>
+        </div>
+        <a class="btn" href="#registration" style="margin-top: 40px; background-color: #28a745;">Ready to Start? Register Now!</a>
+    </div>
+
+    <div class="container" id="services">
+        <h2>💖 Our Services</h2>
+        <div class="services">
+            <div class="service-box">
+                <h3>💍 Personalized Matchmaking</h3>
+                <p>Carefully matched biodatas for serious inquiries only.</p>
+            </div>
+            <div class="service-box">
+                <h3>🔮 Horoscope Compatibility</h3>
+                <p>Optional Kundali match for those who prefer tradition.</p>
+            </div>
+            <div class="service-box">
+                <h3>✅ Verified Profiles</h3>
+                <p>Only real, genuine people from trusted sources.</p>
+            </div>
+            <div class="service-box">
+                <h3>📞 Telephonic Guidance</h3>
+                <p>Personal assistance at every step of your journey.</p>
+            </div>
+            <div class="service-box">
+                <h3>👪 Family Focused</h3>
+                <p>We help you connect with families who truly value relationships.</p>
+            </div>
+            <div class="service-box">
+                <h3>📋 Verified Biodata Sharing</h3>
+                <p>Receive and send verified profiles to serious candidates only.</p>
+            </div>
+        </div>
+        <div style="text-align: center; margin-top: 30px;">
+            <a class="btn" href="#registration" style="background-color: #d81b60; padding: 15px 30px; font-size: 1em;">Explore Our Matchmaking Services</a>
+        </div>
+    </div>
+
+    <div class="container" id="registration">
+        <h2 class="section-title">💖 Registration Process</h2> 
+        <p>To register with Shaadi Sanstha, simply fill out our online form or contact us via WhatsApp. Our team will guide you through every step with personal attention and care.</p>
+        <h3>💰 Registration Fee</h3>
+        <p>We charge a nominal fee to maintain service quality and verification:<br/>
+        <strong>₹35,500 – One-time Registration Charges for all services</strong>
+        </p>
+        <p>Payment details will be shared after initial contact. No hidden charges. 100% transparent process.</p>
+        <p style="font-size: 1.1em; color: #ad1457; font-weight: bold; margin-top: 20px;">Your journey to a happy marriage begins here!</p>
+        <p>📞 <strong>WhatsApp us on <a href="https://wa.me/7808817710" target="_blank">7808817710</a></strong> to begin your journey.</p>
+        <div style="text-align: center; margin-top: 30px;">
+            <a class="registration-payment-btn" href="registration.html">👉 Register Your Profile!</a>
+        </div>
+        <section style="padding: 40px; background-color: #fff3f5; margin: 40px auto; max-width: 900px; border-radius: 12px; text-align: center;">
+            <h2 style="color: #c2185b;">💳 Make Your Registration Payment</h2>
+            <p style="font-size: 16px; color: #333;">Complete your registration by making the one-time payment of ₹35,500.</p>
+            <p style="font-size: 1.1em; color: #555; margin-bottom: 20px;">Your privacy and security are our top priority.</p>
+            <a class="registration-payment-btn" href="payment.html">👉 Complete Payment Now!</a>
+        </section>
+    </div>
+
+    <section id="success-stories" style="padding: 40px; background-color: #fffafc; margin: 50px auto; max-width: 900px; border-radius: 12px;">
+        <h2 style="color: #d81b60; text-align: center;">👩‍❤️‍👨 Our Success Stories</h2>
+        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px;">
+            <div class="testimonial-box">
+                <p>"With Shaadi Sanstha's help, I found my life partner. Their transparency and support made everything so easy!"</p>
+                <p class="author">- Priya &amp; Rahul, Patna</p>
+                <img alt="Happy Couple 1" src="https://i.imgur.com/OnAviii.jpeg" class="no-download-img"/>
+            </div>
+            <div class="testimonial-box">
+                <p>"We never thought we'd find such a compatible match so easily. A big thank you to Shaadi Sanstha!"</p>
+                <p class="author">- Anjali &amp; Vivek, Ranchi</p>
+                <img alt="Happy Couple 2" src="https://i.imgur.com/OKpFGCb.jpeg" class="no-download-img"/>
+            </div>
+            <div class="testimonial-box">
+                <p>"It's not just a service, it's like a family that genuinely cares for your happiness. I'm so glad I found them."</p>
+                <p class="author">- Neha &amp; Sameer, Bhagalpur</p>
+                <img alt="Happy Couple 3" src="https://i.imgur.com/onxrwmr.jpeg" class="no-download-img"/>
+            </div>
+            <div class="testimonial-box"><p>"Thanks to Shaadi Sanstha, we were able to marry without any dowry and they supported us throughout the process."</p><p class="author">— Anjali &amp; Rohit (Married in 2023)</p><img alt="Dowry-Free Couple" src="https://i.imgur.com/cxCQBsr.jpeg" class="no-download-img"/></div>
+        </div>
+        <p style="text-align: center; margin-top: 30px; font-size: 1.1em; color: #ad1457;">Ready to share your own success story? <a href="#contact" style="color: #d81b60; text-decoration: none; font-weight: bold;">Contact Us!</a></p>
+    </section>
+
+    <section style="padding: 40px; background-color: #fff8f9; margin: 40px auto; max-width: 900px; border-radius: 12px;">
+        <h2 style="color: #ad1457; text-align: center;">🏆 Our Achievements</h2>
+        <ul style="list-style: none; padding: 0; font-size: 18px; line-height: 2; color: #444;">
+            <li>🎉 <strong>10,000+ Successful Matches</strong> made with love &amp; trust</li>
+            <li>👪 <strong>7,000+ Families</strong> personally served across India</li>
+            <li>📅 <strong>9+ Years</strong> of experience in trusted matchmaking</li>
+            <li>🌐 Clients from <strong>Bihar, Jharkhand, UP &amp; more</strong></li>
+        </ul>
+    </section>
+
+    <section style="background-color: #fce4ec; border-radius: 12px; margin: 50px auto; max-width: 900px; padding: 40px;">
+        <h2 style="text-align: center; color: #ad1457;">📋 Request a Call Back</h2>
+        <form action="https://formsubmit.co/shaadishanstha.in@gmail.com" method="POST" style="display: flex; flex-direction: column; align-items: center;" target="_blank">
+            <input name="_redirect" type="hidden" value="https://shaadis.netlify.app/thank-you.html"/>
+            <input name="name" placeholder="Your Name" required="" style="margin: 10px 0; padding: 12px; width: 90%; max-width: 400px; border: 1px solid #ccc; border-radius: 6px;" type="text"/>
+            <input name="phone" placeholder="Your Mobile Number" required="" style="margin: 10px 0; padding: 12px; width: 90%; max-width: 400px; border: 1px solid #ccc; border-radius: 6px;" type="tel"/>
+            <input name="city" placeholder="City" required="" style="margin: 10px 0; padding: 12px; width: 90%; max-width: 400px; border: 1px solid #ccc; border-radius: 6px;" type="text"/>
+            <button style="margin-top: 20px; padding: 12px 30px; background-color: #d81b60; color: white; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; transition: background-color 0.3s ease;">Submit</button>
+            <input name="_captcha" type="hidden" value="false"/>
+            <input name="_next" type="hidden" value="https://shaadis.netlify.app/thank-you.html"/>
+        </form>
+    </section>
+
+    <section style="background-color: #fff0f5; padding: 40px; max-width: 900px; margin: 40px auto; border-radius: 12px;">
+        <h2 style="color: #c2185b;">❓ Frequently Asked Questions (FAQ)</h2>
+        <div style="margin-top: 30px;">
+            <p><strong>💬 What are the registration charges?</strong><br/>
+                ₹35,500 for 4 months (all-inclusive)
+            </p>
+            <p><strong>💬 Will I get a refund if the match is not finalized?</strong><br/>
+                Yes, ₹35,000 will be refunded after deducting ₹500.
+            </p>
+            <p><strong>💬 How long after can I request a refund?</strong><br/>
+                Within 30 days after the 4-month period.
+            </p>
+            <p><strong>💬 Are all biodatas verified?</strong><br/>
+                Yes, all profiles are manually verified.
+            </p>
+            <p><strong>💬 Is horoscope matching mandatory?</strong><br/>
+                It's optional, depending on the client's preference.
+            </p>
+            <p><strong>💬 How many biodatas will I receive?</strong><br/>
+                You will receive qualified and matching biodatas regularly until your requirement is met.
+            </p>
+            <p><strong>💬 Do you accept video profiles?</strong><br/>
+                Currently, we primarily focus on written biodatas, but video profiles may be considered.
+            </p>
+            <p><strong>💬 How is my privacy ensured?</strong><br/>
+                Your personal information is kept strictly confidential and is only shared with your consent. We employ industry-standard security measures to protect your data.
+            </p>
+            <p><strong>💬 How can I report suspicious activity or fraud?</strong><br/>
+                If you encounter any suspicious behavior or believe you've been targeted by fraud, please contact us immediately via WhatsApp or email. We take such reports seriously and investigate promptly.
+            </p>
+        </div>
+    </section>
+
+    <div class="container" id="contact">
+        <h2>💖 Contact Us</h2>
+        <p style="font-size: 1.1em; max-width: 700px; margin: 0 auto 20px; color: #555;">Have questions or need assistance? Feel free to reach out to us! Our team is here to help you every step of the way.</p>
+        <p><strong>Shaadi Sanstha Office</strong><br/>
+            Location: Bihar, India<br/>
+            Working Hours: Monday - Sunday, 10:00 AM - 8:00 PM IST
+        </p>
+        <div class="contact" style="margin-top: 20px;">
+            <p style="margin-bottom: 10px;"><strong>Direct Contacts:</strong></p>
+            <a href="mailto:shaadishanstha.in@gmail.com" style="display: block; margin-bottom: 10px; font-size: 1.1em;">📧 shaadishanstha.in@gmail.com</a>
+            <a href="https://wa.me/7808817710" target="_blank" style="display: block; font-size: 1.1em;">📞 WhatsApp Us: +91 7808817710</a>
+        </div>
+        <p style="margin-top: 30px; font-size: 1.1em; color: #ad1457; font-weight: bold;">We're committed to helping you find your perfect match with trust and transparency.</p>
+    </div>
+
+    <div class="container" id="terms">
+        <h2>💖 Terms and Conditions</h2>
+        <ul style="text-align: left; max-width: 800px; margin: 0 auto; line-height: 1.6;">
+            <li>1. If the match is not finalized within 4 months, a refund will be issued after deducting ₹500.</li>
+            <li>2. Users must request a refund within 30 days after the 4-month period.</li>
+            <li>3. Personal details shared will be kept strictly confidential as per our privacy policy.</li>
+            <li>4. No refund will be issued in case of false information or fraud.</li>
+        </ul>
+    </div>
 </main>
+
 <a href="https://wa.me/917808817710" style="position: fixed; bottom: 20px; right: 20px; z-index: 999;">
-<img alt="Chat on WhatsApp" src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="50"/>
+    <img alt="Chat on WhatsApp" src="https://cdn-icons-png.flaticon.com/512/733/733585.png" width="50"/>
 </a>
+
 <footer>
-       © 2025 Shaadi Sanstha | All rights reserved
-       <div style="margin-top: 10px;">
-<a href="#terms" style="color: #d81b60; text-decoration: none; margin: 0 10px; font-weight: bold;">Privacy Policy</a>
-<a href="#terms" style="color: #d81b60; text-decoration: none; margin: 0 10px; font-weight: bold;">Terms and Conditions</a>
-</div>
-<div style="margin-top: 15px; font-size: 24px;">
-<a href="https://www.facebook.com/your_page_link" style="color: #3b5998; margin: 0 8px; text-decoration: none;" target="_blank">📘</a>
-<a href="https://www.instagram.com/your_page_link" style="color: #C13584; margin: 0 8px; text-decoration: none;" target="_blank">📸</a>
-<a href="https://twitter.com/your_page_link" style="color: #1DA1F2; margin: 0 8px; text-decoration: none;" target="_blank">🐦</a>
-</div>
+    © 2025 Shaadi Sanstha | All rights reserved
+    <div style="margin-top: 10px;">
+        <a href="#terms" style="color: #d81b60; text-decoration: none; margin: 0 10px; font-weight: bold;">Privacy Policy</a>
+        <a href="#terms" style="color: #d81b60; text-decoration: none; margin: 0 10px; font-weight: bold;">Terms and Conditions</a>
+    </div>
+    <div style="margin-top: 15px; font-size: 24px;">
+        <a href="https://www.facebook.com/your_page_link" style="color: #3b5998; margin: 0 8px; text-decoration: none;" target="_blank">📘</a>
+        <a href="https://www.instagram.com/your_page_link" style="color: #C13584; margin: 0 8px; text-decoration: none;" target="_blank">📸</a>
+        <a href="https://twitter.com/your_page_link" style="color: #1DA1F2; margin: 0 8px; text-decoration: none;" target="_blank">🐦</a>
+    </div>
 </footer>
+
+<script>
+    // Disable right-click context menu globally
+    document.addEventListener('contextmenu', function(e) {
+        e.preventDefault();
+    });
+
+    // Disable image dragging
+    document.addEventListener('dragstart', function(e) {
+        if (e.target.tagName === 'IMG') {
+            e.preventDefault();
+        }
+    });
+
+    // Add .no-download-img class to specific images (success stories images)
+    document.addEventListener('DOMContentLoaded', function() {
+        const successStoryImages = document.querySelectorAll('#success-stories .testimonial-box img');
+        successStoryImages.forEach(img => {
+            img.classList.add('no-download-img');
+        });
+
+        // Hamburger Menu Logic
+        const hamburgerIcon = document.getElementById('hamburger-icon');
+        const offCanvasMenu = document.getElementById('off-canvas-menu');
+        const menuOverlay = document.getElementById('menu-overlay');
+        const closeMenuButton = document.getElementById('close-menu');
+        const menuLinks = document.querySelectorAll('.off-canvas-menu .menu-link');
+
+        function toggleMenu() {
+            offCanvasMenu.classList.toggle('open');
+            hamburgerIcon.classList.toggle('open');
+            menuOverlay.classList.toggle('active');
+            
+            // Fix: Disable body and html scrolling when menu is open
+            const isMenuOpen = offCanvasMenu.classList.contains('open');
+            document.body.classList.toggle('no-scroll', isMenuOpen);
+            document.documentElement.classList.toggle('no-scroll-html', isMenuOpen); // Apply to html as well
+        }
+
+        // Only add event listener if hamburger icon exists (i.e., on mobile)
+        if (hamburgerIcon) {
+            hamburgerIcon.addEventListener('click', toggleMenu);
+        }
+        
+        if (closeMenuButton) {
+            closeMenuButton.addEventListener('click', function(e) {
+                e.preventDefault(); // Prevent default link behavior
+                toggleMenu();
+            });
+        }
+        
+        if (menuOverlay) {
+            menuOverlay.addEventListener('click', toggleMenu); // Close menu when clicking outside
+        }
+
+        // Close menu when a link inside the menu is clicked
+        menuLinks.forEach(link => {
+            link.addEventListener('click', function() {
+                // Check if the clicked link is the "Register Now!" button
+                // If it is, and it leads to #registration, the menu should still close
+                toggleMenu(); // Close menu after clicking a link
+            });
+        });
+    });
+</script>
 </body>
 </html>
