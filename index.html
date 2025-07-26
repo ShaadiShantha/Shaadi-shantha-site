@@ -426,7 +426,7 @@
             text-decoration: none;
             font-weight: bold;
             font-size: 1.1em;
-            margin: 10px 10px; /* Space between buttons */
+            margin: 10px; /* Space between buttons */
             transition: background-color 0.3s ease, transform 0.2s ease;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
@@ -437,6 +437,17 @@
         .contact-icon-link:hover {
             background-color: #ad1457; /* Darker pink on hover */
             transform: translateY(-2px);
+        }
+        /* Style for the container of contact buttons to center them */
+        .contact-buttons {
+            display: flex;
+            flex-wrap: wrap; /* Allow wrapping on smaller screens */
+            justify-content: center;
+            gap: 10px; /* Space between wrapped items */
+            margin-top: 20px;
+            max-width: 700px; /* Limit width to keep buttons from spreading too much */
+            margin-left: auto;
+            margin-right: auto;
         }
 
         /* Hero Section Styles */
@@ -623,6 +634,12 @@
                 justify-content: flex-start; /* Align items to the start */
                 gap: 15px; /* Maintain small gap */
             }
+            /* Desktop specific font sizes and widths for better readability */
+            h1 { font-size: 3.5em; }
+            h2 { font-size: 2.5em; }
+            .hero-section p { font-size: 1.2em; }
+            .container { max-width: 1000px; margin: 0 auto; } /* Center and constrain content */
+            .service-box, .how-it-works-step { width: 280px; } /* Slightly larger boxes */
         }
     </style>
     <meta content="Shaadi Sanstha is a trusted matrimonial service based in Bihar. We help you find verified, compatible matches with cultural values and full family support." name="description"/>
@@ -909,7 +926,7 @@
             Location: Bihar, India<br/>
             Working Hours: Monday - Sunday, 10:00 AM - 8:00 PM IST
         </p>
-        <div class="contact-buttons" style="margin-top: 20px;">
+        <div class="contact-buttons">
             <a href="https://wa.me/917808817710" target="_blank" class="contact-icon-link" style="background-color: #25D366;">
                 <i class="fab fa-whatsapp"></i> WhatsApp Us
             </a>
