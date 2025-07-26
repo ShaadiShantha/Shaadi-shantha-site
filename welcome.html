@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome to Shaadi Sanstha</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap');
+
+        body {
+            margin: 0;
+            overflow: hidden; /* Hide scrollbars */
+            background: linear-gradient(135deg, #fce4ec, #f8bbd0, #f06292); /* Softer, richer pink gradient */
+            background-size: 400% 400%; /* For animation */
+            animation: gradientAnimation 15s ease infinite; /* Subtle background movement */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            font-family: 'Poppins', sans-serif; /* Modern, clean font */
+            color: #880e4f; /* Darker pink for text */
+            position: relative;
+        }
+
+        /* Background Gradient Animation */
+        @keyframes gradientAnimation {
+            0% { background-position: 0% 50%; }
+            50% { background-position: 100% 50%; }
+            100% { background-position: 0% 50%; }
+        }
+
+        .welcome-container {
+            text-align: center;
+            z-index: 2;
+            padding: 40px 30px;
+            background: rgba(255, 255, 255, 0.9); /* More opaque white background */
+            border-radius: 25px; /* More rounded corners */
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow */
+            max-width: 90%;
+            transform: scale(0.9); /* Slightly smaller initially */
+            opacity: 0;
+            animation: fadeInScaleUp 1.5s ease-out forwards; /* More pronounced fade in and scale */
+        }
+
+        .welcome-container .logo {
+            max-width: 220px; /* Larger logo */
+            height: auto;
+            display: block;
+            margin: 0 auto 25px; /* More space below logo */
+            animation: bounceIn 1s ease-out 0.5s forwards; /* Logo bounce animation */
+            opacity: 0; /* Hidden initially for animation */
+        }
+
+        .welcome-container h1 {
+            font-family: 'Dancing Script', cursive; /* Elegant, scripty font for main heading */
+            font-size: 3.8em; /* Very large heading */
+            margin-bottom: 10px;
+            color: #d81b60; /* Vibrant pink */
+            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15);
+            line-height: 1.1;
+            transform: translateY(20px); /* Slightly lower initially */
+            opacity: 0;
+            animation: slideInUp 1s ease-out 1s forwards; /* Slide up animation */
+        }
+
+        .welcome-container p {
+            font-size: 1.4em; /* Good size for slogan */
+            margin-bottom: 30px;
+            color: #ad1457;
+            font-weight: 600; /* Bolder */
+            transform: translateY(20px);
+            opacity: 0;
+            animation: slideInUp 1s ease-out 1.2s forwards; /* Slide up with delay */
+        }
+
+        .welcome-container .tagline {
+            font-size: 1.1em;
+            color: #b71c1c;
+            opacity: 0;
+            animation: fadeIn 1s ease-out 1.5s forwards; /* Fade in last */
+        }
+
+        /* Keyframes for main container and text animations */
+        @keyframes fadeInScaleUp {
+            from {
+                opacity: 0;
+                transform: scale(0.8);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes bounceIn {
+            0%, 20%, 40%, 60%, 80%, 100% {
+                transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
+            }
+            0% {
+                opacity: 0;
+                transform: scale3d(0.3, 0.3, 0.3);
+            }
+            20% {
+                transform: scale3d(1.1, 1.1, 1.1);
+            }
+            40% {
+                transform: scale3d(0.9, 0.9, 0.9);
+            }
+            60% {
+                opacity: 1;
+                transform: scale3d(1.03, 1.03, 1.03);
+            }
+            80% {
+                transform: scale3d(0.97, 0.97, 0.97);
+            }
+            100% {
+                opacity: 1;
+                transform: scale3d(1, 1, 1);
+            }
+        }
+
+        @keyframes slideInUp {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        /* Falling Flowers CSS */
+        .flower {
+            position: absolute;
+            background-color: rgba(255, 204, 229, 0.8); /* Light pink flower */
+            border-radius: 50%;
+            pointer-events: none;
+            animation: fall linear infinite;
+            z-index: 1;
+            box-shadow: 0 0 5px rgba(255, 204, 229, 0.5);
+        }
+
+        .flower::before,
+        .flower::after {
+            content: '';
+            position: absolute;
+            background-color: inherit;
+            border-radius: 50%;
+        }
+
+        .flower::before {
+            width: 100%;
+            height: 100%;
+            transform: rotate(45deg);
+        }
+
+        .flower::after {
+            width: 100%;
+            height: 100%;
+            transform: rotate(-45deg);
+        }
+
+        @keyframes fall {
+            0% {
+                transform: translateY(-10vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(110vh) rotate(720deg);
+                opacity: 0;
+            }
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .welcome-container {
+                padding: 30px 20px;
+            }
+            .welcome-container .logo {
+                max-width: 150px;
+            }
+            .welcome-container h1 {
+                font-size: 2.5em;
+            }
+            .welcome-container p {
+                font-size: 1.1em;
+            }
+            .welcome-container .tagline {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="welcome-container">
+        <img src="https://i.imgur.com/coZ4cGv.png" alt="Shaadi Sanstha Logo" class="logo">
+        <h1>Welcome to Shaadi Sanstha</h1>
+        <p>Connecting Hearts, Building Families.</p>
+        <p class="tagline">Your trusted partner for a beautiful journey ahead!</p>
+    </div>
+
+    <script>
+        // Function to create and animate a single flower
+        function createFlower() {
+            const flower = document.createElement('div');
+            flower.classList.add('flower');
+            
+            // Random size for flowers
+            const size = Math.random() * 20 + 10; // Between 10px and 30px
+            flower.style.width = `${size}px`;
+            flower.style.height = `${size}px`;
+            
+            // Random starting position (x-axis)
+            flower.style.left = `${Math.random() * 100}vw`;
+            
+            // Random animation duration for variety
+            const duration = Math.random() * 8 + 5; // Between 5s and 13s
+            flower.style.animationDuration = `${duration}s`;
+            
+            // Random delay for flowers to appear at different times
+            const delay = Math.random() * 5; // Up to 5s delay
+            flower.style.animationDelay = `${delay}s`;
+
+            document.body.appendChild(flower);
+
+            // Remove flower after animation ends to prevent memory leak
+            flower.addEventListener('animationend', () => {
+                flower.remove();
+            });
+        }
+
+        // Generate multiple flowers
+        const numberOfFlowers = 60; // Slightly more flowers for a richer look
+        for (let i = 0; i < numberOfFlowers; i++) {
+            createFlower();
+        }
+
+        // Redirect to main page after a delay
+        // INCREASED TIME: 8000 milliseconds = 8 seconds
+        setTimeout(() => {
+            window.location.href = 'index.html'; // <<< THIS REDIRECTS TO YOUR MAIN PAGE
+        }, 8000); // Changed from 5000 to 8000 milliseconds (8 seconds)
+    </script>
+</body>
+</html>
