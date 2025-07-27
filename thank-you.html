@@ -1,37 +1,136 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <title>Thank You</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      text-align: center;
-      padding: 50px;
-      background-color: #f3e5f5;
-    }
-    h1 {
-      color: #6a1b9a;
-    }
-    a.button {
-      display: inline-block;
-      margin-top: 20px;
-      padding: 12px 24px;
-      background-color: #8e24aa;
-      color: white;
-      text-decoration: none;
-      border-radius: 8px;
-      font-weight: bold;
-    }
-    a.button:hover {
-      background-color: #6a1b9a;
-    }
-  </style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You! | Shaadi Sanstha</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Base Styles */
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            background-color: #fce4ec; /* Light pink background, matching your site */
+            color: #333; /* Standard text color */
+            text-align: center;
+            margin: 0;
+            padding: 20px;
+            box-sizing: border-box;
+            line-height: 1.6;
+        }
+
+        /* Container for the thank you message */
+        .thank-you-container {
+            background-color: #ffffff;
+            padding: 40px;
+            border-radius: 12px; /* Slightly more rounded corners */
+            box-shadow: 0 6px 20px rgba(0, 0, 0, 0.1); /* Stronger shadow */
+            max-width: 600px;
+            width: 100%;
+            animation: fadeIn 1s ease-out; /* Simple fade-in animation */
+        }
+
+        /* Animation for fade-in */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Heading Styles */
+        h1 {
+            color: #ad1457; /* Darker pink, matching your site's headings */
+            font-size: 2.8em; /* Slightly larger for impact */
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px; /* Space between icon and text */
+        }
+        h1 i {
+            font-size: 0.9em; /* Icon size relative to heading */
+        }
+
+        /* Paragraph Styles */
+        p {
+            font-size: 1.1em;
+            margin-bottom: 15px;
+            color: #555;
+        }
+
+        /* Strong text within paragraphs */
+        p strong {
+            color: #d81b60; /* Highlight important text */
+        }
+
+        /* Call-to-action Button */
+        .home-button {
+            display: inline-block;
+            background-color: #d81b60; /* Pink button, matching your site */
+            color: white;
+            padding: 14px 30px; /* Larger padding */
+            border-radius: 8px; /* Rounded corners */
+            text-decoration: none;
+            font-weight: bold;
+            margin-top: 30px; /* More space above button */
+            transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Button shadow */
+        }
+
+        .home-button:hover {
+            background-color: #c2185b; /* Darker pink on hover */
+            transform: translateY(-3px); /* Lift effect on hover */
+            box-shadow: 0 6px 15px rgba(0, 0, 0, 0.2); /* Enhanced shadow on hover */
+        }
+
+        /* Footer (optional, but good for consistency) */
+        .footer-message {
+            margin-top: 40px;
+            font-size: 0.9em;
+            color: #777;
+        }
+        .footer-message a {
+            color: #ad1457;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        .footer-message a:hover {
+            text-decoration: underline;
+        }
+
+        /* Responsive Adjustments */
+        @media (max-width: 768px) {
+            .thank-you-container {
+                padding: 30px;
+                margin: 0 15px; /* Add some side margin */
+            }
+            h1 {
+                font-size: 2.2em;
+            }
+            p {
+                font-size: 1em;
+            }
+            .home-button {
+                padding: 12px 25px;
+                font-size: 0.9em;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1>Thank You!</h1>
-  <p>Your registration has been received successfully. We’ll contact you soon!</p>
-  <a href="index.html" class="button">Back to Main Page</a>
+    <div class="thank-you-container">
+        <h1><i class="fas fa-heart"></i> Thank You!</h1>
+        <p>Your request has been **successfully submitted**.</p>
+        <p>Our team will **contact you shortly**.</p>
+        <p>Thank you for trusting Shaadi Sanstha!</p>
+        <a href="index.html" class="home-button">
+            <i class="fas fa-home"></i> Go Back to Home
+        </a>
+        <p class="footer-message">
+            For any questions, you can contact us on <a href="https://wa.me/917808817710" target="_blank">WhatsApp</a>.
+        </p>
+    </div>
 </body>
 </html>
