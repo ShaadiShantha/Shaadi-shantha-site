@@ -6,20 +6,25 @@
     <title>Welcome to Shaadi Sanstha</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@700&display=swap'); /* For Hindi text if needed for other elements */
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap'); /* For very stylish 'Swagatam' */
+
 
         body {
             margin: 0;
-            overflow: hidden; /* Hide scrollbars */
+            height: 100vh; /* Fixed height for mobile display stability */
+            overflow: hidden; /* Hide scrollbars, crucial for mobile */
             background: linear-gradient(135deg, #fce4ec, #f8bbd0, #f06292); /* Softer, richer pink gradient */
             background-size: 400% 400%; /* For animation */
             animation: gradientAnimation 15s ease infinite; /* Subtle background movement */
             display: flex;
-            justify-content: center;
-            align-items: center;
-            min-height: 100vh;
-            font-family: 'Poppins', sans-serif; /* Modern, clean font */
-            color: #880e4f; /* Darker pink for text */
+            flex-direction: column; /* Align items vertically */
+            justify-content: center; /* Center content vertically */
+            align-items: center; /* Center horizontally */
+            font-family: 'Poppins', sans-serif;
+            color: #880e4f;
             position: relative;
+            box-sizing: border-box; /* Include padding/border in element's total width/height */
         }
 
         /* Background Gradient Animation */
@@ -29,105 +34,111 @@
             100% { background-position: 0% 50%; }
         }
 
-        .welcome-container {
-            text-align: center;
-            z-index: 2;
-            padding: 40px 30px;
-            background: rgba(255, 255, 255, 0.9); /* More opaque white background */
+        .main-content-wrapper {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            z-index: 2; /* Ensure content is above flowers */
+            background: rgba(255, 255, 255, 0.95); /* More opaque white background */
             border-radius: 25px; /* More rounded corners */
             box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow */
-            max-width: 90%;
-            transform: scale(0.9); /* Slightly smaller initially */
+            padding: 30px 20px; /* Padding for the entire card */
+            max-width: 90%; /* Adjust for mobile */
+            width: 500px; /* Max width for larger screens */
+            animation: fadeInScaleUp 1.5s ease-out forwards;
             opacity: 0;
-            animation: fadeInScaleUp 1.5s ease-out forwards; /* More pronounced fade in and scale */
         }
 
-        .welcome-container .logo {
-            max-width: 220px; /* Larger logo */
+        .ganesha-image-container {
+            margin-bottom: 15px; /* Space between image and Om Ganeshaya Namaha */
+            animation: fadeIn 1s ease-out 0.3s forwards;
+            opacity: 0;
+            text-align: center; /* Ensure image and mantra are centered */
+        }
+
+        .ganesha-image-container img {
+            max-width: 200px; /* Slightly larger for impact */
             height: auto;
             display: block;
-            margin: 0 auto 25px; /* More space below logo */
-            animation: bounceIn 1s ease-out 0.5s forwards; /* Logo bounce animation */
-            opacity: 0; /* Hidden initially for animation */
+            margin: 0 auto;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
         }
 
-        .welcome-container h1 {
-            font-family: 'Dancing Script', cursive; /* Elegant, scripty font for main heading */
-            font-size: 3.8em; /* Very large heading */
-            margin-bottom: 10px;
+        .om-ganeshaya-namaha {
+            font-family: 'Hind Siliguri', sans-serif; /* A strong, clear Hindi font */
+            font-size: 1.8em; /* Heading like size */
+            color: #800000; /* Dark maroon for a traditional feel */
+            font-weight: bold;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+            margin-top: 10px; /* Space below the image */
+            animation: fadeIn 1s ease-out 0.8s forwards; /* Appear after image */
+            opacity: 0;
+        }
+
+        .stylish-swagatam {
+            font-family: 'Great Vibes', cursive; /* A very elegant cursive font */
+            font-size: 5em; /* Very large for prominence */
             color: #d81b60; /* Vibrant pink */
+            margin-top: 20px; /* Space above the welcome message */
+            margin-bottom: 10px; /* Space below Swagatam */
             text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15);
-            line-height: 1.1;
-            transform: translateY(20px); /* Slightly lower initially */
+            line-height: 1; /* Keep lines close */
+            animation: slideInUp 1s ease-out 1s forwards; /* Animated entrance */
             opacity: 0;
-            animation: slideInUp 1s ease-out 1s forwards; /* Slide up animation */
-        }
-
-        .welcome-container p {
-            font-size: 1.4em; /* Good size for slogan */
-            margin-bottom: 30px;
-            color: #ad1457;
-            font-weight: 600; /* Bolder */
             transform: translateY(20px);
-            opacity: 0;
-            animation: slideInUp 1s ease-out 1.2s forwards; /* Slide up with delay */
+            white-space: nowrap; /* Prevent wrapping */
         }
 
-        .welcome-container .tagline {
-            font-size: 1.1em;
+        .welcome-logo {
+            max-width: 150px; /* Standard size for the logo */
+            height: auto;
+            display: block;
+            margin: 0 auto 15px; /* Space below logo */
+            animation: bounceIn 1s ease-out 1.5s forwards; /* Animated entrance */
+            opacity: 0;
+        }
+
+        .welcome-heading {
+            font-family: 'Poppins', sans-serif;
+            font-size: 2.5em;
+            margin-bottom: 5px;
+            color: #ad1457;
+            line-height: 1.2;
+            animation: slideInUp 1s ease-out 1.8s forwards; /* Animated entrance */
+            opacity: 0;
+            transform: translateY(20px);
+        }
+
+        .welcome-slogan {
+            font-size: 1.2em;
+            margin-bottom: 25px;
             color: #b71c1c;
+            font-weight: 600;
+            animation: slideInUp 1s ease-out 2s forwards; /* Animated entrance */
             opacity: 0;
-            animation: fadeIn 1s ease-out 1.5s forwards; /* Fade in last */
+            transform: translateY(20px);
         }
 
-        /* Keyframes for main container and text animations */
+        /* Keyframes for animations */
         @keyframes fadeInScaleUp {
-            from {
-                opacity: 0;
-                transform: scale(0.8);
-            }
-            to {
-                opacity: 1;
-                transform: scale(1);
-            }
+            from { opacity: 0; transform: scale(0.8); }
+            to { opacity: 1; transform: scale(1); }
         }
 
         @keyframes bounceIn {
-            0%, 20%, 40%, 60%, 80%, 100% {
-                transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1);
-            }
-            0% {
-                opacity: 0;
-                transform: scale3d(0.3, 0.3, 0.3);
-            }
-            20% {
-                transform: scale3d(1.1, 1.1, 1.1);
-            }
-            40% {
-                transform: scale3d(0.9, 0.9, 0.9);
-            }
-            60% {
-                opacity: 1;
-                transform: scale3d(1.03, 1.03, 1.03);
-            }
-            80% {
-                transform: scale3d(0.97, 0.97, 0.97);
-            }
-            100% {
-                opacity: 1;
-                transform: scale3d(1, 1, 1);
-            }
+            0%, 20%, 40%, 60%, 80%, 100% { transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
+            0% { opacity: 0; transform: scale3d(0.3, 0.3, 0.3); }
+            20% { transform: scale3d(1.1, 1.1, 1.1); }
+            40% { transform: scale3d(0.9, 0.9, 0.9); }
+            60% { opacity: 1; transform: scale3d(1.03, 1.03, 1.03); }
+            80% { transform: scale3d(0.97, 0.97, 0.97); }
+            100% { opacity: 1; transform: scale3d(1, 1, 1); }
         }
 
         @keyframes slideInUp {
-            from {
-                opacity: 0;
-                transform: translateY(50px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
 
         @keyframes fadeIn {
@@ -142,28 +153,9 @@
             border-radius: 50%;
             pointer-events: none;
             animation: fall linear infinite;
-            z-index: 1;
+            z-index: 1; /* Behind the main content wrapper */
             box-shadow: 0 0 5px rgba(255, 204, 229, 0.5);
-        }
-
-        .flower::before,
-        .flower::after {
-            content: '';
-            position: absolute;
-            background-color: inherit;
-            border-radius: 50%;
-        }
-
-        .flower::before {
-            width: 100%;
-            height: 100%;
-            transform: rotate(45deg);
-        }
-
-        .flower::after {
-            width: 100%;
-            height: 100%;
-            transform: rotate(-45deg);
+            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Simple petal shape */
         }
 
         @keyframes fall {
@@ -182,30 +174,61 @@
 
         /* Responsive adjustments */
         @media (max-width: 768px) {
-            .welcome-container {
-                padding: 30px 20px;
+            .main-content-wrapper {
+                padding: 20px 15px;
+                max-width: 95%; /* Take more width on small screens */
             }
-            .welcome-container .logo {
-                max-width: 150px;
+            .ganesha-image-container img {
+                max-width: 150px; /* Smaller image for mobile */
             }
-            .welcome-container h1 {
-                font-size: 2.5em;
+            .om-ganeshaya-namaha {
+                font-size: 1.4em; /* Smaller mantra */
             }
-            .welcome-container p {
-                font-size: 1.1em;
+            .stylish-swagatam {
+                font-size: 3.5em; /* Smaller Swagatam */
+                margin-top: 15px;
             }
-            .welcome-container .tagline {
-                font-size: 0.9em;
+            .welcome-logo {
+                max-width: 100px; /* Smaller logo */
+            }
+            .welcome-heading {
+                font-size: 1.8em; /* Smaller heading */
+            }
+            .welcome-slogan {
+                font-size: 0.9em; /* Smaller slogan */
+            }
+        }
+
+        @media (max-width: 480px) {
+            .stylish-swagatam {
+                font-size: 2.8em; /* Even smaller for very small phones */
+            }
+            .welcome-heading {
+                font-size: 1.5em;
+            }
+            .welcome-slogan {
+                font-size: 0.8em;
+            }
+            .om-ganeshaya-namaha {
+                font-size: 1.2em;
             }
         }
     </style>
 </head>
 <body>
-    <div class="welcome-container">
-        <img src="https://i.imgur.com/coZ4cGv.png" alt="Shaadi Sanstha Logo" class="logo">
-        <h1>Welcome to Shaadi Sanstha</h1>
-        <p>Connecting Hearts, Building Families.</p>
-        <p class="tagline">Your trusted partner for a beautiful journey ahead!</p>
+    <div class="main-content-wrapper">
+        <div class="ganesha-image-container">
+            <img src="https://i.imgur.com/qCRunpk.jpeg" alt="Ganesha Blessing">
+            <div class="om-ganeshaya-namaha">
+                ॐ गणेशाय नमः
+            </div>
+        </div>
+
+        <div class="stylish-swagatam">स्वागतम</div>
+
+        <img src="https://i.imgur.com/coZ4cGv.png" alt="Shaadi Sanstha Logo" class="welcome-logo">
+        <h1 class="welcome-heading">Welcome to Shaadi Sanstha</h1>
+        <p class="welcome-slogan">Connecting Hearts, Building Families with Blessings.</p>
     </div>
 
     <script>
@@ -213,21 +236,26 @@
         function createFlower() {
             const flower = document.createElement('div');
             flower.classList.add('flower');
-            
+
             // Random size for flowers
-            const size = Math.random() * 20 + 10; // Between 10px and 30px
+            const size = Math.random() * 12 + 6; // Between 6px and 18px
             flower.style.width = `${size}px`;
             flower.style.height = `${size}px`;
-            
-            // Random starting position (x-axis)
-            flower.style.left = `${Math.random() * 100}vw`;
-            
+
+            // Random starting position (x-axis) - more focused around center
+            // Adjusted to appear more centrally over the Ganesha image area
+            const startX = Math.random() * 40 + 30; // Between 30vw and 70vw
+            flower.style.left = `${startX}vw`;
+
+            // Random starting y-position (appearing from above Ganesha/top of screen)
+            flower.style.top = `${Math.random() * 20 - 20}vh`; // Between -20vh and 0vh
+
             // Random animation duration for variety
-            const duration = Math.random() * 8 + 5; // Between 5s and 13s
+            const duration = Math.random() * 5 + 3; // Between 3s and 8s
             flower.style.animationDuration = `${duration}s`;
-            
+
             // Random delay for flowers to appear at different times
-            const delay = Math.random() * 5; // Up to 5s delay
+            const delay = Math.random() * 3; // Up to 3s delay
             flower.style.animationDelay = `${delay}s`;
 
             document.body.appendChild(flower);
@@ -239,16 +267,15 @@
         }
 
         // Generate multiple flowers
-        const numberOfFlowers = 60; // Slightly more flowers for a richer look
+        const numberOfFlowers = 60; // Adjust as needed
         for (let i = 0; i < numberOfFlowers; i++) {
             createFlower();
         }
 
         // Redirect to main page after a delay
-        // INCREASED TIME: 8000 milliseconds = 8 seconds
         setTimeout(() => {
-            window.location.href = 'index.html'; // <<< THIS REDIRECTS TO YOUR MAIN PAGE
-        }, 8000); // Changed from 5000 to 8000 milliseconds (8 seconds)
+            window.location.href = 'index.html';
+        }, 8000); // 8 seconds delay
     </script>
 </body>
 </html>
