@@ -7,10 +7,16 @@
     <title>Shaadi Sanstha | Matrimonial Service in Bihar for Verified Matches</title>
     
     <script>
-        // This JavaScript will redirect the browser to welcome.html as soon as index.html loads.
-        // window.location.replace() is used to prevent the user from coming back to index.html
-        // by pressing the back button, as it replaces the current history entry.
-        window.location.replace("welcome.html");
+        // Check if the welcome page has been shown before in this session
+        // If not, set the flag and redirect to welcome.html
+        // This ensures the welcome page is shown only once per browser session (tab/window).
+        const hasSeenWelcome = sessionStorage.getItem('hasSeenWelcomePage');
+
+        if (!hasSeenWelcome) {
+            sessionStorage.setItem('hasSeenWelcomePage', 'true');
+            window.location.replace("welcome.html");
+        }
+        // If hasSeenWelcome is true, then index.html will load normally without redirecting.
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
