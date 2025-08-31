@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://shaadis.netlify.app/sitemap.xml
+Sitemap: https://shaadishanstha.in/sitemap.xml
