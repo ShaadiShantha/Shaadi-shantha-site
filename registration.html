@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Shaadi Sanstha - Registration Form</title>
+  <title>Shaadi Shanstha - Registration</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     /* Global Styles */
@@ -118,14 +118,12 @@
       outline: none;
     }
     
-    /* Specific styling for file inputs */
     input[type="file"] {
       padding: 10px;
       border: 1px solid #ddd;
       border-radius: 8px;
       margin-top: 5px;
-      width: auto; /* Adjust width for file input */
-      display: block; /* Ensures it takes its own line */
+      width: auto;
     }
 
     .file-note {
@@ -133,13 +131,6 @@
       font-size: 0.9em;
       margin-top: 5px;
       display: block;
-    }
-    
-    .error-message {
-      color: #d32f2f;
-      font-size: 0.85em;
-      margin-top: 5px;
-      display: none; /* Hidden by default */
     }
 
     button {
@@ -171,23 +162,23 @@
 <body>
   <div class="form-container">
     <div class="heading-section">
-      <h1 class="main-heading">Shaadi Sanstha</h1>
+      <h1 class="main-heading">Shaadi Shanstha</h1>
       <h2 class="sub-heading">Registration Form</h2>
     </div>
 
-    <form id="registrationForm" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
-        <input type="hidden" name="access_key" value="f1cf34c8-de2c-44de-8c90-24af096ad9ae"> 
-        <input type="hidden" name="redirect" value="https://shaadishanstha.netlify.app/thank-you2.html">
-        <input type="hidden" name="subject" value="Shaadi Sanstha - New Registration Form Submission!">
+    <form action="https://formsubmit.co/shaadishanstha.in@gmail.com" method="POST" enctype="multipart/form-data">
+      <input type="hidden" name="_next" value="https://shaadishanstha.netlify.app/thank-you2.html" />
+      <input type="hidden" name="_captcha" value="false" />
+      <input type="hidden" name="_subject" value="Shaadi Shanstha - New Registration Form Submission!" />
       
       <h2>👤 Personal Information</h2>
       <div class="form-group">
-        <label for="full_name">Full Name:</label>
-        <input type="text" id="full_name" name="full_name" required>
+        <label>Full Name:</label>
+        <input type="text" name="full_name" required>
       </div>
       <div class="form-group">
-        <label for="gender">Gender:</label>
-        <select id="gender" name="gender" required>
+        <label>Gender:</label>
+        <select name="gender" required>
           <option value="">Select Gender</option>
           <option>Male</option>
           <option>Female</option>
@@ -195,16 +186,16 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="dob">Date of Birth:</label>
-        <input type="date" id="dob" name="dob" required>
+        <label>Date of Birth:</label>
+        <input type="date" name="dob" required>
       </div>
       <div class="form-group">
-        <label for="age">Age:</label>
-        <input type="number" id="age" name="age" required>
+        <label>Age:</label>
+        <input type="number" name="age" required>
       </div>
       <div class="form-group">
-        <label for="caste">Caste:</label>
-        <select id="caste" name="caste" required>
+        <label>Caste:</label>
+        <select name="caste" required>
           <option value="">Select Caste</option>
           <option>Brahmin</option>
           <option>Rajput</option>
@@ -230,12 +221,12 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="sub_caste">Sub-Caste (Optional):</label>
-        <input type="text" id="sub_caste" name="sub_caste">
+        <label>Sub-Caste (Optional):</label>
+        <input type="text" name="sub_caste">
       </div>
       <div class="form-group">
-        <label for="religion">Religion:</label>
-        <select id="religion" name="religion" required>
+        <label>Religion:</label>
+        <select name="religion" required>
           <option value="">Select Religion</option>
           <option>Hindu</option>
           <option>Muslim</option>
@@ -247,12 +238,12 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="height">Height (cm):</label>
-        <input type="number" id="height" name="height">
+        <label>Height (cm):</label>
+        <input type="number" name="height">
       </div>
       <div class="form-group">
-        <label for="complexion">Complexion:</label>
-        <select id="complexion" name="complexion">
+        <label>Complexion:</label>
+        <select name="complexion">
           <option value="">Select Complexion</option>
           <option>Fair</option>
           <option>Wheatish</option>
@@ -260,8 +251,8 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="disability">Any Disability (Optional):</label>
-        <select id="disability" name="disability">
+        <label>Any Disability (Optional):</label>
+        <select name="disability">
             <option value="">Select</option>
             <option>No</option>
             <option>Physical Disability</option>
@@ -271,38 +262,38 @@
 
       <h2>📞 Contact Details</h2>
       <div class="form-group">
-        <label for="mobile">Mobile Number:</label>
-        <input type="tel" id="mobile" name="mobile" required>
+        <label>Mobile Number:</label>
+        <input type="tel" name="mobile" required>
       </div>
       <div class="form-group">
-        <label for="email">Email:</label>
-        <input type="email" id="email" name="email" required>
+        <label>Email:</label>
+        <input type="email" name="email" required>
       </div>
       <div class="form-group">
-        <label for="stateSelect">State:</label>
+        <label>State:</label>
         <select name="state" id="stateSelect" required>
           <option value="">Select State</option>
         </select>
       </div>
       <div class="form-group">
-        <label for="districtSelect">District:</label>
+        <label>District:</label>
         <select name="district" id="districtSelect" required>
           <option value="">Select District</option>
         </select>
       </div>
       <div class="form-group">
-        <label for="city">City:</label>
-        <input type="text" id="city" name="city">
+        <label>City:</label>
+        <input type="text" name="city">
       </div>
       <div class="form-group">
-        <label for="pincode">Pin Code:</label>
-        <input type="text" id="pincode" name="pincode">
+        <label>Pin Code:</label>
+        <input type="text" name="pincode">
       </div>
 
-      <h2>📚 Education and Occupation</h2>
+      <h2>📚 Education & Job</h2>
       <div class="form-group">
-        <label for="education_level">Highest Education Level:</label>
-        <select id="education_level" name="education_level" required>
+        <label>Highest Education Level:</label>
+        <select name="education_level" required>
           <option value="">Select Education Level</option>
           <option>Below 10th</option>
           <option>10th Pass</option>
@@ -316,12 +307,12 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="specific_education">Specific Degree/Field of Study (e.g., B.Tech in Computer Science, IIT Delhi):</label>
-        <input type="text" id="specific_education" name="specific_education">
+        <label>Specific Degree/Field of Study (e.g., B.Tech in Computer Science, IIT Delhi):</label>
+        <input type="text" name="specific_education">
       </div>
       <div class="form-group">
-        <label for="profession">Profession:</label>
-        <select id="profession" name="profession" required>
+        <label>Profession:</label>
+        <select name="profession" required>
           <option value="">Select Profession</option>
           <option>Government Job (IAS, IPS, IRS, IFS, PCS, etc.)</option>
           <option>Private Job</option>
@@ -329,15 +320,15 @@
           <option>Doctor</option>
           <option>Engineer</option>
           <option>Teacher/Professor</option>
-          <option>Defense/Police</option>
+          <option>Defence/Police</option>
           <option>IT Professional</option>
           <option>Artist/Creative</option>
           <option>Farmer</option>
           <option>Student</option>
           <option>Homemaker</option>
           <option>Retired</option>
-          <option>Unemployed</option>
-          <option>Self-Employed</option>
+          <option>Not Working</option>
+          <option>Self Employed</option>
           <option>Management Professional</option>
           <option>Banking Professional</option>
           <option>Lawyer</option>
@@ -352,8 +343,8 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="income">Monthly Income (₹):</label>
-        <select id="income" name="income">
+        <label>Monthly Income (₹):</label>
+        <select name="income">
             <option value="">Select Income Range</option>
             <option value="Below ₹20,000">Below ₹20,000</option>
             <option value="₹20,000 - ₹40,000">₹20,000 - ₹40,000</option>
@@ -370,12 +361,12 @@
 
       <h2>🏠 Family Background</h2>
       <div class="form-group">
-        <label for="father_occupation">Father's Occupation:</label>
-        <select id="father_occupation" name="father_occupation">
+        <label>Father's Occupation:</label>
+        <select name="father_occupation">
             <option value="">Select Occupation</option>
             <option>Government Employee</option>
             <option>Private Employee</option>
-            <option>Businessman</option>
+            <option>Business Owner</option>
             <option>Farmer</option>
             <option>Doctor</option>
             <option>Engineer</option>
@@ -386,13 +377,13 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="mother_occupation">Mother's Occupation:</label>
-        <select id="mother_occupation" name="mother_occupation">
+        <label>Mother's Occupation:</label>
+        <select name="mother_occupation">
             <option value="">Select Occupation</option>
             <option>Homemaker</option>
             <option>Government Employee</option>
             <option>Private Employee</option>
-            <option>Businessman</option>
+            <option>Business Owner</option>
             <option>Teacher/Professor</option>
             <option>Doctor</option>
             <option>Retired</option>
@@ -400,16 +391,16 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="family_type">Family Type:</label>
-        <select id="family_type" name="family_type">
+        <label>Family Type:</label>
+        <select name="family_type">
             <option value="">Select Family Type</option>
             <option>Nuclear Family</option>
             <option>Joint Family</option>
         </select>
       </div>
       <div class="form-group">
-        <label for="family_values">Family Values:</label>
-        <select id="family_values" name="family_values">
+        <label>Family Values:</label>
+        <select name="family_values">
             <option value="">Select Family Values</option>
             <option>Traditional</option>
             <option>Moderate</option>
@@ -417,42 +408,42 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="siblings">Number of Siblings:</label>
-        <input type="text" id="siblings" name="siblings" placeholder="e.g., 1 Brother, 2 Sisters (1 married)">
+        <label>Number of Siblings (Brothers, Sisters):</label>
+        <input type="text" name="siblings" placeholder="e.g., 1 Brother, 2 Sisters (1 Married)">
       </div>
 
       <h2>📝 About Me / Partner Expectations</h2>
       <div class="form-group">
-        <label for="about_me">Tell us about yourself (Personality, Hobbies, Interests, etc.):</label>
-        <textarea id="about_me" name="about_me" rows="4" placeholder="Write a few lines about your personality, likes, and aspirations."></textarea>
+        <label>Tell us about yourself (Personality, Hobbies, Interests, etc.):</label>
+        <textarea name="about_me" rows="4" placeholder="Share a few lines about your personality, what you enjoy doing, and your aspirations."></textarea>
       </div>
       <div class="form-group">
-        <label for="partner_expectations">What are you looking for in a partner?:</label>
-        <textarea id="partner_expectations" name="partner_expectations" rows="4" placeholder="Describe the qualities you seek in your life partner and your expectations from the relationship."></textarea>
+        <label>What are you looking for in a partner?:</label>
+        <textarea name="partner_expectations" rows="4" placeholder="Describe the qualities you seek in your life partner and your expectations from the relationship."></textarea>
       </div>
       
-      <h2>💍 Lifestyle and Marriage Preferences</h2>
+      <h2>💍 Lifestyle & Marriage Preferences</h2>
       <div class="form-group">
-        <label for="looking_for">Looking For:</label>
-        <select id="looking_for" name="looking_for">
+        <label>Looking For:</label>
+        <select name="looking_for">
           <option value="">Select</option>
           <option>Bride</option>
           <option>Groom</option>
         </select>
       </div>
       <div class="form-group">
-        <label for="marital_status">Marital Status:</label>
-        <select id="marital_status" name="marital_status">
+        <label>Marital Status:</label>
+        <select name="marital_status">
             <option value="">Select Status</option>
-            <option>Never Married</option>
+            <option>Unmarried</option>
             <option>Divorced</option>
             <option>Widowed</option>
             <option>Annulled</option>
         </select>
       </div>
       <div class="form-group">
-        <label for="dietary_preferences">Dietary Preferences:</label>
-        <select id="dietary_preferences" name="dietary_preferences">
+        <label>Dietary Preferences:</label>
+        <select name="dietary_preferences">
             <option value="">Select</option>
             <option>Vegetarian</option>
             <option>Non-Vegetarian</option>
@@ -461,8 +452,8 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="smoking_habits">Smoking Habits:</label>
-        <select id="smoking_habits" name="smoking_habits">
+        <label>Smoking Habits:</label>
+        <select name="smoking_habits">
             <option value="">Select</option>
             <option>Non-Smoker</option>
             <option>Occasional Smoker</option>
@@ -470,8 +461,8 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="drinking_habits">Drinking Habits:</label>
-        <select id="drinking_habits" name="drinking_habits">
+        <label>Drinking Habits:</label>
+        <select name="drinking_habits">
             <option value="">Select</option>
             <option>Non-Drinker</option>
             <option>Social Drinker</option>
@@ -479,57 +470,56 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="preferred_age">Preferred Age Range (for partner):</label>
-        <input type="text" id="preferred_age" name="preferred_age" placeholder="e.g., 25-30 years">
+        <label>Preferred Age Range (for partner):</label>
+        <input type="text" name="preferred_age" placeholder="e.g., 25-30 years">
       </div>
       <div class="form-group">
-        <label for="preferred_caste">Preferred Caste (for partner):</label>
-        <input type="text" id="preferred_caste" name="preferred_caste">
+        <label>Preferred Caste (for partner):</label>
+        <input type="text" name="preferred_caste">
       </div>
       <div class="form-group">
-        <label for="preferred_education">Preferred Education (for partner):</label>
-        <input type="text" id="preferred_education" name="preferred_education">
+        <label>Preferred Education (for partner):</label>
+        <input type="text" name="preferred_education">
       </div>
       <div class="form-group">
-        <label for="preferred_profession">Preferred Profession (for partner):</label>
-        <input type="text" id="preferred_profession" name="preferred_profession">
+        <label>Preferred Profession (for partner):</label>
+        <input type="text" name="preferred_profession">
       </div>
 
-      <h2>🔮 Astrological Information (Optional)</h2>
+      <h2>🔮 Horoscope Info (Optional)</h2>
       <div class="form-group">
-        <label for="birth_time">Birth Time:</label>
-        <input type="text" id="birth_time" name="birth_time">
+        <label>Birth Time:</label>
+        <input type="text" name="birth_time">
       </div>
       <div class="form-group">
-        <label for="birth_place">Birth Place:</label>
-        <input type="text" id="birth_place" name="birth_place">
+        <label>Birth Place:</label>
+        <input type="text" name="birth_place">
       </div>
       <div class="form-group">
-        <label for="gotra">Gotra:</label>
-        <input type="text" id="gotra" name="gotra">
+        <label>Gotra:</label>
+        <input type="text" name="gotra">
       </div>
       <div class="form-group">
-        <label for="manglik_status">Manglik Status:</label>
-        <select id="manglik_status" name="manglik_status">
+        <label>Manglik Status:</label>
+        <select name="manglik_status">
             <option value="">Select</option>
             <option>Yes</option>
             <option>No</option>
-            <option>Anshik Manglik</option>
+            <option>Partial Manglik</option>
             <option>Don't Know</option>
         </select>
       </div>
 
       <h2>📸 Uploads</h2>
       <div class="form-group">
-        <label for="profile_pictures">Upload your Profile Photos:</label>
-        <input type="file" id="profile_pictures" name="profile_pictures[]" accept="image/jpeg, image/png" multiple required>
-        <span class="file-note">Please upload at least 2 clear profile photos.</span>
-        <span class="error-message" id="profile_pictures_error">Please upload at least 2 profile photos.</span>
+        <label>Upload Your Profile Picture (Max 2MB, JPG/PNG only):</label>
+        <input type="file" name="profile_picture" accept="image/jpeg, image/png">
+        <span class="file-note">(A clear, recent photo helps in better matches)</span>
       </div>
       <div class="form-group">
-        <label for="aadhaar_card">Upload Aadhaar Card (Front & Back):</label>
-        <input type="file" id="aadhaar_card" name="aadhaar_card[]" accept="image/jpeg, image/png, application/pdf" multiple>
-        <span class="file-note">(Upload clear images of both front and back of Aadhaar card for verification.)</span>
+        <label>Upload Aadhaar Card (Front and Back):</label>
+        <input type="file" name="aadhaar_card" accept="image/jpeg, image/png, application/pdf" multiple>
+        <span class="file-note">(To verify your identity, a clear photo of front and back is required)</span>
       </div>
 
       <button type="submit">Submit Registration</button>
@@ -540,7 +530,7 @@
     // Indian States and their Districts data
     const indiaStatesAndDistricts = {
         "Andhra Pradesh": ["Anantapur", "Chittoor", "East Godavari", "Guntur", "Krishna", "Kurnool", "Nellore", "Prakasam", "Srikakulam", "Visakhapatnam", "Vizianagaram", "West Godavari", "YSR Kadapa"],
-        "Arunachal Pradesh": ["Anjaw", "Changlang", "Dibang Valley", "East Kameng", "East Siang", "Kra Daadi", "Kurung Kumey", "Lohit", "Longding", "Lower Dibang Valley", "Lower Siang", "Lower Subansiri", "Namsai", "Pakke-Kessang", "Papum Pare", "Shi Yomi", "Siang", "Tawang", "Tirap", "Upper Siang", "Upper Subansiri", "West Kameng", "West Siang"],
+        "Arunachal Pradesh": ["Anjaw", "Changlang", "Dibang Valley", "East Kameng", "East Siang", "Kra Raadi", "Kurung Kumey", "Lohit", "Longding", "Lower Dibang Valley", "Lower Siang", "Lower Subansiri", "Namsai", "Pakke-Kessang", "Papum Pare", "Shi Yomi", "Siang", "Tawang", "Tirap", "Upper Siang", "Upper Subansiri", "West Kameng", "West Siang"],
         "Assam": ["Baksa", "Barpeta", "Biswanath", "Bongaigaon", "Cachar", "Charaideo", "Chirang", "Darrang", "Dhemaji", "Dhubri", "Dibrugarh", "Dima Hasao", "Goalpara", "Golaghat", "Hailakandi", "Hojai", "Jorhat", "Kamrup Metropolitan", "Kamrup", "Karbi Anglong", "Karimganj", "Kokrajhar", "Lakhimpur", "Majuli", "Morigaon", "Nagaon", "Nalbari", "Sivasagar", "Sonitpur", "South Salmara-Mankachar", "Tinsukia", "Udalguri", "West Karbi Anglong"],
         "Bihar": ["Araria", "Arwal", "Aurangabad", "Banka", "Begusarai", "Bhagalpur", "Bhojpur", "Buxar", "Darbhanga", "East Champaran", "Gaya", "Gopalganj", "Jamui", "Jehanabad", "Kaimur (Bhabua)", "Katihar", "Khagaria", "Kishanganj", "Lakhisarai", "Madhepura", "Madhubani", "Munger", "Muzaffarpur", "Nalanda", "Nawada", "Patna", "Purnia", "Rohtas", "Saharsa", "Samastipur", "Saran", "Sheikhpura", "Sheohar", "Sitamarhi", "Siwan", "Supaul", "Vaishali", "West Champaran"],
         "Chhattisgarh": ["Balod", "Baloda Bazar", "Balrampur", "Bastar", "Bemetara", "Bijapur", "Bilaspur", "Dantewada", "Dhamtari", "Durg", "Gariaband", "Gaurela Pendra Marwahi", "Janjgir-Champa", "Jashpur", "Kanker", "Kawardha", "Kondagaon", "Korba", "Koriya", "Mahasamund", "Mungeli", "Narayanpur", "Raigarh", "Raipur", "Rajnandgaon", "Sukma", "Surajpur", "Surguja"],
@@ -605,22 +595,6 @@
 
     stateSelect.addEventListener('change', populateDistricts);
     populateStates();
-
-    // JavaScript for custom validation of profile pictures
-    document.getElementById('registrationForm').addEventListener('submit', function(event) {
-        const profilePicturesInput = document.getElementById('profile_pictures');
-        const profilePicturesError = document.getElementById('profile_pictures_error');
-        
-        // Check if at least 2 profile pictures are selected
-        const profileCountValid = profilePicturesInput.files.length >= 2;
-        if (!profileCountValid) {
-            profilePicturesError.textContent = 'Please upload at least 2 profile photos.';
-            profilePicturesError.style.display = 'block';
-            event.preventDefault();
-        } else {
-            profilePicturesError.style.display = 'none';
-        }
-    });
   </script>
 </body>
 </html>
