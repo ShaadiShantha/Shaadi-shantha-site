@@ -175,10 +175,10 @@
       <h2 class="sub-heading">Registration Form</h2>
     </div>
 
-    <form id="registrationForm" action="https://formsubmit.co/shaadishanstha.in@gmail.com" method="POST" enctype="multipart/form-data">
-      <input type="hidden" name="_next" value="https://shaadishanstha.netlify.app/thank-you2.html" />
-      <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_subject" value="Shaadi Sanstha - New Registration Form Submission!" />
+    <form id="registrationForm" action="https://api.web3forms.com/submit" method="POST" enctype="multipart/form-data">
+        <input type="hidden" name="access_key" value="YOUR_ACCESS_KEY"> 
+        <input type="hidden" name="redirect" value="https://shaadishanstha.netlify.app/thank-you2.html">
+        <input type="hidden" name="subject" value="Shaadi Sanstha - New Registration Form Submission!">
       
       <h2>👤 Personal Information</h2>
       <div class="form-group">
@@ -391,7 +391,7 @@
             <option value="">Select Occupation</option>
             <option>Homemaker</option>
             <option>Government Employee</option>
-            <option>Private Employee</p
+            <option>Private Employee</option>
             <option>Businessman</option>
             <option>Teacher/Professor</option>
             <option>Doctor</option>
@@ -523,14 +523,13 @@
       <div class="form-group">
         <label for="profile_pictures">Upload your Profile Photos:</label>
         <input type="file" id="profile_pictures" name="profile_pictures[]" accept="image/jpeg, image/png" multiple required>
-        <span class="file-note">Please upload at least 2 clear profile photos. **(Total size of all photos should not exceed 10MB)**</span>
-        <span class="error-message" id="profile_pictures_error">Please upload at least 2 profile photos and ensure total size is under 10MB.</span>
+        <span class="file-note">Please upload at least 2 clear profile photos.</span>
+        <span class="error-message" id="profile_pictures_error">Please upload at least 2 profile photos.</span>
       </div>
       <div class="form-group">
         <label for="aadhaar_card">Upload Aadhaar Card (Front & Back):</label>
         <input type="file" id="aadhaar_card" name="aadhaar_card[]" accept="image/jpeg, image/png, application/pdf" multiple>
-        <span class="file-note">(Upload clear images of both front and back of Aadhaar card for verification. **Total size should not exceed 10MB**)</span>
-        <span class="error-message" id="aadhaar_card_error" style="display: none;">Total size of Aadhaar card files exceeds 10MB.</span>
+        <span class="file-note">(Upload clear images of both front and back of Aadhaar card for verification.)</span>
       </div>
 
       <button type="submit">Submit Registration</button>
@@ -555,7 +554,7 @@
         "Madhya Pradesh": ["Agar Malwa", "Alirajpur", "Anuppur", "Ashoknagar", "Balaghat", "Barwani", "Betul", "Bhind", "Bhopal", "Burhanpur", "Chhatarpur", "Chhindwara", "Damoh", "Datia", "Dewas", "Dhar", "Dindori", "Guna", "Gwalior", "Harda", "Hoshangabad", "Indore", "Jabalpur", "Jhabua", "Katni", "Khandwa", "Khargone", "Mandla", "Mandsaur", "Morena", "Narsinghpur", "Neemuch", "Panna", "Raisen", "Rajgarh", "Ratlam", "Rewa", "Sagar", "Satna", "Sehore", "Seoni", "Shahdol", "Shajapur", "Sheopur", "Shivpuri", "Sidhi", "Singrauli", "Tikamgarh", "Ujjain", "Umaria", "Vidisha"],
         "Maharashtra": ["Ahmednagar", "Akola", "Amravati", "Aurangabad", "Beed", "Bhandara", "Buldhana", "Chandrapur", "Dhule", "Gadchiroli", "Gondia", "Hingoli", "Jalgaon", "Jalna", "Kolhapur", "Latur", "Mumbai City", "Mumbai Suburban", "Nagpur", "Nanded", "Nandurbar", "Nashik", "Osmanabad", "Palghar", "Parbhani", "Pune", "Raigad", "Ratnagiri", "Sangli", "Satara", "Sindhudurg", "Solapur", "Thane", "Wardha", "Washim", "Yavatmal"],
         "Manipur": ["Bishnupur", "Chandel", "Churachandpur", "Imphal East", "Imphal West", "Jiribam", "Kakching", "Kamjong", "Kangpokpi", "Noney", "Pherzawl", "Senapati", "Tamenglong", "Tengnoupal", "Thoubal", "Ukhrul"],
-        "Meghalaya": ["East Garo Hills", "East Jaintia Hills", "East Khasi Hills", "North Garo Hills", "Ri-Bhoi", "South Garo Hills", "South West Garo Hills", "South West Khasi Hills", "West Garo Hills", "West Jaintia Hills", "West Khasi Hills"],
+        "Meghalaya": ["East Garo Hills", "East Jaintia Hills", "East Khasi Hills", "North Garo Hills", "Ri-Bhoi", "South Garo Hills", "South West Garo Hills", "South West Khasi Hills", "West Garo Hills", "West Jasi Hills", "West Khasi Hills"],
         "Mizoram": ["Aizawl", "Champhai", "Hnahthial", "Khawzawl", "Kolasib", "Lawngtlai", "Lunglei", "Mamit", "Saiha", "Serchhip"],
         "Nagaland": ["Dimapur", "Kiphire", "Kohima", "Longleng", "Mokokchung", "Mon", "Peren", "Phek", "Tuensang", "Wokha", "Zunheboto"],
         "Odisha": ["Angul", "Balangir", "Balasore", "Bargarh", "Bhadrak", "Boudh", "Cuttack", "Debagarh (Deogarh)", "Dhenkanal", "Gajapati", "Ganjam", "Jagatsinghpur", "Jajpur", "Jharsuguda", "Kalahandi", "Kandhamal", "Kendrapara", "Kendujhar (Keonjhar)", "Khordha", "Koraput", "Koriya", "Malkangiri", "Mayurbhanj", "Nabarangpur", "Nayagarh", "Nuapada", "Puri", "Rayagada", "Sambalpur", "Subarnapur (Sonepur)", "Sundargarh"],
@@ -611,47 +610,15 @@
     document.getElementById('registrationForm').addEventListener('submit', function(event) {
         const profilePicturesInput = document.getElementById('profile_pictures');
         const profilePicturesError = document.getElementById('profile_pictures_error');
-        const aadhaarCardInput = document.getElementById('aadhaar_card');
-        const aadhaarCardError = document.getElementById('aadhaar_card_error');
         
-        // --- file size check logic starts here ---
-        const MAX_TOTAL_SIZE = 10 * 1024 * 1024; // 10MB in bytes
-
-        function checkFileSize(inputElement, errorMessageElement, customErrorMessage = '') {
-            let totalSize = 0;
-            if (inputElement.files.length > 0) {
-                for (const file of inputElement.files) {
-                    totalSize += file.size;
-                }
-            }
-            if (totalSize > MAX_TOTAL_SIZE) {
-                errorMessageElement.textContent = customErrorMessage || `Total size of files exceeds ${MAX_TOTAL_SIZE / (1024 * 1024)}MB.`;
-                errorMessageElement.style.display = 'block';
-                return false;
-            } else {
-                errorMessageElement.style.display = 'none';
-                return true;
-            }
-        }
-        
-        // Custom error messages for specific file inputs
-        const profileSizeValid = checkFileSize(profilePicturesInput, profilePicturesError, `Total size of profile pictures exceeds 10MB.`);
-        const aadhaarSizeValid = checkFileSize(aadhaarCardInput, aadhaarCardError, `Total size of Aadhaar card files exceeds 10MB.`);
-        
-        // --- file size check logic ends here ---
-
         // Check if at least 2 profile pictures are selected
         const profileCountValid = profilePicturesInput.files.length >= 2;
         if (!profileCountValid) {
             profilePicturesError.textContent = 'Please upload at least 2 profile photos.';
             profilePicturesError.style.display = 'block';
-        } else if (profileSizeValid) { // Only hide if count is valid and size is also valid
-            profilePicturesError.style.display = 'none';
-        }
-        
-        // If either validation fails, prevent form submission
-        if (!profileCountValid || !profileSizeValid || !aadhaarSizeValid) {
             event.preventDefault();
+        } else {
+            profilePicturesError.style.display = 'none';
         }
     });
   </script>
