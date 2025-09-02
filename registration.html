@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Shaadi Shanstha - Registration</title>
+  <title>Shaadi Sanstha - Registration Form</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     /* Global Styles */
@@ -171,14 +171,14 @@
 <body>
   <div class="form-container">
     <div class="heading-section">
-      <h1 class="main-heading">Shaadi Shanstha</h1>
+      <h1 class="main-heading">Shaadi Sanstha</h1>
       <h2 class="sub-heading">Registration Form</h2>
     </div>
 
     <form id="registrationForm" action="https://formsubmit.co/shaadishanstha.in@gmail.com" method="POST" enctype="multipart/form-data">
       <input type="hidden" name="_next" value="https://shaadishanstha.netlify.app/thank-you2.html" />
       <input type="hidden" name="_captcha" value="false" />
-      <input type="hidden" name="_subject" value="Shaadi Shanstha - New Registration Form Submission!" />
+      <input type="hidden" name="_subject" value="Shaadi Sanstha - New Registration Form Submission!" />
       
       <h2>👤 Personal Information</h2>
       <div class="form-group">
@@ -299,7 +299,7 @@
         <input type="text" id="pincode" name="pincode">
       </div>
 
-      <h2>📚 Education & Job</h2>
+      <h2>📚 Education and Occupation</h2>
       <div class="form-group">
         <label for="education_level">Highest Education Level:</label>
         <select id="education_level" name="education_level" required>
@@ -329,15 +329,15 @@
           <option>Doctor</option>
           <option>Engineer</option>
           <option>Teacher/Professor</option>
-          <option>Defence/Police</option>
+          <option>Defense/Police</option>
           <option>IT Professional</option>
           <option>Artist/Creative</option>
           <option>Farmer</option>
           <option>Student</option>
           <option>Homemaker</option>
           <option>Retired</option>
-          <option>Not Working</option>
-          <option>Self Employed</option>
+          <option>Unemployed</option>
+          <option>Self-Employed</option>
           <option>Management Professional</option>
           <option>Banking Professional</option>
           <option>Lawyer</option>
@@ -375,7 +375,7 @@
             <option value="">Select Occupation</option>
             <option>Government Employee</option>
             <option>Private Employee</option>
-            <option>Business Owner</option>
+            <option>Businessman</option>
             <option>Farmer</option>
             <option>Doctor</option>
             <option>Engineer</option>
@@ -391,8 +391,8 @@
             <option value="">Select Occupation</option>
             <option>Homemaker</option>
             <option>Government Employee</option>
-            <option>Private Employee</option>
-            <option>Business Owner</option>
+            <option>Private Employee</p
+            <option>Businessman</option>
             <option>Teacher/Professor</option>
             <option>Doctor</option>
             <option>Retired</option>
@@ -417,21 +417,21 @@
         </select>
       </div>
       <div class="form-group">
-        <label for="siblings">Number of Siblings (Brothers, Sisters):</label>
-        <input type="text" id="siblings" name="siblings" placeholder="e.g., 1 Brother, 2 Sisters (1 Married)">
+        <label for="siblings">Number of Siblings:</label>
+        <input type="text" id="siblings" name="siblings" placeholder="e.g., 1 Brother, 2 Sisters (1 married)">
       </div>
 
       <h2>📝 About Me / Partner Expectations</h2>
       <div class="form-group">
         <label for="about_me">Tell us about yourself (Personality, Hobbies, Interests, etc.):</label>
-        <textarea id="about_me" name="about_me" rows="4" placeholder="Share a few lines about your personality, what you enjoy doing, and your aspirations."></textarea>
+        <textarea id="about_me" name="about_me" rows="4" placeholder="Write a few lines about your personality, likes, and aspirations."></textarea>
       </div>
       <div class="form-group">
         <label for="partner_expectations">What are you looking for in a partner?:</label>
         <textarea id="partner_expectations" name="partner_expectations" rows="4" placeholder="Describe the qualities you seek in your life partner and your expectations from the relationship."></textarea>
       </div>
       
-      <h2>💍 Lifestyle & Marriage Preferences</h2>
+      <h2>💍 Lifestyle and Marriage Preferences</h2>
       <div class="form-group">
         <label for="looking_for">Looking For:</label>
         <select id="looking_for" name="looking_for">
@@ -444,7 +444,7 @@
         <label for="marital_status">Marital Status:</label>
         <select id="marital_status" name="marital_status">
             <option value="">Select Status</option>
-            <option>Unmarried</option>
+            <option>Never Married</option>
             <option>Divorced</option>
             <option>Widowed</option>
             <option>Annulled</option>
@@ -495,7 +495,7 @@
         <input type="text" id="preferred_profession" name="preferred_profession">
       </div>
 
-      <h2>🔮 Horoscope Info (Optional)</h2>
+      <h2>🔮 Astrological Information (Optional)</h2>
       <div class="form-group">
         <label for="birth_time">Birth Time:</label>
         <input type="text" id="birth_time" name="birth_time">
@@ -514,22 +514,23 @@
             <option value="">Select</option>
             <option>Yes</option>
             <option>No</option>
-            <option>Partial Manglik</option>
+            <option>Anshik Manglik</option>
             <option>Don't Know</option>
         </select>
       </div>
 
       <h2>📸 Uploads</h2>
       <div class="form-group">
-        <label for="profile_pictures">Upload Your Profile Pictures:</label>
+        <label for="profile_pictures">Upload your Profile Photos:</label>
         <input type="file" id="profile_pictures" name="profile_pictures[]" accept="image/jpeg, image/png" multiple required>
-        <span class="file-note">Please upload at least 3 clear profile pictures.</span>
-        <span class="error-message" id="profile_pictures_error">Please upload at least 3 profile pictures.</span>
+        <span class="file-note">Please upload at least 2 clear profile photos. **(Total size of all photos should not exceed 10MB)**</span>
+        <span class="error-message" id="profile_pictures_error">Please upload at least 2 profile photos and ensure total size is under 10MB.</span>
       </div>
       <div class="form-group">
-        <label for="aadhaar_card">Upload Aadhaar Card (Front and Back):</label>
+        <label for="aadhaar_card">Upload Aadhaar Card (Front & Back):</label>
         <input type="file" id="aadhaar_card" name="aadhaar_card[]" accept="image/jpeg, image/png, application/pdf" multiple>
-        <span class="file-note">(Upload clear photos of both front and back of your Aadhaar card for verification.)</span>
+        <span class="file-note">(Upload clear images of both front and back of Aadhaar card for verification. **Total size should not exceed 10MB**)</span>
+        <span class="error-message" id="aadhaar_card_error" style="display: none;">Total size of Aadhaar card files exceeds 10MB.</span>
       </div>
 
       <button type="submit">Submit Registration</button>
@@ -562,7 +563,7 @@
         "Rajasthan": ["Ajmer", "Alwar", "Banswara", "Baran", "Barmer", "Bhilwara", "Bharatpur", "Bikaner", "Bundi", "Chittorgarh", "Churu", "Dausa", "Dholpur", "Dungarpur", "Hanumangarh", "Jaipur", "Jaisalmer", "Jalore", "Jhalawar", "Jhunjhunu", "Jodhpur", "Karauli", "Kota", "Nagaur", "Pali", "Pratapgarh", "Rajsamand", "Sawai Madhopur", "Sikar", "Sirohi", "Sri Ganganagar", "Tonk", "Udaipur"],
         "Sikkim": ["East Sikkim", "North Sikkim", "South Sikkim", "West Sikkim"],
         "Tamil Nadu": ["Ariyalur", "Chengalpattu", "Chennai", "Coimbatore", "Cuddalore", "Dharmapuri", "Dindigul", "Erode", "Kallakurichi", "Kanchipuram", "Kanyakumari", "Karur", "Krishnagiri", "Madurai", "Mayiladuthurai", "Nagapattinam", "Namakkal", "Nilgiris", "Perambalur", "Pudukkottai", "Ramanathapuram", "Ranipet", "Salem", "Sivaganga", "Tenkasi", "Thanjavur", "Theni", "Thoothukudi (Tuticorin)", "Tiruchirappalli", "Tirunelveli", "Tirupattur", "Tiruppur", "Tiruvallur", "Tiruvannamalai", "Tiruvarur", "Vellore", "Viluppuram", "Virudhunagar"],
-        "Telangana": ["Adilabad", "Bhadradri Kothagudem", "Hyderabad", "Jagtial", "Jangaon", "Jayashankar Bhupalpally", "Jogulamba Gadwal", "Kamareddy", "Karimnagar", "Khammam", "Komaram Bheem", "Mahabubabad", "Mahabubnagar", "Mancherial", "Medak", "Medchal–Malkajgiri", "Nagarkurnool", "Nalgonda", "Narayanpet", "Nirmal", "Nizamabad", "Peddapalli", "Rajanna Sircilla", "Ranga Reddy", "Siddipet", "Suryapet", "Vikarabad", "Wanaparthy", "Warangal Rural", "Warangal Urban", "Yadadri Bhuvanagiri"],
+        "Telangana": ["Adilabad", "Bhadradri Kothagudem", "Hyderabad", "Jagtial", "Jangaon", "Jayashankar Bhupalpally", "Jogulamba Gadwal", "Kamareddy", "Karimnagar", "Khammam", "Komaram Bheem", "Mahabubabad", "Mahabubnagar", "Mancherial", "Medak", "Medchal–Malkajgiri", "Nagarkurnool", "Nalgonda", "Narayanpet", "Nirmal", "Nizamabad", "Peddapalli", "Rajanna Sircilla", "Ranga Reddy", "Sangareddy", "Siddipet", "Suryapet", "Vikarabad", "Wanaparthy", "Warangal Rural", "Warangal Urban", "Yadadri Bhuvanagiri"],
         "Tripura": ["Dhalai", "Gomati", "Khowai", "North Tripura", "Sepahijala", "South Tripura", "Unakoti", "West Tripura"],
         "Uttar Pradesh": ["Agra", "Aligarh", "Ambedkar Nagar", "Amethi", "Amroha", "Auraiya", "Ayodhya", "Azamgarh", "Baghpat", "Bahraich", "Ballia", "Balrampur", "Banda", "Barabanki", "Bareilly", "Basti", "Bhadohi", "Bijnor", "Budaun", "Bulandshahr", "Chandauli", "Chitrakoot", "Deoria", "Etah", "Etawah", "Farrukhabad", "Fatehpur", "Firozabad", "Gautam Buddha Nagar", "Ghaziabad", "Ghazipur", "Gonda", "Gorakhpur", "Hamirpur", "Hapur", "Hardoi", "Hathras", "Jalaun", "Jaunpur", "Jhansi", "Kannauj", "Kanpur Dehat", "Kanpur Nagar", "Kasganj", "Kaushambi", "Kheri", "Kushinagar", "Lalitpur", "Lucknow", "Maharajganj", "Mahoba", "Mainpuri", "Mathura", "Mau", "Meerut", "Mirzapur", "Moradabad", "Muzaffarnagar", "Pilibhit", "Pratapgarh", "Prayagraj", "Raebareli", "Rampur", "Saharanpur", "Sambhal", "Sant Kabir Nagar", "Shahjahanpur", "Shamli", "Shrawasti", "Siddharthnagar", "Sitapur", "Sonbhadra", "Sultanpur", "Unnao", "Varanasi"],
         "Uttarakhand": ["Almora", "Bageshwar", "Chamoli", "Champawat", "Dehradun", "Haridwar", "Nainital", "Pauri Garhwal", "Pithoragarh", "Rudraprayag", "Tehri Garhwal", "Udham Singh Nagar", "Uttarkashi"],
@@ -606,16 +607,51 @@
     stateSelect.addEventListener('change', populateDistricts);
     populateStates();
 
-    // JavaScript for custom validation of profile pictures
+    // JavaScript for custom validation of profile pictures and file size
     document.getElementById('registrationForm').addEventListener('submit', function(event) {
         const profilePicturesInput = document.getElementById('profile_pictures');
         const profilePicturesError = document.getElementById('profile_pictures_error');
+        const aadhaarCardInput = document.getElementById('aadhaar_card');
+        const aadhaarCardError = document.getElementById('aadhaar_card_error');
+        
+        // --- file size check logic starts here ---
+        const MAX_TOTAL_SIZE = 10 * 1024 * 1024; // 10MB in bytes
 
-        if (profilePicturesInput.files.length < 3) {
-            profilePicturesError.style.display = 'block'; // Show error message
-            event.preventDefault(); // Prevent form submission
-        } else {
-            profilePicturesError.style.display = 'none'; // Hide error message
+        function checkFileSize(inputElement, errorMessageElement, customErrorMessage = '') {
+            let totalSize = 0;
+            if (inputElement.files.length > 0) {
+                for (const file of inputElement.files) {
+                    totalSize += file.size;
+                }
+            }
+            if (totalSize > MAX_TOTAL_SIZE) {
+                errorMessageElement.textContent = customErrorMessage || `Total size of files exceeds ${MAX_TOTAL_SIZE / (1024 * 1024)}MB.`;
+                errorMessageElement.style.display = 'block';
+                return false;
+            } else {
+                errorMessageElement.style.display = 'none';
+                return true;
+            }
+        }
+        
+        // Custom error messages for specific file inputs
+        const profileSizeValid = checkFileSize(profilePicturesInput, profilePicturesError, `Total size of profile pictures exceeds 10MB.`);
+        const aadhaarSizeValid = checkFileSize(aadhaarCardInput, aadhaarCardError, `Total size of Aadhaar card files exceeds 10MB.`);
+        
+        // --- file size check logic ends here ---
+
+        // Check if at least 2 profile pictures are selected
+        const profileCountValid = profilePicturesInput.files.length >= 2;
+        if (!profileCountValid) {
+            profilePicturesError.textContent = 'Please upload at least 2 profile photos.';
+            profilePicturesError.style.display = 'block';
+        } else if (profileSizeValid) { // Only hide if count is valid and size is also valid
+            profilePicturesError.style.display = 'none';
+        }
+        
+        // If either validation fails, prevent form submission
+        if (!profileCountValid || !profileSizeValid || !aadhaarSizeValid) {
+            event.preventDefault();
         }
     });
   </script>
