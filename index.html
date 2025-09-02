@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta name="google-site-verification" content="Gf5au9O9PU3lykMVGohm8VMvt84ItqFoJECgov6uZc4" />
-    <title>Shaadi Sanstha | Matrimonial Service in Bihar for Verified Matches</title>
+    <title>Shaadi Shanstha | Matrimonial Service in Bihar for Verified Matches</title>
     
     <script>
         // Check if the welcome page has been shown before in this session
@@ -18,645 +18,13 @@
         }
         // If hasSeenWelcome is true, then index.html will load normally without redirecting.
     </script>
+
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    
-    <style>
-        /* Base styles */
-        * {
-            box-sizing: border-box;
-            margin: 0;
-            padding: 0;
-        }
-        html, body {
-            max-width: 100%;
-            overflow-x: hidden; /* Keeps horizontal scrollbar away */
-        }
-        body {
-            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-            background: #fffdf7;
-            color: #333;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh; /* Ensure footer sticks to bottom */
-            scroll-behavior: smooth;
-            padding-top: 60px; /* Space for the fixed top brand bar */
-        }
-        /* New: Stop scrolling when menu is open */
-        body.no-scroll {
-            overflow: hidden !important; /* Ensure no scrolling on body */
-        }
-        html.no-scroll-html { /* New: class for html to handle scrolling on some browsers */
-            overflow: hidden !important;
-        }
+    <link rel="stylesheet" href="style.css">
 
-        main {
-            flex: 1;
-        }
-
-        /* Prevent right-click and dragging on images */
-        img {
-            -webkit-user-select: none; /* Safari */
-            -moz-user-select: none;    /* Firefox */
-            -ms-user-select: none;     /* IE10+ */
-            user-select: none;         /* Standard syntax */
-            -webkit-touch-callout: none; /* iOS Safari */
-            -webkit-user-drag: none;   /* Safari, Chrome */
-            pointer-events: auto; /* Ensure events still fire, override if needed */
-        }
-        .no-download-img { /* Apply this class to specific images */
-            pointer-events: none; /* Disables all mouse events on the image, making it unclickable and undeportable */
-            -webkit-user-select: none; /* Safari */
-            -moz-user-select: none;    /* Firefox */
-            -ms-user-select: none;     /* IE10+ */
-            user-select: none;         /* Standard syntax */
-            -webkit-touch-callout: none; /* iOS Safari */
-            -webkit-user-drag: none;   /* Safari, Chrome */
-        }
-
-        /* Fixed Top Branding Section (including hamburger) */
-        .top-fixed-brand {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            height: 60px; /* Height of the fixed bar */
-            background-color: #f8bbd0; /* Soft Pink, matching header */
-            color: #880e4f; /* Darker Pink */
-            display: flex;
-            align-items: center; /* Vertically align items */
-            padding: 0 15px;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-            z-index: 1000; /* Ensure it stays on top */
-            gap: 15px; /* Space between hamburger/line/text */
-        }
-
-        .vertical-line {
-            width: 3px; /* Thickness of the line */
-            height: 40px; /* Height of the line */
-            background-color: #ad1457; /* Dark Red-Pink color for the line */
-            border-radius: 2px; /* Slightly rounded corners for the line */
-            flex-shrink: 0; /* Prevent it from shrinking */
-        }
-
-        .brand-text {
-            font-family: 'Georgia', serif; /* A more elegant font */
-            font-size: 1.8em; /* Large and prominent */
-            font-weight: bold;
-            color: #880e4f; /* Darker Pink */
-            letter-spacing: 1px; /* Slightly spaced letters */
-            text-shadow: 1px 1px 2px rgba(0,0,0,0.1); /* Subtle shadow */
-            white-space: nowrap; /* Prevent text wrapping */
-            overflow: hidden;
-            text-overflow: ellipsis; /* Add ellipsis if text overflows */
-        }
-
-        /* Hamburger Menu Icon (now inside top-fixed-brand, on left) */
-        .hamburger-menu-container {
-            display: block; /* Always display as it's the primary mobile nav trigger */
-            z-index: 1001; /* Above other content */
-            margin-right: 5px; /* Space between hamburger and vertical line */
-        }
-
-        .hamburger {
-            width: 35px; /* Larger width for bolder look */
-            height: 25px; /* Larger height */
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            cursor: pointer;
-            padding: 5px; /* Add padding for larger clickable area */
-        }
-
-        .hamburger .line {
-            width: 100%;
-            height: 4px; /* Thicker lines for bolder look */
-            background-color: #ad1457;
-            transition: all 0.3s ease;
-            border-radius: 2px; /* Slightly rounded lines */
-        }
-
-        /* Styles for when menu is open */
-        .hamburger.open .line:nth-child(1) {
-            transform: translateY(10.5px) rotate(45deg); /* Adjusted for new height */
-        }
-        .hamburger.open .line:nth-child(2) {
-            opacity: 0;
-        }
-        .hamburger.open .line:nth-child(3) {
-            transform: translateY(-10.5px) rotate(-45deg); /* Adjusted for new height */
-        }
-
-        /* Sidebar/Off-canvas Menu Styles */
-        .off-canvas-menu {
-            position: fixed;
-            top: 0;
-            left: -85%; /* Hidden by default, adjusted for left side */
-            width: 85%;
-            max-width: 300px;
-            height: 100%;
-            background-color: #fff;
-            box-shadow: 2px 0 10px rgba(0,0,0,0.2);
-            transition: left 0.3s ease-in-out;
-            z-index: 999;
-            padding-top: 20px;
-            overflow-y: auto; /* Enable scrolling for long content inside the menu */
-        }
-
-        .off-canvas-menu.open {
-            left: 0; /* Slide in from left */
-        }
-
-        .off-canvas-menu .menu-content {
-            padding: 20px;
-        }
-
-        /* Close button styling for off-canvas menu */
-        .off-canvas-menu .close-btn-container {
-            text-align: right;
-            padding: 0 15px;
-        }
-        .off-canvas-menu .close-btn-container #close-menu {
-            font-size: 2.5em;
-            color: #ad1457;
-            text-decoration: none;
-            line-height: 1;
-            display: inline-block;
-            padding: 5px;
-        }
-
-        /* Menu Logo and Heading */
-        .off-canvas-menu .menu-header {
-            text-align: center;
-            margin-bottom: 20px;
-            padding-top: 10px;
-        }
-        .off-canvas-menu .menu-header img {
-            max-width: 100px;
-            height: auto;
-            margin-bottom: 5px;
-        }
-        .off-canvas-menu .menu-header h3 {
-            color: #d81b60;
-            font-size: 1.4em;
-            margin: 0;
-        }
-        .off-canvas-menu .menu-header p {
-            font-size: 0.9em;
-            color: #777;
-            margin-top: 5px;
-        }
-
-        /* Important Message Box */
-        .off-canvas-menu .important-message-box {
-            background-color: #fff0f5;
-            color: #c2185b;
-            text-align: center;
-            padding: 15px;
-            font-size: 0.95em;
-            font-weight: bold;
-            border-radius: 8px;
-            margin-bottom: 25px;
-            border: 1px solid #d81b60;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
-        }
-        .off-canvas-menu .important-message-box strong {
-            color: #880e4f;
-        }
-        .off-canvas-menu .important-message-box span {
-            color: #b71c1c;
-        }
-
-        /* Menu Section Headings */
-        .off-canvas-menu .menu-section-heading {
-            color: #ad1457;
-            margin-top: 25px;
-            margin-bottom: 15px;
-            font-size: 1.2em;
-            text-align: center;
-            border-bottom: 1px solid #eee;
-            padding-bottom: 5px;
-        }
-
-        /* Menu Links */
-        .off-canvas-menu .menu-content ul {
-            list-style: none;
-            padding: 0;
-            text-align: center;
-            margin-bottom: 20px; /* Added margin to push button down */
-        }
-        .off-canvas-menu .menu-content ul li {
-            margin-bottom: 10px;
-        }
-        .off-canvas-menu .menu-content ul li a {
-            text-decoration: none;
-            color: #6a1b9a;
-            font-weight: bold;
-            font-size: 1.05em;
-            display: block;
-            padding: 10px 15px;
-            border-radius: 5px;
-            transition: background-color 0.3s ease, color 0.3s ease;
-            position: relative;
-        }
-        .off-canvas-menu .menu-content ul li a:hover {
-            background-color: #f8bbd0;
-            color: #880e4f;
-        }
-        .off-canvas-menu .menu-content ul li a::before {
-            content: '➤ ';
-            color: #d81b60;
-            margin-right: 8px;
-            font-weight: normal;
-        }
-
-        /* Call-to-action button in menu */
-        .off-canvas-menu .menu-cta-button {
-            display: block !important; /* Ensured display block with !important */
-            background-color: #28a745;
-            color: white;
-            padding: 12px 20px;
-            font-size: 1em;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            text-align: center;
-            margin: 30px auto 10px;
-            max-width: 200px;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
-            transition: background-color 0.3s ease;
-        }
-        .off-canvas-menu .menu-cta-button:hover {
-            background-color: #218838;
-        }
-
-        /* Overlay for background when menu is open */
-        .menu-overlay {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0,0,0,0.4);
-            z-index: 998;
-            opacity: 0;
-            visibility: hidden;
-            transition: opacity 0.3s ease-in-out, visibility 0.3s ease-in-out;
-        }
-
-        .menu-overlay.active {
-            opacity: 1;
-            visibility: visible;
-        }
-
-        /* Header styles (original header will be below the fixed top bar) */
-        header {
-            background-color: #f8bbd0; /* Soft Pink */
-            color: #880e4f; /* Darker Pink */
-            padding: 15px 0; /* Reduced header padding */
-            text-align: center;
-            margin-top: 0; /* No top margin needed, padding-top on body handles space */
-        }
-        .header-logo {
-            max-width: 150px; /* Reduced logo size */
-            height: auto;
-            display: block;
-            margin: 0 auto 10px; /* Reduced margin */
-        }
-        header h1 {
-            font-size: 1.8em; /* Reduced header text size */
-            margin: 5px 0;
-        }
-        header p {
-            font-size: 1em; /* Reduced subtitle size */
-            margin: 3px 0;
-        }
-        header p:last-child {
-            font-size: 11px; /* Reduced info size */
-            margin-top: 5px;
-        }
-
-        /* Navigation (for desktop) */
-        nav {
-            display: flex; /* Hidden by default on mobile, shown by media query on desktop */
-            justify-content: center;
-            background-color: #f06292; /* Medium Pink */
-            padding: 10px 0;
-            font-weight: bold;
-            position: sticky;
-            top: 60px; /* Sticks right below the fixed brand bar */
-            z-index: 999;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.08);
-        }
-        nav a {
-            margin: 0 15px;
-            text-decoration: none;
-            color: #6a1b9a;
-            font-weight: bold;
-            transition: color 0.3s ease;
-            font-size: 0.95em;
-        }
-        nav a:hover {
-            color: #ad1457;
-            text-decoration: underline;
-        }
-
-        /* General container */
-        .container {
-            padding: 30px 15px;
-            text-align: center;
-        }
-        h2 {
-            color: #b71c1c;
-            margin-bottom: 20px;
-            font-size: 1.8em;
-        }
-        h2::before {
-            content: '💖 ';
-        }
-
-        /* Services and How It Works boxes */
-        .services {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            margin-top: 20px;
-        }
-        .service-box, .how-it-works-step {
-            width: 240px;
-            margin: 10px;
-            padding: 20px;
-            background: #fff0e0;
-            border-radius: 10px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, background-color 0.3s ease;
-            font-size: 0.9em;
-            text-align: left;
-        }
-        .service-box:hover, .how-it-works-step:hover {
-            transform: translateY(-3px) scale(1.01);
-            background-color: #ffe6f0;
-        }
-        .how-it-works-step h3, .service-box h3 {
-            color: #d81b60;
-            margin-bottom: 8px;
-            font-size: 1.2em;
-        }
-        .how-it-works-step p, .service-box p {
-            color: #555;
-            font-size: 0.9em;
-        }
-
-        /* Footer styles */
-        footer {
-            background-color: #f5f5f5;
-            text-align: center;
-            padding: 15px 0;
-            font-size: 12px;
-            color: #888;
-            margin-top: 30px;
-        }
-        footer a {
-            color: #d81b60;
-            text-decoration: none;
-            font-weight: bold;
-            margin: 0 8px;
-            transition: color 0.3s ease, text-decoration 0.3s ease;
-        }
-        footer a:hover {
-            color: #ad1457;
-            text-decoration: underline;
-        }
-
-        /* Contact links */
-        .contact-icon-link {
-            display: inline-flex; /* Use flexbox for icon and text alignment */
-            align-items: center; /* Vertically align items */
-            background-color: #d81b60; /* Button background */
-            color: white; /* Text color */
-            padding: 10px 20px;
-            border-radius: 25px; /* Rounded corners for pill shape */
-            text-decoration: none;
-            font-weight: bold;
-            font-size: 1.1em;
-            margin: 10px; /* Space between buttons */
-            transition: background-color 0.3s ease, transform 0.2s ease;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
-        }
-        .contact-icon-link i {
-            margin-right: 8px; /* Space between icon and text */
-            font-size: 1.2em; /* Icon size */
-        }
-        .contact-icon-link:hover {
-            background-color: #ad1457; /* Darker pink on hover */
-            transform: translateY(-2px);
-        }
-        /* Style for the container of contact buttons to center them */
-        .contact-buttons {
-            display: flex;
-            flex-wrap: wrap; /* Allow wrapping on smaller screens */
-            justify-content: center;
-            gap: 10px; /* Space between wrapped items */
-            margin-top: 20px;
-            max-width: 700px; /* Limit width to keep buttons from spreading too much */
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        /* Hero Section Styles */
-        .hero-section {
-            background-color: #fce4ec; /* Light Pink */
-            padding: 60px 15px; /* Reduced hero padding */
-            text-align: center;
-            color: #880e4f; /* Dark Pink */
-        }
-        .hero-section h1 {
-            font-size: 2.8em; /* Reduced hero heading size */
-            margin-bottom: 10px;
-            color: #ad1457;
-        }
-        .hero-section p {
-            font-size: 1.1em;
-            max-width: 90%;
-            margin: 0 auto = 25px;
-            line-height: 1.5;
-        }
-        .hero-section .btn {
-            display: inline-block;
-            background-color: #d81b60;
-            color: white;
-            padding: 14px 30px;
-            font-size: 1em;
-            border-radius: 8px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.15);
-            transition: background-color 0.3s ease, transform 0.3s ease;
-        }
-        .hero-section .btn:hover {
-            background-color: #c2185b;
-            transform: translateY(-1px);
-        }
-
-        /* Testimonials/Success Stories Styles */
-        .testimonial-box {
-            background: #ffffff;
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-            width: 260px;
-            text-align: left;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-            font-size: 0.9em;
-        }
-        .testimonial-box:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 5px 12px rgba(0,0,0,0.1);
-        }
-        .testimonial-box p {
-            font-style: italic;
-            color: #555;
-            line-height: 1.5;
-            min-height: 70px;
-            margin-bottom: 10px;
-        }
-        .testimonial-box .author {
-            font-weight: bold;
-            text-align: right;
-            margin-top: 10px;
-            color: #ad1457;
-            font-size: 0.95em;
-        }
-        .testimonial-box img {
-            width: 100%;
-            height: 160px;
-            object-fit: cover;
-            border-radius: 6px;
-            margin-top: 10px;
-            box-shadow: 0 2px 4px rgba(0,0,0,0.05);
-        }
-
-        /* Payment/Registration Button Styles */
-        .registration-payment-btn {
-            display: inline-block;
-            background-color: #28a745; /* Green */
-            color: white;
-            padding: 12px 25px;
-            font-size: 1em;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.15);
-            transition: background-color 0.3s ease;
-        }
-        .registration-payment-btn:hover {
-            background-color: #218838; /* Darker Green */
-        }
-        
-        /* Floating Action Buttons */
-        .fab-container {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            z-index: 999;
-            display: flex;
-            flex-direction: column; /* Stack icons vertically */
-            gap: 10px; /* Space between icons */
-        }
-        .fab-button {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            width: 50px;
-            height: 50px;
-            border-radius: 50%;
-            color: white;
-            font-size: 1.8em;
-            box-shadow: 0 4px 8px rgba(0,0,0,0.2);
-            transition: transform 0.2s ease, background-color 0.3s ease;
-            text-decoration: none; /* Remove underline for links */
-        }
-        .fab-button:hover {
-            transform: scale(1.1);
-        }
-        .fab-whatsapp {
-            background-color: #25D366; /* WhatsApp Green */
-        }
-        .fab-call {
-            background-color: #007bff; /* Blue for Call */
-        }
-
-
-        /* Responsive behavior */
-        @media (max-width: 768px) {
-            nav {
-                display: none; /* Hide regular nav on smaller screens */
-            }
-            .hero-section {
-                padding: 40px 10px;
-            }
-            .hero-section h1 {
-                font-size: 2.2em;
-            }
-            .hero-section p {
-                font-size: 1em;
-                margin-bottom: 15px;
-            }
-            .hero-section .btn {
-                padding: 12px 25px;
-                font-size: 0.9em;
-            }
-            .testimonial-box {
-                width: 90%;
-                max-width: 300px;
-            }
-            .service-box, .how-it-works-step {
-                width: 90%;
-                max-width: 300px;
-            }
-            .container {
-                padding: 20px 10px;
-            }
-            /* No change to body padding-top here, it's consistent for the fixed bar */
-        }
-
-        @media (min-width: 769px) {
-            nav {
-                display: flex; /* Show regular nav on larger screens */
-            }
-            /* Hide hamburger on larger screens */
-            .hamburger-menu-container {
-                display: none;
-            }
-            /* Ensure the side menu and overlay are hidden on large screens */
-            .off-canvas-menu, .menu-overlay {
-                display: none !important; /* Force hide */
-            }
-            /* Adjust body padding for desktop if needed, though current padding-top 60px should be fine */
-            .top-fixed-brand .vertical-line {
-                display: block; /* Show vertical line on desktop as it's part of brand identity */
-            }
-            .top-fixed-brand .brand-text {
-                /* On desktop, keep brand text to the right of the line */
-                margin-left: 0; 
-                margin-right: 0; 
-                text-align: left; /* Ensure text alignment is good */
-                flex-grow: 0; /* Don't let it grow to push others away */
-            }
-            .top-fixed-brand {
-                justify-content: flex-start; /* Align items to the start */
-                gap: 15px; /* Maintain small gap */
-            }
-            /* Desktop specific font sizes and widths for better readability */
-            h1 { font-size: 3.5em; }
-            h2 { font-size: 2.5em; }
-            .hero-section p { font-size: 1.2em; }
-            .container { max-width: 1000px; margin: 0 auto; } /* Center and constrain content */
-            .service-box, .how-it-works-step { width: 280px; } /* Slightly larger boxes */
-        }
-    </style>
-    <meta content="Shaadi Sanstha is a trusted matrimonial service based in Bihar. We help you find verified, compatible matches with cultural values and full family support." name="description"/>
-    <meta content="matrimonial, shaadi, marriage bureau, bihar matrimony, indian matchmaking, verified profiles, shaadi sanstha, trusted marriage bureau Patna" name="keywords"/>
-    <meta content="Shaadi Sanstha | Verified Matrimonial Service in Bihar" property="og:title"/>
+    <meta content="Shaadi Shanstha is a trusted matrimonial service based in Bihar. We help you find verified, compatible matches with cultural values and full family support." name="description"/>
+    <meta content="matrimonial, shaadi, marriage bureau, bihar matrimony, indian matchmaking, verified profiles, shaadi shanstha, trusted marriage bureau Patna" name="keywords"/>
+    <meta content="Shaadi Shanstha | Verified Matrimonial Service in Bihar" property="og:title"/>
     <meta content="Helping you find the perfect match with transparency, tradition and family values." property="og:description"/>
     <meta content="https://shaadis.netlify.app/" property="og:url"/>
     <meta content="website" property="og:type"/>
@@ -675,7 +43,7 @@
     
     <div style="display: flex; align-items: center;">
         <div class="vertical-line"></div>
-        <span class="brand-text">Shaadi Sanstha</span>
+        <span class="brand-text">Shaadi Shanstha</span>
     </div>
 </div>
 
@@ -686,16 +54,16 @@
         </div>
         
         <div class="menu-header">
-            <img src="https://i.imgur.com/H0bLJPq.png" alt="Shaadi Sanstha Logo">
-            <h3>Shaadi Sanstha</h3>
+            <img src="https://i.imgur.com/H0bLJPq.png" alt="Shaadi Shanstha Logo">
+            <h3>Shaadi Shanstha</h3>
             <p>Where Trust Meets Tradition</p>
         </div>
 
         <div class="important-message-box">
-            💖 We support dowry-free marriages – All marriages on <strong>Shaadi Sanstha</strong> are <span style="color: #d81b60;">completely dowry-free</span> 💍
+            💖 We support dowry-free marriages – All marriages on <strong>Shaadi Shanstha</strong> are <span style="color: #d81b60;">completely dowry-free</span> 💍
         </div>
 
-        <h4 class="menu-section-heading">Explore Shaadi Sanstha</h4>
+        <h4 class="menu-section-heading">Explore Shaadi Shanstha</h4>
         <ul>
             <li><a href="#about" class="menu-link">About Us</a></li>
             <li><a href="#services" class="menu-link">Our Services</a></li>
@@ -716,8 +84,8 @@
 
 
 <header>
-    <img src="https://i.imgur.com/H0bLJPq.png" alt="Shaadi Sanstha Logo" class="header-logo">
-    <h1>Shaadi Sanstha</h1>
+    <img src="https://i.imgur.com/H0bLJPq.png" alt="Shaadi Shanstha Logo" class="header-logo">
+    <h1>Shaadi Shanstha</h1>
     <p>Trusted &amp; Transparent Matrimonial Service</p>
     <p>💼 Serving families since 2016</p>
 </header>
@@ -746,11 +114,11 @@
 
     <section id="about" class="container" style="background: #f9f9f9;">
         <div style="max-width: 800px; margin: auto; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.1);">
-            <h2>🕊️ Shaadi Sanstha – Where Relationships Begin with Trust</h2>
+            <h2>🕊️ Shaadi Shanstha – Where Relationships Begin with Trust</h2>
             <p style="text-align: center; font-size: 16px; color: #444;">Founded in <strong>2016</strong></p>
             <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
             <p style="font-size: 17px; line-height: 1.8; color: #333;">
-                Shaadi Sanstha was established with a deep belief — <em>“Marriage is not just the union of two individuals, but of two families.”</em><br><br>
+                Shaadi Shanstha was established with a deep belief — <em>“Marriage is not just the union of two individuals, but of two families.”</em><br><br>
                 We believe that the foundation of a successful marriage is built on <strong>trust, respect, and shared family values</strong>. For over <strong>9 years</strong>, we’ve been helping families across Bihar and surrounding regions find the right life partner with complete <strong>honesty and transparency</strong>.
             </p>
             <h3 style="margin-top: 30px; color: #B22222;">💖 Our Commitment:</h3>
@@ -771,8 +139,8 @@
     </section>
 
     <div class="container" id="how-it-works">
-        <h2>💖 How It Works</h2>
-        <p style="font-size: 1.1em; max-width: 800px; margin: 0 auto 30px; color: #555;">Finding your perfect match with Shaadi Sanstha is simple and transparent. Follow these easy steps:</p>
+        <h2>✨ How It Works</h2>
+        <p style="font-size: 1.1em; max-width: 800px; margin: 0 auto 30px; color: #555;">Finding your perfect match with Shaadi Shanstha is simple and transparent. Follow these easy steps:</p>
         <div class="services"> 
             <div class="how-it-works-step">
                 <h3>Step 1: Register Your Profile</h3>
@@ -832,8 +200,8 @@
     </div>
 
     <div class="container" id="registration">
-        <h2 class="section-title">💖 Registration Process</h2> 
-        <p>To register with Shaadi Sanstha, simply fill out our online form or contact us via WhatsApp. Our team will guide you through every step with personal attention and care.</p>
+        <h2 class="section-title">📝 Registration Process</h2> 
+        <p>To register with Shaadi Shanstha, simply fill out our online form or contact us via WhatsApp. Our team will guide you through every step with personal attention and care.</p>
         <h3>💰 Registration Fee</h3>
         <p>We charge a nominal fee to maintain service quality and verification:<br/>
         <strong>₹35,500 – One-time Registration Charges for all services</strong>
@@ -844,24 +212,25 @@
         <div style="text-align: center; margin-top: 30px;">
             <a class="registration-payment-btn" href="registration.html">👉 Register Your Profile!</a>
         </div>
-        <section style="padding: 40px; background-color: #fff3f5; margin: 40px auto; max-width: 900px; border-radius: 12px; text-align: center;">
-            <h2 style="color: #c2185b;">💳 Make Your Registration Payment</h2>
-            <p style="font-size: 16px; color: #333;">Complete your registration by making the one-time payment of ₹35,500.</p>
-            <p style="font-size: 1.1em; color: #555; margin-bottom: 20px;">Your privacy and security are our top priority.</p>
-            <a class="registration-payment-btn" href="payment.html">👉 Complete Payment Now!</a>
-        </section>
     </div>
+    
+    <section style="padding: 40px; background-color: #fff3f5; margin: 40px auto; max-width: 900px; border-radius: 12px; text-align: center;">
+        <h2 style="color: #c2185b;">💳 Make Your Registration Payment</h2>
+        <p style="font-size: 16px; color: #333;">Complete your registration by making the one-time payment of ₹35,500.</p>
+        <p style="font-size: 1.1em; color: #555; margin-bottom: 20px;">Your privacy and security are our top priority.</p>
+        <a class="registration-payment-btn" href="payment.html">👉 Complete Payment Now!</a>
+    </section>
 
     <section id="success-stories" style="padding: 40px; background-color: #fffafc; margin: 50px auto; max-width: 900px; border-radius: 12px;">
         <h2 style="color: #d81b60; text-align: center;">👩‍❤️‍👨 Our Success Stories</h2>
         <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px;">
             <div class="testimonial-box">
-                <p>"With Shaadi Sanstha's help, I found my life partner. Their transparency and support made everything so easy!"</p>
+                <p>"With Shaadi Shanstha's help, I found my life partner. Their transparency and support made everything so easy!"</p>
                 <p class="author">- Priya &amp; Rahul, Patna</p>
                 <img alt="Happy Couple 1" src="https://i.imgur.com/OnAviii.jpeg" class="no-download-img"/>
             </div>
             <div class="testimonial-box">
-                <p>"We never thought we'd find such a compatible match so easily. A big thank you to Shaadi Sanstha!"</p>
+                <p>"We never thought we'd find such a compatible match so easily. A big thank you to Shaadi Shanstha!"</p>
                 <p class="author">- Anjali &amp; Vivek, Ranchi</p>
                 <img alt="Happy Couple 2" src="https://i.imgur.com/OKpFGCb.jpeg" class="no-download-img"/>
             </div>
@@ -870,7 +239,7 @@
                 <p class="author">- Neha &amp; Sameer, Bhagalpur</p>
                 <img alt="Happy Couple 3" src="https://i.imgur.com/onxrwmr.jpeg" class="no-download-img"/>
             </div>
-            <div class="testimonial-box"><p>"Thanks to Shaadi Sanstha, we were able to marry without any dowry and they supported us throughout the process."</p><p class="author">— Anjali &amp; Rohit (Married in 2023)</p><img alt="Dowry-Free Couple" src="https://i.imgur.com/cxCQBsr.jpeg" class="no-download-img"/></div>
+            <div class="testimonial-box"><p>"Thanks to Shaadi Shanstha, we were able to marry without any dowry and they supported us throughout the process."</p><p class="author">— Anjali &amp; Rohit (Married in 2023)</p><img alt="Dowry-Free Couple" src="https://i.imgur.com/cxCQBsr.jpeg" class="no-download-img"/></div>
         </div>
         <p style="text-align: center; margin-top: 30px; font-size: 1.1em; color: #ad1457;">Ready to share your own success story? <a href="#contact" style="color: #d81b60; text-decoration: none; font-weight: bold;">Contact Us!</a></p>
     </section>
@@ -932,9 +301,9 @@
     </section>
 
     <div class="container" id="contact">
-        <h2>💖 Contact Us</h2>
+        <h2>💌 Contact Us</h2>
         <p style="font-size: 1.1em; max-width: 700px; margin: 0 auto 20px; color: #555;">Have questions or need assistance? Feel free to reach out to us! Our team is here to help you every step of the way.</p>
-        <p><strong>Shaadi Sanstha Office</strong><br/>
+        <p><strong>Shaadi Shanstha Office</strong><br/>
             Location: Bihar, India<br/>
             Working Hours: Monday - Sunday, 10:00 AM - 8:00 PM IST
         </p>
@@ -953,7 +322,7 @@
     </div>
 
     <div class="container" id="terms">
-        <h2>💖 Terms and Conditions</h2>
+        <h2>📄 Terms and Conditions</h2>
         <ul style="text-align: left; max-width: 800px; margin: 0 auto; line-height: 1.8; font-size: 1.05em; color: #333;">
             <li>1. If the match is not finalized within 4 months, a refund will be issued after deducting ₹500.</li>
             <li>2. Users must request a refund within 30 days after the 4-month period.</li>
@@ -962,13 +331,13 @@
             <li>5. **Age Requirement:** All registrants must meet the legal age of marriage as per Indian law (currently 18 for brides and 21 for grooms).</li>
             <li>6. **Accurate Information:** Users are solely responsible for providing true, accurate, and complete information in their profiles. Any misrepresentation may lead to account termination without refund.</li>
             <li>7. **Profile Sharing Consent:** By registering, you consent to your profile information (excluding sensitive contact details unless explicitly shared by you) being shared with potential matches and their families based on compatibility.</li>
-            <li>8. **Final Decision:** Shaadi Sanstha facilitates connections; the final decision regarding a match rests entirely with the individuals and their families. We are not liable for any personal disagreements or issues arising post-match finalization.</li>
+            <li>8. **Final Decision:** Shaadi Shanstha facilitates connections; the final decision regarding a match rests entirely with the individuals and their families. We are not liable for any personal disagreements or issues arising post-match finalization.</li>
             <li>9. **Misuse of Service:** Any attempt to misuse the service, engage in fraudulent activities, or harass other members will result in immediate termination of service with no refund.</li>
             <li>10. **Service Scope:** Our service involves providing verified matches and facilitating initial introductions. Any subsequent interactions, meetings, or background checks are the responsibility of the concerned parties.</li>
             <li>11. **Client Responsibility:** It is the client's responsibility to review profiles carefully and perform any desired personal verifications before proceeding with a match.</li>
             <li>12. **Grievance Redressal:** Any complaints or disputes should be reported to our customer service within 7 days of the incident for resolution.</li>
             <li>13. **Data Security:** We employ robust data encryption and security measures to protect your personal information, though no online transmission can be guaranteed 100% secure.</li>
-            <li>14. **Changes to Terms:** Shaadi Sanstha reserves the right to modify these terms and conditions at any time. Users will be notified of significant changes.</li>
+            <li>14. **Changes to Terms:** Shaadi Shanstha reserves the right to modify these terms and conditions at any time. Users will be notified of significant changes.</li>
         </ul>
     </div>
 </main>
@@ -983,7 +352,7 @@
 </div>
 
 <footer>
-    © 2025 Shaadi Sanstha | All rights reserved
+    © 2025 Shaadi Shanstha | All rights reserved
     <div style="margin-top: 10px;">
         <a href="#terms" style="color: #d81b60; text-decoration: none; margin: 0 10px; font-weight: bold;">Privacy Policy</a>
         <a href="#terms" style="color: #d81b60; text-decoration: none; margin: 0 10px; font-weight: bold;">Terms and Conditions</a>
@@ -995,67 +364,6 @@
     </div>
 </footer>
 
-<script>
-    // Disable right-click context menu globally
-    document.addEventListener('contextmenu', function(e) {
-        e.preventDefault();
-    });
-
-    // Disable image dragging
-    document.addEventListener('dragstart', function(e) {
-        if (e.target.tagName === 'IMG') {
-            e.preventDefault();
-        }
-    });
-
-    // Add .no-download-img class to specific images (success stories images)
-    document.addEventListener('DOMContentLoaded', function() {
-        const successStoryImages = document.querySelectorAll('#success-stories .testimonial-box img');
-        successStoryImages.forEach(img => {
-            img.classList.add('no-download-img');
-        });
-
-        // Hamburger Menu Logic
-        const hamburgerIcon = document.getElementById('hamburger-icon');
-        const offCanvasMenu = document.getElementById('off-canvas-menu');
-        const menuOverlay = document.getElementById('menu-overlay');
-        const closeMenuButton = document.getElementById('close-menu');
-        const menuLinks = document.querySelectorAll('.off-canvas-menu .menu-link');
-
-        function toggleMenu() {
-            offCanvasMenu.classList.toggle('open');
-            hamburgerIcon.classList.toggle('open');
-            menuOverlay.classList.toggle('active');
-            
-            // Fix: Disable body and html scrolling when menu is open
-            const isMenuOpen = offCanvasMenu.classList.contains('open');
-            document.body.classList.toggle('no-scroll', isMenuOpen);
-            document.documentElement.classList.toggle('no-scroll-html', isMenuOpen); // Apply to html as well
-        }
-
-        // Only add event listener if hamburger icon exists (i.e., on mobile)
-        if (hamburgerIcon) {
-            hamburgerIcon.addEventListener('click', toggleMenu);
-        }
-        
-        if (closeMenuButton) {
-            closeMenuButton.addEventListener('click', function(e) {
-                e.preventDefault(); // Prevent default link behavior
-                toggleMenu();
-            });
-        }
-        
-        if (menuOverlay) {
-            menuOverlay.addEventListener('click', toggleMenu); // Close menu when clicking outside
-        }
-
-        // Close menu when a link inside the menu is clicked
-        menuLinks.forEach(link => {
-            link.addEventListener('click', function() {
-                toggleMenu(); // Close menu after clicking a link
-            });
-        });
-    });
-</script>
+<script src="script.js"></script>
 </body>
 </html>
