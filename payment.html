@@ -7,7 +7,7 @@
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-      background: linear-gradient(to bottom, #fde7f3, #fdf6fa);
+      background: #f8f5fa;
       padding: 20px;
       margin: 0;
       display: flex;
@@ -18,113 +18,149 @@
     .container {
       max-width: 500px;
       width: 100%;
-      margin: auto;
       background: white;
-      border-radius: 16px;
-      padding: 35px;
-      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
+      border-radius: 18px;
+      padding: 40px 35px;
+      box-shadow: 0 10px 40px rgba(0,0,0,0.12);
       text-align: center;
-      border: 1px solid #f0e6f2;
+      border-top: 6px solid #880e4f;
     }
     h1 {
       color: #880e4f;
-      margin-bottom: 5px;
+      margin-bottom: 8px;
       font-size: 32px;
+      font-weight: 700;
     }
     h2 {
-      color: #c2185b;
+      color: #333;
       margin-top: 0;
       margin-bottom: 25px;
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 500;
     }
     .price {
-      font-size: 26px;
+      font-size: 22px;
       margin-bottom: 30px;
-      color: #333;
+      color: #222;
       font-weight: bold;
     }
     .price span {
-      font-size: 20px;
-      color: #777;
+      display: block;
+      font-size: 15px;
+      color: #666;
       font-weight: normal;
+      margin-top: 5px;
     }
     .payment-title {
-      font-size: 20px;
+      font-size: 18px;
       color: #880e4f;
       margin-bottom: 20px;
       font-weight: 600;
     }
-    .payment-options {
-      margin-top: 20px;
-      display: flex;
-      flex-direction: column;
-      gap: 15px;
-    }
     .payment-options a {
-      display: block;
-      padding: 15px;
-      background-color: #c2185b;
+      display: inline-block;
+      padding: 14px 20px;
+      background: linear-gradient(135deg,#c2185b,#880e4f);
       color: white;
       font-weight: bold;
       text-decoration: none;
-      border-radius: 8px;
-      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
-      font-size: 18px;
-      box-shadow: 0 4px 15px rgba(194, 24, 91, 0.4);
+      border-radius: 10px;
+      transition: all 0.3s ease;
+      font-size: 17px;
+      box-shadow: 0 4px 15px rgba(136,14,79,0.4);
     }
     .payment-options a:hover {
-      background-color: #a3154b;
+      background: linear-gradient(135deg,#a3154b,#6a1b9a);
       transform: translateY(-3px);
-      box-shadow: 0 6px 20px rgba(163, 21, 75, 0.5);
+      box-shadow: 0 6px 20px rgba(136,14,79,0.5);
+    }
+    form {
+      margin-top: 30px;
+      text-align: left;
+    }
+    label {
+      font-size: 14px;
+      font-weight: 600;
+      color: #444;
+      display: block;
+      margin-bottom: 6px;
     }
     input {
-      width: calc(100% - 24px);
+      width: 100%;
       padding: 12px;
-      margin: 10px 0;
+      margin-bottom: 18px;
       border: 1px solid #ddd;
-      border-radius: 6px;
+      border-radius: 8px;
       font-size: 15px;
+      transition: border 0.3s ease, box-shadow 0.3s ease;
+    }
+    input:focus {
+      border-color: #880e4f;
+      box-shadow: 0 0 6px rgba(136,14,79,0.2);
+      outline: none;
     }
     form button[type="submit"] {
-      background-color: #6a1b9a;
+      background: linear-gradient(135deg,#6a1b9a,#4a148c);
       color: white;
       font-weight: bold;
       border: none;
       cursor: pointer;
-      transition: background 0.3s ease, transform 0.2s ease;
+      transition: all 0.3s ease;
       width: 100%;
-      padding: 12px;
-      border-radius: 6px;
-      margin-top: 20px;
+      padding: 14px;
+      border-radius: 8px;
+      margin-top: 10px;
+      font-size: 16px;
     }
     form button[type="submit"]:hover {
-      background-color: #4a148c;
+      background: linear-gradient(135deg,#4a148c,#311b92);
       transform: translateY(-2px);
+    }
+    .note {
+      font-size: 13px;
+      color: #d32f2f;
+      margin-top: 15px;
+      text-align: center;
+      font-weight: 600;
+      background: #fff3f3;
+      padding: 10px;
+      border-radius: 8px;
+      border: 1px solid #f0c2c2;
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1 style="color:#880e4f; margin-bottom: 0;">Shaadi Shanstha</h1>
+    <h1>Shaadi Shanstha</h1>
     <h2>💳 Registration Payment</h2>
-    <p class="price">Registration Charges: ₹35,500 <span>(One-time)</span></p>
+    <p class="price">₹35,500 <span>One-time Registration Charges</span></p>
 
-    <div class="payment-title">Now Pay with your preferred app</div>
+    <div class="payment-title">Pay securely with UPI</div>
     <div class="payment-options">
-        <a href="upi://pay?pa=kanhaiyakumar9818@barodampay&pn=ShaadiShanstha&am=35500&cu=INR">Tap here to Pay</a>
+        <a href="upi://pay?pa=kanhaiyakumar9818@barodampay&pn=ShaadiShanstha&cu=INR">Pay via UPI App</a>
     </div>
 
     <form action="https://formsubmit.co/shaadishanstha.in@gmail.com" method="POST">
       <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_next" value="https://shaadishanstha.netlify.app/payment-success.html" />
       <input type="hidden" name="_subject" value="New Shaadi Shanstha Payment Received!" />
-      <input type="text" name="UPI Transaction ID" placeholder="Enter UPI Transaction ID" required />
-      <input type="text" name="Your Name" placeholder="Your Full Name" required />
-      <input type="email" name="Your Email" placeholder="Your Email Address" required />
-      <input type="tel" name="Your Phone Number" placeholder="Your Phone Number (Optional)" />
+
+      <label for="transaction">UPI Transaction ID *</label>
+      <input type="text" id="transaction" name="UPI Transaction ID" placeholder="Enter UPI Transaction ID" required />
+
+      <label for="amount">Amount Paid *</label>
+      <input type="number" id="amount" name="Amount Paid" placeholder="Enter Paid Amount (₹)" required />
+
+      <label for="name">Your Full Name *</label>
+      <input type="text" id="name" name="Your Name" placeholder="Enter your name" required />
+
+      <label for="phone">Your Phone Number (Optional)</label>
+      <input type="tel" id="phone" name="Your Phone Number" placeholder="Enter your phone number" />
+
       <button type="submit">Submit Payment Details</button>
     </form>
+
+    <p class="note">⚠️ Please ensure you have paid the correct registration fee of ₹35,500 and entered the exact Transaction ID & Amount.</p>
   </div>
 </body>
 </html>
