@@ -2,75 +2,123 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Shaadi Sanstha - Payment</title>
+  <title>Shaadi Shanstha - Payment</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
-      font-family: 'Segoe UI', sans-serif;
-      background: linear-gradient(to right, #ffe3ec, #fff0f5);
-      padding: 30px;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(to bottom, #fde7f3, #fdf6fa);
+      padding: 20px;
       margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
     }
     .container {
-      max-width: 600px;
+      max-width: 500px;
+      width: 100%;
       margin: auto;
       background: white;
-      border-radius: 12px;
-      padding: 30px;
-      box-shadow: 0 0 15px rgba(0,0,0,0.1);
+      border-radius: 16px;
+      padding: 35px;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.15);
       text-align: center;
+      border: 1px solid #f0e6f2;
+    }
+    h1 {
+      color: #880e4f;
+      margin-bottom: 5px;
+      font-size: 32px;
     }
     h2 {
       color: #c2185b;
-      margin-bottom: 10px;
+      margin-top: 0;
+      margin-bottom: 25px;
+      font-size: 24px;
+      font-weight: 500;
     }
     .price {
-      font-size: 18px;
-      margin-bottom: 20px;
-      color: #444;
-    }
-    img {
-      width: 200px;
-      margin: 20px auto;
-      border: 4px solid #c2185b;
-      border-radius: 12px;
-    }
-    p.upi {
-      font-weight: bold;
+      font-size: 26px;
       margin-bottom: 30px;
+      color: #333;
+      font-weight: bold;
     }
-    input, button {
-      width: 100%;
+    .price span {
+      font-size: 20px;
+      color: #777;
+      font-weight: normal;
+    }
+    .payment-title {
+      font-size: 20px;
+      color: #880e4f;
+      margin-bottom: 20px;
+      font-weight: 600;
+    }
+    .payment-options {
+      margin-top: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .payment-options a {
+      display: block;
+      padding: 15px;
+      background-color: #c2185b;
+      color: white;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: background 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease;
+      font-size: 18px;
+      box-shadow: 0 4px 15px rgba(194, 24, 91, 0.4);
+    }
+    .payment-options a:hover {
+      background-color: #a3154b;
+      transform: translateY(-3px);
+      box-shadow: 0 6px 20px rgba(163, 21, 75, 0.5);
+    }
+    input {
+      width: calc(100% - 24px);
       padding: 12px;
       margin: 10px 0;
-      border: 1px solid #ccc;
+      border: 1px solid #ddd;
       border-radius: 6px;
       font-size: 15px;
     }
-    button {
-      background-color: #c2185b;
+    form button[type="submit"] {
+      background-color: #6a1b9a;
       color: white;
       font-weight: bold;
       border: none;
       cursor: pointer;
-      transition: background 0.3s;
+      transition: background 0.3s ease, transform 0.2s ease;
+      width: 100%;
+      padding: 12px;
+      border-radius: 6px;
+      margin-top: 20px;
     }
-    button:hover {
-      background-color: #a3154b;
+    form button[type="submit"]:hover {
+      background-color: #4a148c;
+      transform: translateY(-2px);
     }
   </style>
 </head>
 <body>
   <div class="container">
-    <h1 style="color:#880e4f; margin-bottom: 0;">Shaadi Sanstha</h1>
+    <h1 style="color:#880e4f; margin-bottom: 0;">Shaadi Shanstha</h1>
     <h2>💳 Registration Payment</h2>
-    <p class="price">Registration Charges: ₹35,500 (One-time)</p>
-    <img src="qr-placeholder.png" alt="Scan to Pay QR Code" />
-    <p class="upi">Pay to UPI ID: <span style="color:#c2185b;">yourupi@upi</span></p>
+    <p class="price">Registration Charges: ₹35,500 <span>(One-time)</span></p>
+
+    <div class="payment-title">Now Pay with your preferred app</div>
+    <div class="payment-options">
+        <a href="upi://pay?pa=kanhaiyakumar9818@barodampay&pn=ShaadiShanstha&am=35500&cu=INR">Tap here to Pay</a>
+    </div>
+
     <form action="https://formsubmit.co/shaadishanstha.in@gmail.com" method="POST">
       <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_next" value="https://shaadishanstha.netlify.app/payment-success.html" />
-      <input type="hidden" name="_subject" value="New Shaadi Sanstha Payment Received!" />
+      <input type="hidden" name="_subject" value="New Shaadi Shanstha Payment Received!" />
       <input type="text" name="UPI Transaction ID" placeholder="Enter UPI Transaction ID" required />
       <input type="text" name="Your Name" placeholder="Your Full Name" required />
       <input type="email" name="Your Email" placeholder="Your Email Address" required />
