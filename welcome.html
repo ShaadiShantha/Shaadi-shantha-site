@@ -3,61 +3,64 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome to Shaadi Sanstha</title>
+    <title>Welcome to Shaadi Shanstha</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap');
-        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@700&display=swap'); /* For Hindi text if needed for other elements */
-        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap'); /* For very stylish 'Swagatam' */
-
+        @import url('https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@700&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap');
 
         body {
             margin: 0;
-            height: 100vh; /* Fixed height for mobile display stability */
-            overflow: hidden; /* Hide scrollbars, crucial for mobile */
-            background: linear-gradient(135deg, #fce4ec, #f8bbd0, #f06292); /* Softer, richer pink gradient */
-            background-size: 400% 400%; /* For animation */
-            animation: gradientAnimation 15s ease infinite; /* Subtle background movement */
+            height: 100vh;
+            overflow: hidden;
+            background: linear-gradient(135deg, #fce4ec, #f8bbd0, #f06292);
+            background-size: 400% 400%;
+            animation: gradientAnimation 15s ease infinite;
             display: flex;
-            flex-direction: column; /* Align items vertically */
-            justify-content: center; /* Center content vertically */
-            align-items: center; /* Center horizontally */
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
             font-family: 'Poppins', sans-serif;
             color: #880e4f;
             position: relative;
-            box-sizing: border-box; /* Include padding/border in element's total width/height */
+            box-sizing: border-box;
+            transition: opacity 1s ease-out;
         }
 
-        /* Background Gradient Animation */
         @keyframes gradientAnimation {
             0% { background-position: 0% 50%; }
             50% { background-position: 100% 50%; }
             100% { background-position: 0% 50%; }
+        }
+        
+        .fade-out {
+            opacity: 0;
         }
 
         .main-content-wrapper {
             display: flex;
             flex-direction: column;
             align-items: center;
-            z-index: 2; /* Ensure content is above flowers */
-            background: rgba(255, 255, 255, 0.95); /* More opaque white background */
-            border-radius: 25px; /* More rounded corners */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3); /* Stronger shadow */
-            padding: 30px 20px; /* Padding for the entire card */
-            max-width: 90%; /* Adjust for mobile */
-            width: 500px; /* Max width for larger screens */
+            z-index: 2;
+            background: rgba(255, 255, 255, 0.95);
+            border-radius: 25px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+            padding: 30px 20px;
+            max-width: 80%;
+            width: 400px;
             animation: fadeInScaleUp 1.5s ease-out forwards;
             opacity: 0;
         }
 
         .ganesha-image-container {
-            margin-bottom: 15px; /* Space between image and Om Ganeshaya Namaha */
+            margin-bottom: 15px;
             animation: fadeIn 1s ease-out 0.3s forwards;
             opacity: 0;
-            text-align: center; /* Ensure image and mantra are centered */
+            text-align: center;
         }
 
         .ganesha-image-container img {
-            max-width: 200px; /* Slightly larger for impact */
+            max-width: 200px;
             height: auto;
             display: block;
             margin: 0 auto;
@@ -66,48 +69,50 @@
         }
 
         .om-ganeshaya-namaha {
-            font-family: 'Hind Siliguri', sans-serif; /* A strong, clear Hindi font */
-            font-size: 1.8em; /* Heading like size */
-            color: #800000; /* Dark maroon for a traditional feel */
+            font-family: 'Hind Siliguri', sans-serif;
+            font-size: 1.8em;
+            color: #800000;
             font-weight: bold;
             text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
-            margin-top: 10px; /* Space below the image */
-            animation: fadeIn 1s ease-out 0.8s forwards; /* Appear after image */
+            margin-top: 10px;
+            animation: fadeIn 1s ease-out 0.8s forwards;
             opacity: 0;
         }
 
         .stylish-swagatam {
-            font-family: 'Great Vibes', cursive; /* A very elegant cursive font */
-            font-size: 5em; /* Very large for prominence */
-            color: #d81b60; /* Vibrant pink */
-            margin-top: 20px; /* Space above the welcome message */
-            margin-bottom: 10px; /* Space below Swagatam */
-            text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.15);
-            line-height: 1; /* Keep lines close */
-            animation: slideInUp 1s ease-out 1s forwards; /* Animated entrance */
+            font-family: 'Great Vibes', cursive;
+            font-size: 5.5em; /* Slightly increased font size */
+            color: #d81b60;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            text-shadow: 4px 4px 8px rgba(0, 0, 0, 0.2); /* Bolder shadow */
+            line-height: 1;
+            animation: slideInUp 1s ease-out 1s forwards;
             opacity: 0;
             transform: translateY(20px);
-            white-space: nowrap; /* Prevent wrapping */
+            white-space: nowrap;
         }
 
         .welcome-logo {
-            max-width: 150px; /* Standard size for the logo */
+            max-width: 150px;
             height: auto;
             display: block;
-            margin: 0 auto 15px; /* Space below logo */
-            animation: bounceIn 1s ease-out 1.5s forwards; /* Animated entrance */
+            margin: 0 auto 15px;
+            animation: bounceIn 1s ease-out 1.5s forwards;
             opacity: 0;
         }
 
         .welcome-heading {
-            font-family: 'Poppins', sans-serif;
-            font-size: 2.5em;
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.2em; /* Slightly increased size */
+            font-weight: 700; /* Made the font bolder */
             margin-bottom: 5px;
             color: #ad1457;
             line-height: 1.2;
-            animation: slideInUp 1s ease-out 1.8s forwards; /* Animated entrance */
+            animation: slideInUp 1s ease-out 1.8s forwards;
             opacity: 0;
             transform: translateY(20px);
+            text-align: center;
         }
 
         .welcome-slogan {
@@ -115,17 +120,12 @@
             margin-bottom: 25px;
             color: #b71c1c;
             font-weight: 600;
-            animation: slideInUp 1s ease-out 2s forwards; /* Animated entrance */
+            animation: slideInUp 1s ease-out 2s forwards;
             opacity: 0;
             transform: translateY(20px);
         }
-
-        /* Keyframes for animations */
-        @keyframes fadeInScaleUp {
-            from { opacity: 0; transform: scale(0.8); }
-            to { opacity: 1; transform: scale(1); }
-        }
-
+        
+        @keyframes fadeInScaleUp { from { opacity: 0; transform: scale(0.8); } to { opacity: 1; transform: scale(1); } }
         @keyframes bounceIn {
             0%, 20%, 40%, 60%, 80%, 100% { transition-timing-function: cubic-bezier(0.215, 0.61, 0.355, 1); }
             0% { opacity: 0; transform: scale3d(0.3, 0.3, 0.3); }
@@ -135,83 +135,45 @@
             80% { transform: scale3d(0.97, 0.97, 0.97); }
             100% { opacity: 1; transform: scale3d(1, 1, 1); }
         }
+        @keyframes slideInUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+        @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
 
-        @keyframes slideInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-
-        @keyframes fadeIn {
-            from { opacity: 0; }
-            to { opacity: 1; }
-        }
-
-        /* Falling Flowers CSS */
-        .flower {
+        /* Updated CSS for Falling Flowers */
+        .falling-petal {
             position: absolute;
-            background-color: rgba(255, 204, 229, 0.8); /* Light pink flower */
-            border-radius: 50%;
             pointer-events: none;
+            z-index: 1;
             animation: fall linear infinite;
-            z-index: 1; /* Behind the main content wrapper */
-            box-shadow: 0 0 5px rgba(255, 204, 229, 0.5);
-            clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); /* Simple petal shape */
         }
+
+        .falling-petal.style-pink { background-color: rgba(255, 204, 229, 0.8); clip-path: polygon(50% 0%, 100% 50%, 50% 100%, 0% 50%); }
+        .falling-petal.style-white { background-color: rgba(255, 255, 255, 0.8); clip-path: polygon(50% 0%, 80% 20%, 100% 50%, 80% 80%, 50% 100%, 20% 80%, 0% 50%, 20% 20%); }
+        .falling-petal.style-red { background-color: rgba(255, 99, 71, 0.8); clip-path: polygon(50% 0%, 65% 35%, 100% 50%, 65% 65%, 50% 100%, 35% 65%, 0% 50%, 35% 35%); }
+        .falling-petal.style-green { background-color: rgba(60, 179, 113, 0.8); border-radius: 50%; }
 
         @keyframes fall {
-            0% {
-                transform: translateY(-10vh) rotate(0deg);
-                opacity: 0;
-            }
-            10% {
-                opacity: 1;
-            }
-            100% {
-                transform: translateY(110vh) rotate(720deg);
-                opacity: 0;
-            }
+            0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            100% { transform: translateY(110vh) rotate(720deg); opacity: 0; }
         }
 
-        /* Responsive adjustments */
         @media (max-width: 768px) {
-            .main-content-wrapper {
-                padding: 20px 15px;
-                max-width: 95%; /* Take more width on small screens */
+            .main-content-wrapper { 
+                padding: 20px 15px; 
+                max-width: 85%;
             }
-            .ganesha-image-container img {
-                max-width: 150px; /* Smaller image for mobile */
-            }
-            .om-ganeshaya-namaha {
-                font-size: 1.4em; /* Smaller mantra */
-            }
-            .stylish-swagatam {
-                font-size: 3.5em; /* Smaller Swagatam */
-                margin-top: 15px;
-            }
-            .welcome-logo {
-                max-width: 100px; /* Smaller logo */
-            }
-            .welcome-heading {
-                font-size: 1.8em; /* Smaller heading */
-            }
-            .welcome-slogan {
-                font-size: 0.9em; /* Smaller slogan */
-            }
+            .ganesha-image-container img { max-width: 150px; }
+            .om-ganeshaya-namaha { font-size: 1.4em; }
+            .stylish-swagatam { font-size: 4em; /* Adjusted for mobile */ margin-top: 15px; }
+            .welcome-logo { max-width: 100px; }
+            .welcome-heading { font-size: 2.2em; /* Adjusted for mobile */ }
+            .welcome-slogan { font-size: 0.9em; }
         }
-
         @media (max-width: 480px) {
-            .stylish-swagatam {
-                font-size: 2.8em; /* Even smaller for very small phones */
-            }
-            .welcome-heading {
-                font-size: 1.5em;
-            }
-            .welcome-slogan {
-                font-size: 0.8em;
-            }
-            .om-ganeshaya-namaha {
-                font-size: 1.2em;
-            }
+            .stylish-swagatam { font-size: 3.2em; /* Adjusted for smaller mobile */ }
+            .welcome-heading { font-size: 2em; /* Adjusted for smaller mobile */ }
+            .welcome-slogan { font-size: 0.8em; }
+            .om-ganeshaya-namaha { font-size: 1.2em; }
         }
     </style>
 </head>
@@ -226,56 +188,61 @@
 
         <div class="stylish-swagatam">स्वागतम</div>
 
-        <img src="https://i.imgur.com/coZ4cGv.png" alt="Shaadi Sanstha Logo" class="welcome-logo">
-        <h1 class="welcome-heading">Welcome to Shaadi Sanstha</h1>
+        <img src="https://i.imgur.com/coZ4cGv.png" alt="Shaadi Shanstha Logo" class="welcome-logo">
+        <h1 class="welcome-heading">Shaadi Shanstha</h1>
         <p class="welcome-slogan">Connecting Hearts, Building Families with Blessings.</p>
     </div>
 
     <script>
-        // Function to create and animate a single flower
-        function createFlower() {
-            const flower = document.createElement('div');
-            flower.classList.add('flower');
+        const body = document.body;
+        
+        function createFallingPetal() {
+            const petal = document.createElement('div');
+            
+            const petalStyles = [
+                'style-pink',
+                'style-white',
+                'style-red',
+                'style-green'
+            ];
+            const randomPetalStyle = petalStyles[Math.floor(Math.random() * petalStyles.length)];
+            petal.classList.add('falling-petal', randomPetalStyle);
 
-            // Random size for flowers
-            const size = Math.random() * 12 + 6; // Between 6px and 18px
-            flower.style.width = `${size}px`;
-            flower.style.height = `${size}px`;
+            const size = Math.random() * 18 + 10;
+            petal.style.width = `${size}px`;
+            petal.style.height = `${size}px`;
 
-            // Random starting position (x-axis) - more focused around center
-            // Adjusted to appear more centrally over the Ganesha image area
-            const startX = Math.random() * 40 + 30; // Between 30vw and 70vw
-            flower.style.left = `${startX}vw`;
+            const startX = Math.random() * 100;
+            petal.style.left = `${startX}vw`;
+            const startY = Math.random() * 20 - 20;
+            petal.style.top = `${startY}vh`;
+            
+            const initialRotation = Math.random() * 360;
+            petal.style.transform = `rotate(${initialRotation}deg)`;
 
-            // Random starting y-position (appearing from above Ganesha/top of screen)
-            flower.style.top = `${Math.random() * 20 - 20}vh`; // Between -20vh and 0vh
+            const duration = Math.random() * 5 + 6;
+            petal.style.animationDuration = `${duration}s`;
+            const delay = Math.random() * 4;
+            petal.style.animationDelay = `${delay}s`;
 
-            // Random animation duration for variety
-            const duration = Math.random() * 5 + 3; // Between 3s and 8s
-            flower.style.animationDuration = `${duration}s`;
+            document.body.appendChild(petal);
 
-            // Random delay for flowers to appear at different times
-            const delay = Math.random() * 3; // Up to 3s delay
-            flower.style.animationDelay = `${delay}s`;
-
-            document.body.appendChild(flower);
-
-            // Remove flower after animation ends to prevent memory leak
-            flower.addEventListener('animationend', () => {
-                flower.remove();
+            petal.addEventListener('animationend', () => {
+                petal.remove();
             });
         }
 
-        // Generate multiple flowers
-        const numberOfFlowers = 60; // Adjust as needed
-        for (let i = 0; i < numberOfFlowers; i++) {
-            createFlower();
+        const numberOfPetals = 80; 
+        for (let i = 0; i < numberOfPetals; i++) {
+            createFallingPetal();
         }
 
-        // Redirect to main page after a delay
         setTimeout(() => {
-            window.location.href = 'index.html';
-        }, 8000); // 8 seconds delay
+            body.classList.add('fade-out');
+            setTimeout(() => {
+                window.location.href = 'index.html';
+            }, 1000);
+        }, 8000);
     </script>
 </body>
 </html>
