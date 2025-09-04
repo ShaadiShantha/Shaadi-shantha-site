@@ -10,16 +10,16 @@
     body {
       margin: 0;
       height: 100vh;
-      background: linear-gradient(135deg, #8e0e00, #1f1c18); /* maroon + golden */
+      background: linear-gradient(135deg, #8e0e00, #1f1c18);
       color: #fff;
       font-family: 'Poppins', sans-serif;
       overflow: hidden;
-      border: 10px solid gold; 
       box-sizing: border-box;
       position: relative;
+      perspective: 1200px;
     }
 
-    /* ---------------- Gate Animation ---------------- */
+    /* ---------------- Gate Animation (Parda Effect) ---------------- */
     .gate {
       position: fixed;
       top: 0;
@@ -27,36 +27,43 @@
       height: 100%;
       background: #5a0000;
       z-index: 1000;
-      transition: transform 2.5s ease-in-out;
+      transition: transform 4s ease-in-out;
+      box-sizing: border-box;
     }
-    .gate.left { left: 0; }
-    .gate.right { right: 0; }
-
-    .gate.open.left { transform: translateX(-100%); }
-    .gate.open.right { transform: translateX(100%); }
+    .gate.left {
+      left: 0;
+      transform-origin: left center;
+    }
+    .gate.right {
+      right: 0;
+      transform-origin: right center;
+    }
+    .gate.open.left {
+      transform: translateX(-100%) rotateY(120deg) scaleX(0.2);
+    }
+    .gate.open.right {
+      transform: translateX(100%) rotateY(-120deg) scaleX(0.2);
+    }
 
     /* ---------------- Radhe Krishna ---------------- */
     .radhe-krishna {
-      font-family: 'Great Vibes', cursive;
-      font-size: 2.2em; 
+      font-family: 'Poppins', sans-serif;
+      font-weight: bold;
+      font-size: 1.5em;
       color: gold;
       text-align: center;
       margin-top: 20px;
-      text-shadow: 0 0 15px rgba(255,215,0,0.9);
-      animation: glow 2s ease-in-out infinite alternate;
+      text-shadow: 0 0 10px rgba(255,215,0,0.7);
       opacity: 0;
       transition: opacity 1.5s ease;
+      position: relative;
+      z-index: 5;
     }
 
-    @keyframes glow {
-      from { text-shadow: 0 0 10px gold, 0 0 20px orange; }
-      to { text-shadow: 0 0 25px #ffdf70, 0 0 40px gold; }
-    }
-
-    /* ---------------- Intro Typing ---------------- */
+    /* ---------------- Intro Text ---------------- */
     .intro {
       position: absolute;
-      top: 35%;
+      top: 20%;
       width: 100%;
       text-align: center;
       font-size: 1.8em;
@@ -65,71 +72,107 @@
       line-height: 1.6em;
       opacity: 0;
       transition: opacity 1s ease-in;
-      text-shadow: 0 0 8px rgba(0,0,0,0.7);
+      position: relative;
+      z-index: 5;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+    .fade-line {
+      opacity: 0;
+      transform: translateY(20px);
+      transition: opacity 1s ease-out, transform 1s ease-out;
+    }
+    .fade-line.show {
+      opacity: 1;
+      transform: translateY(0);
+    }
+    .intro-main-text {
+      color: #ff80ab;
+      text-shadow: none;
+    }
+    .intro-sub-text {
+      color: #fff;
+      text-shadow: none;
     }
 
-    .typing-line {
-      opacity: 0.7;
-      transition: opacity 1s ease;
+    /* Shaadi Shanstha Logo */
+    .logo-intro {
+        width: 250px;
+        height: auto;
+        margin-bottom: 20px;
+        opacity: 0;
+        transition: opacity 1.5s ease;
     }
-    .typing-line.done {
-      opacity: 1;
+    .logo-intro.show {
+        opacity: 1;
     }
+
 
     /* ---------------- Ganesh Page ---------------- */
     #welcomeBox {
-      display: none;   /* पहले hidden */
-      opacity: 0;      
-      text-align: center;
-      padding: 20px;
-      transition: opacity 2s ease;
+      position: absolute;
+      top: 10%;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 2.5s ease;
+      z-index: 10;
     }
-
     #welcomeBox.show {
-      display: block;
-      opacity: 1;   /* fade-in */
+      opacity: 1;
+      pointer-events: auto;
     }
-
     #welcomeBox img {
-      max-width: 220px;
+      max-width: 200px;
       border-radius: 15px;
-      box-shadow: 0 8px 20px rgba(255,215,0,0.6);
+      box-shadow: 0 8px 20px rgba(255,215,0,0.4);
+      margin-bottom: 15px;
     }
-
     .ganesh-text {
       font-size: 1.6em;
       color: gold;
       margin-top: 12px;
       font-weight: bold;
-      text-shadow: 0 0 12px rgba(255,223,0,0.9);
+      text-shadow: 0 0 10px rgba(255,223,0,0.7);
     }
-
     .swagatam {
       font-size: 2.5em;
       color: #ffd700;
       margin-top: 15px;
       font-family: 'Great Vibes', cursive;
-      text-shadow: 0 0 12px rgba(255,215,0,0.9);
+      text-shadow: 0 0 10px rgba(255,215,0,0.7);
     }
-
     h1 {
       color: #ffcc80;
+      margin-bottom: 5px;
     }
-    p {
+    .shaadi-shanstha-tagline {
       font-weight: 600;
       color: #ffe082;
+      font-size: 1.1em;
+      margin-top: 0;
+      text-align: center;
+    }
+    .heart-emoji {
+      font-size: 1.5em;
+      margin-top: 10px;
     }
 
-    /* ---------------- Falling Flowers ---------------- */
-    .petal {
+    /* ---------------- Falling Emojis ---------------- */
+    .emoji-fall {
       position: absolute;
       top: -10px;
-      border-radius: 50%;
       opacity: 0.8;
       animation: fall linear infinite;
       z-index: 0;
     }
-
     @keyframes fall {
       0% { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
       10% { opacity: 1; }
@@ -138,96 +181,94 @@
   </style>
 </head>
 <body>
-  <!-- Gate Panels -->
   <div class="gate left"></div>
   <div class="gate right"></div>
 
-  <!-- Radhe Krishna Heading -->
   <div class="radhe-krishna" id="rk">🙏💐 Radhe Krishna 💐🙏</div>
 
-  <!-- Typing Intro -->
-  <div class="intro" id="intro"></div>
+  <div class="intro" id="intro">
+    <img src="https://i.imgur.com/fuZ78Ft.png" alt="Shaadi Shanstha Logo" class="logo-intro" id="introLogo">
+    <div id="introTextContainer"></div>
+  </div>
 
-  <!-- Ganesh Page -->
   <div id="welcomeBox">
     <img src="https://i.imgur.com/qCRunpk.jpeg" alt="Ganesh Ji">
     <div class="ganesh-text">🕉️ श्री गणेशाय नमः 🕉️</div>
-    <div class="swagatam">स्वागतम</div>
+    <div class="swagatam">✨ स्वागतम ✨</div>
     <h1>Shaadi Shanstha</h1>
-    <p>Connecting Hearts, Building Families with Blessings</p>
+    <h2 class="shaadi-shanstha-tagline">Connecting Hearts, Building Families with Blessings</h2>
+    <p class="heart-emoji">❤️</p>
   </div>
 
   <script>
     const lines = [
-      "👋 Welcome to",
-      "Shaadi Shanstha",
-      "Service - All Over India"
+      "<span class='intro-sub-text'>👋 Welcome to</span>",
+      "<span class='intro-main-text'>Shaadi Shanstha</span>",
+      "<span class='intro-sub-text'>Service - All Over India</span>"
     ];
+    const fallingEmojis = ['🌺', '🌹'];
     let lineIndex = 0;
-    let charIndex = 0;
 
-    // Gate open
     window.onload = () => {
+      setInterval(createEmoji, 300);
+
       setTimeout(() => {
         document.querySelector(".gate.left").classList.add("open");
         document.querySelector(".gate.right").classList.add("open");
-        document.getElementById("rk").style.opacity = 1; 
+        document.getElementById("rk").style.opacity = 1;
       }, 800);
-
       setTimeout(() => {
-        startTyping();  
-      }, 2500);
+        document.getElementById("introLogo").classList.add("show");
+        startTyping();
+      }, 800);
     };
 
-    // Typing effect
     function startTyping() {
       const intro = document.getElementById("intro");
       intro.style.opacity = 1;
-      intro.innerHTML = "";
+      const introTextContainer = document.getElementById("introTextContainer");
 
       function typeLine() {
         if (lineIndex >= lines.length) {
-          // सब खत्म → Ganesh ji का box show
+          intro.style.opacity = 0;
+          
+          // Naya pause 3 second ka
           setTimeout(() => {
             document.getElementById("welcomeBox").classList.add("show");
-            intro.style.display = "none";
-          }, 2500);
+            
+            // Ganesh ji animation ke baad 8 seconds rukna
+            setTimeout(() => {
+              window.location.href = 'index.html';
+            }, 8000);
+          }, 3000);
+          
           return;
         }
 
         const line = document.createElement("div");
-        line.className = "typing-line";
-        intro.appendChild(line);
+        line.className = "fade-line";
+        line.innerHTML = lines[lineIndex];
+        introTextContainer.appendChild(line);
 
-        charIndex = 0;
-        const interval = setInterval(() => {
-          line.textContent = lines[lineIndex].slice(0, charIndex++);
-          if (charIndex > lines[lineIndex].length) {
-            clearInterval(interval);
-            line.classList.add("done");
-            lineIndex++;
-            setTimeout(typeLine, 2000); 
-          }
-        }, 120);
+        setTimeout(() => {
+          line.classList.add("show");
+          lineIndex++;
+          setTimeout(typeLine, 1500);
+        }, 100);
       }
-
       typeLine();
     }
 
-    // Falling flowers
-    function createPetal() {
-      const petal = document.createElement("div");
-      petal.classList.add("petal");
-      petal.style.width = `${Math.random() * 10 + 8}px`;
-      petal.style.height = petal.style.width;
-      petal.style.left = `${Math.random() * 100}vw`;
-      petal.style.background = ["pink","white","lightyellow","lightcoral"][Math.floor(Math.random()*4)];
-      petal.style.animationDuration = `${Math.random() * 5 + 5}s`;
-      document.body.appendChild(petal);
-
-      petal.addEventListener("animationend", () => petal.remove());
+    function createEmoji() {
+      const emoji = document.createElement("div");
+      emoji.classList.add("emoji-fall");
+      emoji.textContent = fallingEmojis[Math.floor(Math.random() * fallingEmojis.length)];
+      emoji.style.left = `${Math.random() * 100}vw`;
+      emoji.style.fontSize = `${Math.random() * 20 + 15}px`;
+      emoji.style.animationDuration = `${Math.random() * 5 + 5}s`;
+      document.body.appendChild(emoji);
+      emoji.addEventListener("animationend", () => emoji.remove());
     }
-    setInterval(createPetal, 300);
   </script>
 </body>
 </html>
