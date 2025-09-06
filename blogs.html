@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Shaadi Shanstha - All Blogs & Tips</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #f8f5fa;
+      margin: 0;
+      padding: 0;
+    }
+    .container {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: #fff;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+    .main-heading {
+      color: #880e4f;
+      text-align: center;
+      font-size: 2.5em;
+      margin-bottom: 30px;
+    }
+    .blog-post-card {
+      background: #fce4ec;
+      padding: 25px;
+      border-radius: 10px;
+      margin-bottom: 25px;
+      box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+      transition: transform 0.3s ease;
+    }
+    .blog-post-card:hover {
+      transform: translateY(-3px);
+    }
+    .blog-post-card h3 {
+      color: #d81b60;
+      margin-top: 0;
+      margin-bottom: 10px;
+      font-size: 1.5em;
+    }
+    .blog-post-card p {
+      color: #555;
+      line-height: 1.6;
+      font-size: 1em;
+    }
+    .blog-post-card a {
+      display: inline-block;
+      margin-top: 15px;
+      color: #ad1457;
+      text-decoration: none;
+      font-weight: bold;
+    }
+    .blog-post-card a:hover {
+      text-decoration: underline;
+    }
+    .back-btn {
+      display: inline-block;
+      margin-top: 30px;
+      padding: 12px 25px;
+      color: #880e4f;
+      border: 2px solid #880e4f;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+      cursor: pointer;
+      font-size: 16px;
+    }
+    .back-btn:hover {
+      background: #880e4f;
+      color: white;
+      transform: translateY(-2px);
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1 class="main-heading">All Blogs & Tips</h1>
+    <div class="blog-post-card">
+        <h3>शादी के लिए बायोडाटा कैसे बनाएं? 5 ज़रूरी बातें</h3>
+        <p>आपका बायोडाटा ही आपकी पहली छाप है। जानिए इसे सही तरीक़े से कैसे बनाएं ताकि आपको अपना ड्रीम पार्टनर मिल सके...</p>
+        <a href="blog-post-biodata.html">Read More →</a>
+    </div>
+    <div class="blog-post-card">
+        <h3>पहली मुलाकात: 5 टिप्स जो रिश्ते को मजबूत बनाएं</h3>
+        <p>पहली मुलाकात हमेशा यादगार होनी चाहिए। जानिए कुछ आसान टिप्स जो आपको सही छाप छोड़ने में मदद करेंगे...</p>
+        <a href="blog-post-first-meeting.html">Read More →</a>
+    </div>
+    <div class="blog-post-card">
+        <h3>ऑनलाइन विवाह में धोखाधड़ी से कैसे बचें?</h3>
+        <p>ऑनलाइन रिश्तों में सतर्क रहना बहुत ज़रूरी है। जानिए कुछ आसान तरीके जिनसे आप खुद को धोखाधड़ी से बचा सकते हैं...</p>
+        <a href="blog-post-online-safety.html">Read More →</a>
+    </div>
+    <div style="text-align: center; margin-top: 40px;">
+        <a href="#" onclick="goBack()" class="back-btn"><i class="fas fa-arrow-left"></i> Go Back</a>
+    </div>
+  </div>
+
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
+</body>
+</html>
