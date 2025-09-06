@@ -4,7 +4,7 @@
     <meta charset="utf-8">
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <meta name="google-site-verification" content="Gf5au9O9PU3lykMVGohm8VMvt84ItqFoJECgov6uZc4" />
-    <title>Shaadi Shanstha | Matrimonial Service in Bihar for Verified Matches</title>
+    <title>Shaadi Shanstha | Matrimonial Service in all India for Verified Matches</title>
     
     <script>
         // Check if the welcome page has been shown before in this session
@@ -373,6 +373,18 @@
         h2::before {
             content: '💖 ';
         }
+        
+        /* New: Why Choose Us styles */
+        #why-choose-us .service-box {
+            text-align: center;
+            background-color: #fff;
+        }
+        #why-choose-us .service-box i {
+            color: #d81b60;
+            margin-bottom: 10px;
+            font-size: 3em;
+        }
+
 
         /* Services and How It Works boxes */
         .services {
@@ -535,6 +547,44 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
+        /* Blog Section Styles */
+        #blog .blog-post-card {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
+            width: 90%;
+            max-width: 600px;
+            margin: 20px auto;
+            text-align: left;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        #blog .blog-post-card:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+        }
+        #blog .blog-post-card h3 {
+            color: #d81b60;
+            margin-bottom: 10px;
+            font-size: 1.5em;
+        }
+        #blog .blog-post-card p {
+            color: #555;
+            line-height: 1.6;
+            font-size: 1em;
+        }
+        #blog .blog-post-card a {
+            display: inline-block;
+            margin-top: 15px;
+            color: #d81b60;
+            text-decoration: none;
+            font-weight: bold;
+        }
+        #blog .blog-post-card a:hover {
+            text-decoration: underline;
+        }
+
         /* Payment/Registration Button Styles */
         .registration-payment-btn {
             display: inline-block;
@@ -653,10 +703,76 @@
             .container { max-width: 1000px; margin: 0 auto; } /* Center and constrain content */
             .service-box, .how-it-works-step { width: 280px; } /* Slightly larger boxes */
         }
+
+        /* Accordion styles */
+        .accordion-btn {
+            background-color: #fff;
+            color: #444;
+            border: 1px solid #ddd;
+            padding: 15px;
+            width: 100%;
+            text-align: left;
+            font-size: 1.1em;
+            font-weight: bold;
+            cursor: pointer;
+            border-radius: 8px;
+            transition: background-color 0.3s;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .accordion-btn:hover {
+            background-color: #f8f8f8;
+        }
+
+        .accordion-btn::after {
+            content: '\002B'; /* Plus sign */
+            font-size: 1.2em;
+            color: #d81b60;
+            transition: transform 0.3s;
+        }
+
+        .accordion-btn[aria-expanded="true"]::after {
+            content: '\2212'; /* Minus sign */
+            transform: rotate(180deg);
+        }
+
+        .accordion-content {
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-top: none;
+            border-radius: 0 0 8px 8px;
+            background-color: #fcfcfc;
+            display: none;
+        }
+
+        .accordion-item {
+            margin-top: 10px;
+        }
+
+        /* Parallax Effect Class */
+        .parallax {
+            background-image: url('https://i.imgur.com/eTb8MqS.jpeg');
+            min-height: 500px;
+            background-attachment: fixed;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-size: cover;
+            position: relative;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+            font-size: 2em;
+            font-weight: bold;
+            text-align: center;
+        }
     </style>
     <meta content="Shaadi Shanstha is a trusted matrimonial service based in Bihar. We help you find verified, compatible matches with cultural values and full family support." name="description"/>
-    <meta content="matrimonial, shaadi, marriage bureau, bihar matrimony, indian matchmaking, verified profiles, shaadi shanstha, trusted marriage bureau Patna" name="keywords"/>
-    <meta content="Shaadi Shanstha | Verified Matrimonial Service in Bihar" property="og:title"/>
+    <meta content="matrimonial, shaadi, marriage bureau, all india matrimony, indian matchmaking, verified profiles, shaadi shanstha, trusted marriage bureau" name="keywords"/>
+    <meta content="Shaadi Shanstha | Verified Matrimonial Service in all India" property="og:title"/>
     <meta content="Helping you find the perfect match with transparency, tradition and family values." property="og:description"/>
     <meta content="https://shaadis.netlify.app/" property="og:url"/>
     <meta content="website" property="og:type"/>
@@ -690,22 +806,23 @@
             <h3>Shaadi Shanstha</h3>
             <p>Where Trust Meets Tradition</p>
         </div>
-
+        
         <div class="important-message-box">
-            💖 We support dowry-free marriages – All marriages on <strong>Shaadi Shanstha</strong> are <span style="color: #d81b60;">completely dowry-free</span> 💍
+            👉 Creating a profile is absolutely **FREE**! ❤️<br/>Payment is only required for our services.
         </div>
-
         <h4 class="menu-section-heading">Explore Shaadi Shanstha</h4>
         <ul>
             <li><a href="#about" class="menu-link">About Us</a></li>
+            <li><a href="#why-choose-us" class="menu-link">Why Choose Us?</a></li>
             <li><a href="#services" class="menu-link">Our Services</a></li>
             <li><a href="#how-it-works" class="menu-link">How It Works</a></li>
             <li><a href="#registration" class="menu-link">Registration</a></li>
             <li><a href="#success-stories" class="menu-link">Success Stories</a></li>
+            <li><a href="#blog" class="menu-link">Our Blog</a></li>
             <li><a href="#achievements" class="menu-link">Our Achievements</a></li>
             <li><a href="#contact" class="menu-link">Contact Us</a></li>
             <li><a href="#request-callback" class="menu-link">Request a Call Back</a></li>
-            <li><a href="#terms" class="menu-link">Terms and Conditions</a></li>
+            <li><a href="termscon.html" class="menu-link">Terms and Conditions</a></li>
         </ul>
 
         <a href="#registration" class="menu-cta-button menu-link">Register Now!</a>
@@ -725,24 +842,51 @@
 <nav>
     <div style="display: flex; overflow-x: auto; white-space: nowrap; padding: 0 10px; gap: 20px;">
         <a href="#about">About Us</a>
+        <a href="#why-choose-us">Why Choose Us?</a>
         <a href="#services">Our Services</a>
         <a href="#how-it-works">How It Works</a>
         <a href="#registration">Registration</a>
         <a href="#success-stories">Success Stories</a>
+        <a href="#blog">Our Blog</a>
         <a href="#achievements">Our Achievements</a>
         <a href="#contact">Contact Us</a>
         <a href="#request-callback">Request a Call Back</a>
-        <a href="#terms">Terms and Conditions</a>
+        <a href="termscon.html">Terms and Conditions</a>
     </div>
 </nav>
 
 <main>
     <div class="hero-section">
         <h1>Your Perfect Life Partner Awaits!</h1>
-        <p>Bihar's most trusted matrimonial service, connecting you with the right match through tradition and transparency.</p>
+        <p>India's most trusted matrimonial service, connecting you with the right match through tradition and transparency.</p>
         <p style="font-size: 1.5em; margin-bottom: 25px; color: #ad1457; font-weight: bold;">Take the first step towards your dream wedding today!</p>
-        <a class="btn" href="#registration">Start Your Journey Now!</a>
+        <p style="font-size: 1.2em; color: #d81b60; font-weight: bold; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">
+            ❤️ Creating a profile is completely Free!
+        </p>
+        <a href="registration.html" class="btn" style="font-size: 1.3em; padding: 18px 40px; background-color: #d81b60; margin-bottom: 20px;">Get Started!</a>
+        <a class="btn" href="#registration">Learn More</a>
     </div>
+
+    <section id="why-choose-us" class="container" style="background: #fdf5f8;">
+        <h2>⭐ Why Choose Us?</h2>
+        <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 20px; margin-top: 30px;">
+            <div class="service-box" style="width: 280px; text-align: center;">
+                <i class="fas fa-handshake fa-3x" style="color: #d81b60; margin-bottom: 10px;"></i>
+                <h3>100% Verified Profiles</h3>
+                <p>We personally verify every profile to ensure a safe and genuine experience for all.</p>
+            </div>
+            <div class="service-box" style="width: 280px; text-align: center;">
+                <i class="fas fa-heart fa-3x" style="color: #ad1457; margin-bottom: 10px;"></i>
+                <h3>Dowry-Free Commitment</h3>
+                <p>Our firm stand against dowry ensures that relationships are built on love and respect, not money.</p>
+            </div>
+            <div class="service-box" style="width: 280px; text-align: center;">
+                <i class="fas fa-user-shield fa-3x" style="color: #880e4f; margin-bottom: 10px;"></i>
+                <h3>Strict Privacy</h3>
+                <p>Your personal information and details are kept strictly confidential and safe with us.</p>
+            </div>
+        </div>
+    </section>
 
     <section id="about" class="container" style="background: #f9f9f9;">
         <div style="max-width: 800px; margin: auto; background: #fff; padding: 30px; border-radius: 10px; box-shadow: 0 0 15px rgba(0,0,0,0.1);">
@@ -751,7 +895,7 @@
             <hr style="margin: 20px 0; border: none; border-top: 1px solid #ddd;">
             <p style="font-size: 17px; line-height: 1.8; color: #333;">
                 Shaadi Shanstha was established with a deep belief — <em>“Marriage is not just the union of two individuals, but of two families.”</em><br><br>
-                We believe that the foundation of a successful marriage is built on <strong>trust, respect, and shared family values</strong>. For over <strong>9 years</strong>, we’ve been helping families across Bihar and surrounding regions find the right life partner with complete <strong>honesty and transparency</strong>.
+                We believe that the foundation of a successful marriage is built on **trust, respect, and shared family values**. For over **9 years**, we’ve been helping families across India find the right life partner with complete **honesty and transparency**.
             </p>
             <h3 style="margin-top: 30px; color: #B22222;">💖 Our Commitment:</h3>
             <ul style="font-size: 16px; line-height: 1.8; color: #333; padding-left: 20px;">
@@ -761,7 +905,7 @@
                 <li>✔️ Personalized care and guidance for every family</li>
             </ul>
             <p style="font-size: 17px; line-height: 1.8; color: #333; margin-top: 20px;">
-                Our goal is not just to arrange a match — but to lay the foundation for a <strong>happy, lifelong, and value-driven relationship</strong>.
+                Our goal is not just to arrange a match — but to lay the foundation for a **happy, lifelong, and value-driven relationship**.
             </p>
             <div style="margin-top: 30px; text-align: center;">
                 <p style="font-size: 18px; font-weight: 500; color: #555;">🙏 Join us on this journey and find the perfect match for your family —</p>
@@ -831,8 +975,20 @@
         </div>
     </div>
 
+    <section class="parallax" style="background-image: url('https://i.imgur.com/eTb8MqS.jpeg');">
+        <div style="padding: 20px; background-color: rgba(0,0,0,0.4); border-radius: 10px;">
+            <h2 style="color: white; margin-bottom: 0;">💖 Your Journey to Happiness Begins Here</h2>
+        </div>
+    </section>
+
     <div class="container" id="registration">
         <h2 class="section-title">💖 Registration & Payment</h2> 
+        <p style="font-size: 1.1em; font-weight: bold; color: #ad1457; margin-bottom: 20px;">
+            ✨ Creating a profile is **completely free of charge**. ✨
+        </p>
+        <p style="font-size: 1.1em; color: #555; max-width: 800px; margin: 0 auto 20px;">
+            After your profile is created, you will only need to make a payment when you wish to access our special services (e.g., viewing biodatas).
+        </p>
         <p>To register with Shaadi Shanstha, simply fill out our online form or contact us via WhatsApp. Our team will guide you through every step with personal attention and care.</p>
         <h3>💰 Registration Fee</h3>
         <p>We charge a nominal fee to maintain service quality and verification:<br/>
@@ -871,7 +1027,20 @@
         <p style="text-align: center; margin-top: 30px; font-size: 1.1em; color: #ad1457;">Ready to share your own success story? <a href="#contact" style="color: #d81b60; text-decoration: none; font-weight: bold;">Contact Us!</a></p>
     </section>
 
-    <section id="achievements" style="padding: 40px; background-color: #fff8f9; margin: 40px auto; max-width: 900px; border-radius: 12px;">
+    <section id="blog" class="container" style="background-color: #fce4ec; padding: 40px; margin: 50px auto; border-radius: 12px; max-width: 900px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
+        <h2 style="color: #ad1457; text-align: center; margin-bottom: 30px;">✍️ Our Blog & Tips</h2>
+        <div class="blog-post-card">
+            <h3 style="color: #d81b60;">शादी के लिए बायोडाटा कैसे बनाएं? 5 ज़रूरी बातें</h3>
+            <p>आपका बायोडाटा ही आपकी पहली छाप है। जानिए इसे सही तरीक़े से कैसे बनाएं ताकि आपको अपना ड्रीम पार्टनर मिल सके...</p>
+            <a href="blog-post-biodata.html" style="color: #ad1457; font-weight: bold;">Read More →</a>
+        </div>
+        <div style="text-align: center; margin-top: 20px;">
+            <a href="#" style="color: #ad1457; font-weight: bold;">View All Articles →</a>
+        </div>
+    </section>
+
+
+    <section id="achievements" style="padding: 40px; background-color: #fff8f9; margin: 40px auto; border-radius: 12px;">
         <h2 style="color: #ad1457; text-align: center;">🏆 Our Achievements</h2>
         <ul style="list-style: none; padding: 0; font-size: 18px; line-height: 2; color: #444;">
             <li>🎉 <strong>10,000+ Successful Matches</strong> made with love &amp; trust</li>
@@ -895,35 +1064,80 @@
     </section>
 
     <section style="background-color: #fff0f5; padding: 40px; max-width: 900px; margin: 40px auto; border-radius: 12px;">
-        <h2 style="color: #c2185b;">❓ Frequently Asked Questions (FAQ)</h2>
-        <div style="margin-top: 30px;">
-            <p><strong>💬 What are the registration charges?</strong><br/>
-                ₹35,500 for 4 months (all-inclusive)
-            </p>
-            <p><strong>💬 Will I get a refund if the match is not finalized?</strong><br/>
-                Yes, ₹35,000 will be refunded after deducting ₹500.
-            </p>
-            <p><strong>💬 How long after can I request a refund?</strong><br/>
-                Within 30 days after the 4-month period.
-            </p>
-            <p><strong>💬 Are all biodatas verified?</strong><br/>
-                Yes, all profiles are manually verified.
-            </p>
-            <p><strong>💬 Is horoscope matching mandatory?</strong><br/>
-                It's optional, depending on the client's preference.
-            </p>
-            <p><strong>💬 How many biodatas will I receive?</strong><br/>
-                You will receive qualified and matching biodatas regularly until your requirement is met.
-            </p>
-            <p><strong>💬 Do you accept video profiles?</strong><br/>
-                Currently, we primarily focus on written biodatas, but video profiles may be considered.
-            </p>
-            <p><strong>💬 How is my privacy ensured?</strong><br/>
-                Your personal information is kept strictly confidential and is only shared with your consent. We employ industry-standard security measures to protect your data.
-            </p>
-            <p><strong>💬 How can I report suspicious activity or fraud?</strong><br/>
-                If you encounter any suspicious behavior or believe you've been targeted by fraud, please contact us immediately via WhatsApp or email. We take such reports seriously and investigate promptly.
-            </p>
+        <h2 style="color: #c2185b; text-align: center;">❓ Frequently Asked Questions (FAQ)</h2>
+        <div class="accordion-container" style="margin-top: 30px; text-align: left;">
+            <div class="accordion-item">
+                <button class="accordion-btn" aria-expanded="false">
+                    💬 What are the registration charges?
+                </button>
+                <div class="accordion-content">
+                    <p>₹35,500 for 4 months (all-inclusive).</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-btn" aria-expanded="false">
+                    💬 Will I get a refund if the match is not finalized?
+                </button>
+                <div class="accordion-content">
+                    <p>Yes, ₹35,000 will be refunded after deducting ₹500.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-btn" aria-expanded="false">
+                    💬 How long after can I request a refund?
+                </button>
+                <div class="accordion-content">
+                    <p>Within 30 days after the 4-month period.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-btn" aria-expanded="false">
+                    💬 Are all biodatas verified?
+                </button>
+                <div class="accordion-content">
+                    <p>Yes, all profiles are manually verified.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-btn" aria-expanded="false">
+                    💬 Is horoscope matching mandatory?
+                </button>
+                <div class="accordion-content">
+                    <p>It's optional, depending on the client's preference.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-btn" aria-expanded="false">
+                    💬 How many biodatas will I receive?
+                </button>
+                <div class="accordion-content">
+                    <p>You will receive qualified and matching biodatas regularly until your requirement is met.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-btn" aria-expanded="false">
+                    💬 Do you accept video profiles?
+                </button>
+                <div class="accordion-content">
+                    <p>Currently, we primarily focus on written biodatas, but video profiles may be considered.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-btn" aria-expanded="false">
+                    💬 How is my privacy ensured?
+                </button>
+                <div class="accordion-content">
+                    <p>Your personal information is kept strictly confidential and is only shared with your consent. We employ industry-standard security measures to protect your data.</p>
+                </div>
+            </div>
+            <div class="accordion-item">
+                <button class="accordion-btn" aria-expanded="false">
+                    💬 How can I report suspicious activity or fraud?
+                </button>
+                <div class="accordion-content">
+                    <p>If you encounter any suspicious behavior or believe you've been targeted by fraud, please contact us immediately via WhatsApp or email. We take such reports seriously and investigate promptly.</p>
+                </div>
+            </div>
         </div>
     </section>
 
@@ -950,22 +1164,10 @@
 
     <div class="container" id="terms">
         <h2>💖 Terms and Conditions</h2>
-        <ul style="text-align: left; max-width: 800px; margin: 0 auto; line-height: 1.8; font-size: 1.05em; color: #333;">
-            <li>1. If the match is not finalized within 4 months, a refund will be issued after deducting ₹500.</li>
-            <li>2. Users must request a refund within 30 days after the 4-month period.</li>
-            <li>3. Personal details shared will be kept strictly confidential as per our privacy policy.</li>
-            <li>4. No refund will be issued in case of false information or fraud.</li>
-            <li>5. **Age Requirement:** All registrants must meet the legal age of marriage as per Indian law (currently 18 for brides and 21 for grooms).</li>
-            <li>6. **Accurate Information:** Users are solely responsible for providing true, accurate, and complete information in their profiles. Any misrepresentation may lead to account termination without refund.</li>
-            <li>7. **Profile Sharing Consent:** By registering, you consent to your profile information (excluding sensitive contact details unless explicitly shared by you) being shared with potential matches and their families based on compatibility.</li>
-            <li>8. **Final Decision:** Shaadi Shanstha facilitates connections; the final decision regarding a match rests entirely with the individuals and their families. We are not liable for any personal disagreements or issues arising post-match finalization.</li>
-            <li>9. **Misuse of Service:** Any attempt to misuse the service, engage in fraudulent activities, or harass other members will result in immediate termination of service with no refund.</li>
-            <li>10. **Service Scope:** Our service involves providing verified matches and facilitating initial introductions. Any subsequent interactions, meetings, or background checks are the responsibility of the concerned parties.</li>
-            <li>11. **Client Responsibility:** It is the client's responsibility to review profiles carefully and perform any desired personal verifications before proceeding with a match.</li>
-            <li>12. **Grievance Redressal:** Any complaints or disputes should be reported to our customer service within 7 days of the incident for resolution.</li>
-            <li>13. **Data Security:** We employ robust data encryption and security measures to protect your personal information, though no online transmission can be guaranteed 100% secure.</li>
-            <li>14. **Changes to Terms:** Shaadi Shanstha reserves the right to modify these terms and conditions at any time. Users will be notified of significant changes.</li>
-        </ul>
+        <p style="text-align: center; font-size: 1.1em; max-width: 800px; margin: 20px auto; color: #555;">
+            For a detailed and complete list of our Terms & Conditions, please click the link below.
+        </p>
+        <a href="termscon.html" class="registration-payment-btn" style="background-color: #ad1457; display: inline-block;">View Full Terms & Conditions</a>
     </div>
 </main>
 
@@ -981,8 +1183,8 @@
 <footer>
     © 2025 Shaadi Shanstha | All rights reserved
     <div style="margin-top: 10px;">
-        <a href="#terms" style="color: #d81b60; text-decoration: none; margin: 0 10px; font-weight: bold;">Privacy Policy</a>
-        <a href="#terms" style="color: #d81b60; text-decoration: none; margin: 0 10px; font-weight: bold;">Terms and Conditions</a>
+        <a href="termscon.html" style="color: #d81b60; text-decoration: none; margin: 0 10px; font-weight: bold;">Privacy Policy</a>
+        <a href="termscon.html" style="color: #d81b60; text-decoration: none; margin: 0 10px; font-weight: bold;">Terms and Conditions</a>
     </div>
     <div style="margin-top: 15px; font-size: 24px;">
         <a href="https://www.facebook.com/your_page_link" style="color: #3b5998; margin: 0 8px; text-decoration: none;" target="_blank">📘</a>
@@ -1049,6 +1251,28 @@
         menuLinks.forEach(link => {
             link.addEventListener('click', function() {
                 toggleMenu(); // Close menu after clicking a link
+            });
+        });
+
+        // Accordion Logic
+        const accordionBtns = document.querySelectorAll('.accordion-btn');
+
+        accordionBtns.forEach(btn => {
+            btn.addEventListener('click', function() {
+                const content = this.nextElementSibling;
+                const isExpanded = this.getAttribute('aria-expanded') === 'true' || false;
+
+                // Close all other accordions
+                accordionBtns.forEach(otherBtn => {
+                    if (otherBtn !== this) {
+                        otherBtn.setAttribute('aria-expanded', 'false');
+                        otherBtn.nextElementSibling.style.display = 'none';
+                    }
+                });
+
+                // Toggle the clicked accordion
+                this.setAttribute('aria-expanded', !isExpanded);
+                content.style.display = isExpanded ? 'none' : 'block';
             });
         });
     });
