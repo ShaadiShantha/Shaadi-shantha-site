@@ -60,6 +60,7 @@
       font-weight: 600;
       transition: all 0.3s ease;
       text-align: center;
+      cursor: pointer; /* Add cursor for better user experience */
     }
     .back-btn:hover {
       background: #880e4f;
@@ -113,8 +114,14 @@
     <h2>10. Changes to Terms</h2>
     <p>Shaadi Shanstha reserves the right to modify these terms and conditions at any time. Users will be notified of any significant changes.</p>
 
-    <a href="payment.html" class="back-btn">Go back to Payment Page</a>
+    <a href="#" onclick="goBack()" class="back-btn">Go back to Previous Page</a>
 
   </div>
+
+  <script>
+    function goBack() {
+      window.history.back();
+    }
+  </script>
 </body>
 </html>
