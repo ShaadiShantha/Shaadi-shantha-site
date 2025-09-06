@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <title>Shaadi Shanstha - Payment</title>
+  <title>Shaadi Shanstha - Secure Payment</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <style>
     body {
@@ -25,9 +25,19 @@
       text-align: center;
       border-top: 6px solid #880e4f;
     }
+    .secure {
+      font-size: 14px;
+      color: #388e3c;
+      font-weight: 600;
+      margin-bottom: 15px;
+    }
+    .logo {
+      width: 80px;
+      margin-bottom: 8px;
+    }
     h1 {
       color: #880e4f;
-      margin-bottom: 8px;
+      margin-bottom: 6px;
       font-size: 32px;
       font-weight: 700;
     }
@@ -40,7 +50,7 @@
     }
     .price {
       font-size: 22px;
-      margin-bottom: 30px;
+      margin-bottom: 25px;
       color: #222;
       font-weight: bold;
     }
@@ -50,6 +60,66 @@
       color: #666;
       font-weight: normal;
       margin-top: 5px;
+    }
+    .payment-options {
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      margin-bottom: 25px;
+    }
+    .payment-button {
+      background: #f0f0f0;
+      color: #333;
+      border: 1px solid #ddd;
+      padding: 14px;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+    }
+    .payment-button:hover {
+      background: #e0e0e0;
+    }
+    .payment-button.active {
+      background: #880e4f;
+      color: white;
+      border-color: #880e4f;
+    }
+    .coming-soon {
+      color: #999;
+      background: #f9f9f9;
+      border-style: dashed;
+    }
+    .payment-details {
+      text-align: left;
+      margin-top: 20px;
+      padding: 15px;
+      background: #fcf8f8;
+      border: 1px solid #f0e0e0;
+      border-radius: 8px;
+      font-size: 15px;
+    }
+    .payment-details strong {
+      display: block;
+      margin-top: 8px;
+      font-weight: 600;
+    }
+    .copy-btn {
+      background: #e0e0e0;
+      border: none;
+      padding: 4px 8px;
+      font-size: 12px;
+      cursor: pointer;
+      border-radius: 4px;
+      margin-left: 5px;
+      transition: background 0.3s ease;
+    }
+    .copy-btn:hover {
+      background: #d0d0d0;
     }
     form {
       margin-top: 10px;
@@ -68,8 +138,7 @@
       margin-bottom: 18px;
       border: 1px solid #ddd;
       border-radius: 8px;
-      font-size: 15px;
-      transition: border 0.3s ease, box-shadow 0.3s ease;
+      font-size: 16px;
     }
     input:focus {
       border-color: #880e4f;
@@ -104,24 +173,74 @@
       border-radius: 8px;
       border: 1px solid #f0c2c2;
     }
+    .back-btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 12px 25px;
+      color: #880e4f;
+      border: 2px solid #880e4f;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+    }
+    .back-btn:hover {
+      background: #880e4f;
+      color: white;
+      transform: translateY(-2px);
+    }
+    .footer-note {
+      font-size: 12px;
+      color: #666;
+      margin-top: 15px;
+      text-align: center;
+    }
   </style>
 </head>
 <body>
   <div class="container">
+    <p class="secure">🔒 Secure Payment Page</p>
+    <img src="https://i.imgur.com/fuZ78Ft.png" alt="Shaadi Shanstha Logo" class="logo" />
     <h1>Shaadi Shanstha</h1>
     <h2>💳 Registration Payment</h2>
     <p class="price">₹35,500 <span>One-time Registration Charges</span></p>
 
-    <form action="https://formsubmit.co/shaadishanstha.in@gmail.com" method="POST">
+    <div class="payment-options">
+      <button class="payment-button" onclick="showPaymentForm('bank')">🏦 Bank Account Transfer</button>
+      <button class="payment-button" onclick="showPaymentForm('upi')">📲 UPI Payment</button>
+      <button class="payment-button coming-soon" disabled>📷 QR Code (Coming Soon)</button>
+    </div>
+
+    <div id="bank-details" class="payment-details" style="display: none;">
+      <p>Please make a payment to the following account and then submit your details below:</p>
+      <strong>Account Holder:</strong> Shaadi Shanstha
+      <br>
+      <strong>Account No:</strong> <span id="bank-acc-num">8123333103</span> 
+      <button class="copy-btn" onclick="copyToClipboard('bank-acc-num')">Copy</button>
+      <br>
+      <strong>IFSC Code:</strong> <span id="ifsc-code">IDIB000K196</span> 
+      <button class="copy-btn" onclick="copyToClipboard('ifsc-code')">Copy</button>
+    </div>
+
+    <div id="upi-details" class="payment-details" style="display: none;">
+      <p>You can pay directly via UPI using the ID below:</p>
+      <strong>UPI ID:</strong> <span id="upi-id">shaadishanstha@indianbank</span> 
+      <button class="copy-btn" onclick="copyToClipboard('upi-id')">Copy</button>
+    </div>
+    
+    <form id="payment-form" action="https://formsubmit.co/shaadishanstha.in@gmail.com" method="POST" style="display: none;">
       <input type="hidden" name="_captcha" value="false" />
       <input type="hidden" name="_next" value="https://shaadishanstha.netlify.app/payment-success.html" />
       <input type="hidden" name="_subject" value="New Shaadi Shanstha Payment Received!" />
+      <input type="text" name="_honey" style="display:none">
 
-      <label for="transaction">UPI Transaction ID *</label>
-      <input type="text" id="transaction" name="UPI Transaction ID" placeholder="Enter UPI Transaction ID" required />
+      <div id="transaction-label">
+        <label for="transaction">Transaction ID *</label>
+        <input type="text" id="transaction" name="Transaction ID" placeholder="Enter Transaction ID" required />
+      </div>
 
       <label for="amount">Amount Paid *</label>
-      <input type="number" id="amount" name="Amount Paid" placeholder="Enter Paid Amount (₹)" required />
+      <input type="number" id="amount" name="Amount Paid" placeholder="Enter Amount Paid (₹)" required />
 
       <label for="name">Your Full Name *</label>
       <input type="text" id="name" name="Your Name" placeholder="Enter your name" required />
@@ -129,10 +248,59 @@
       <label for="phone">Your Phone Number (Optional)</label>
       <input type="tel" id="phone" name="Your Phone Number" placeholder="Enter your phone number" />
 
+      <label for="email">Your Email (Optional)</label>
+      <input type="email" id="email" name="Your Email" placeholder="Enter your email" />
+
       <button type="submit">Submit Payment Details</button>
     </form>
 
-    <p class="note">⚠️ Please ensure you have paid the correct registration fee of ₹35,500 and entered the exact Transaction ID & Amount.</p>
+    <a href="index.html" class="back-btn">Go back to Main Page</a>
+
+    <p class="note">⚠️ Please ensure you have paid the correct registration fee of ₹35,500 and entered the exact Transaction ID.</p>
+
+    <p class="footer-note">
+      By proceeding, you agree to our <a href="termscon.html" style="color:#880e4f;">Terms & Conditions</a>.<br>
+      📞 For payment issues, call us at <span id="contact-num">7808817710</span>
+      <button class="copy-btn" onclick="copyToClipboard('contact-num')">Copy</button>
+    </p>
   </div>
+
+  <script>
+    function showPaymentForm(method) {
+      document.getElementById('bank-details').style.display = 'none';
+      document.getElementById('upi-details').style.display = 'none';
+      document.getElementById('payment-form').style.display = 'none';
+      document.getElementById('transaction-label').style.display = 'block';
+
+      document.querySelectorAll('.payment-button').forEach(btn => btn.classList.remove('active'));
+
+      if (method === 'bank') {
+        document.getElementById('bank-details').style.display = 'block';
+        document.getElementById('payment-form').style.display = 'block';
+        document.querySelector('.payment-options button:nth-child(1)').classList.add('active');
+        document.getElementById('transaction').name = 'Bank Transaction ID';
+        document.getElementById('transaction').placeholder = 'Enter Bank Transaction ID (e.g., UTR/NEFT/IMPS)';
+      } else if (method === 'upi') {
+        document.getElementById('upi-details').style.display = 'block';
+        document.getElementById('payment-form').style.display = 'block';
+        document.querySelector('.payment-options button:nth-child(2)').classList.add('active');
+        document.getElementById('transaction').name = 'UPI Transaction ID';
+        document.getElementById('transaction').placeholder = 'Enter UPI Transaction ID (e.g., G-pay, PhonePe)';
+      }
+    }
+    
+    function copyToClipboard(elementId) {
+      const element = document.getElementById(elementId);
+      const text = element.innerText;
+      
+      const tempInput = document.createElement('textarea');
+      tempInput.value = text;
+      document.body.appendChild(tempInput);
+      tempInput.select();
+      document.execCommand('copy');
+      document.body.removeChild(tempInput);
+      alert("Copied: " + text);
+    }
+  </script>
 </body>
 </html>
