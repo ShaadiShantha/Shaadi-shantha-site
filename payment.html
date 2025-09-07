@@ -89,11 +89,6 @@
       color: white;
       border-color: #880e4f;
     }
-    .coming-soon {
-      color: #999;
-      background: #f9f9f9;
-      border-style: dashed;
-    }
     .payment-details {
       text-align: left;
       margin-top: 20px;
@@ -107,6 +102,21 @@
       display: block;
       margin-top: 8px;
       font-weight: 600;
+    }
+    .qr-scan {
+      text-align:center; 
+      margin-top:15px;
+    }
+    .qr-scan img {
+      width:200px; 
+      border:3px solid #e91e63; 
+      border-radius:12px; 
+      box-shadow:0 0 12px rgba(233,30,99,0.4);
+    }
+    .qr-scan p {
+      font-size:13px; 
+      color:#555; 
+      margin-top:8px;
     }
     .copy-btn {
       background: #e0e0e0;
@@ -208,7 +218,7 @@
     <div class="payment-options">
       <button class="payment-button" onclick="showPaymentForm('bank')">🏦 Bank Account Transfer</button>
       <button class="payment-button" onclick="showPaymentForm('upi')">📲 UPI Payment</button>
-      <button class="payment-button coming-soon" disabled>📷 QR Code (Coming Soon)</button>
+      <button class="payment-button" onclick="showPaymentForm('qr')">📷 QR Code</button>
     </div>
 
     <div id="bank-details" class="payment-details" style="display: none;">
@@ -226,6 +236,14 @@
       <p>You can pay directly via UPI using the ID below:</p>
       <strong>UPI ID:</strong> <span id="upi-id">shaadishanstha@indianbank</span> 
       <button class="copy-btn" onclick="copyToClipboard('upi-id')">Copy</button>
+    </div>
+
+    <!-- Scanner Section -->
+    <div id="qr-details" class="payment-details" style="display: none;">
+      <div class="qr-scan">
+        <img src="https://i.imgur.com/gV2Ozd2.jpeg" alt="UPI QR Scanner" />
+        <p>📷 Scan & Pay</p>
+      </div>
     </div>
     
     <form id="payment-form" action="https://formsubmit.co/shaadishanstha.in@gmail.com" method="POST" style="display: none;">
@@ -269,6 +287,7 @@
     function showPaymentForm(method) {
       document.getElementById('bank-details').style.display = 'none';
       document.getElementById('upi-details').style.display = 'none';
+      document.getElementById('qr-details').style.display = 'none';
       document.getElementById('payment-form').style.display = 'none';
       document.getElementById('transaction-label').style.display = 'block';
 
@@ -286,6 +305,12 @@
         document.querySelector('.payment-options button:nth-child(2)').classList.add('active');
         document.getElementById('transaction').name = 'UPI Transaction ID';
         document.getElementById('transaction').placeholder = 'Enter UPI Transaction ID (e.g., G-pay, PhonePe)';
+      } else if (method === 'qr') {
+        document.getElementById('qr-details').style.display = 'block';
+        document.getElementById('payment-form').style.display = 'block';
+        document.querySelector('.payment-options button:nth-child(3)').classList.add('active');
+        document.getElementById('transaction').name = 'QR Transaction ID';
+        document.getElementById('transaction').placeholder = 'Enter QR Transaction ID (after scanning)';
       }
     }
     
