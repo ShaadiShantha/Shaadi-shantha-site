@@ -20,6 +20,10 @@
     </script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     
+    <link rel="icon" href="https://shaadishanstha.in/logo.png" type="image/png"/>
+    
+    <meta property="og:image" content="https://shaadishanstha.in/logo.png" />
+    
     <style>
         /* Base styles */
         * {
@@ -29,7 +33,7 @@
         }
         html, body {
             max-width: 100%;
-            overflow-x: hidden; /* Keeps horizontal scrollbar away */
+            /* Removed: overflow-x: hidden; */
         }
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -391,31 +395,95 @@
             display: flex;
             flex-wrap: wrap;
             justify-content: center;
+            gap: 25px; /* Added gap between boxes */
             margin-top: 20px;
         }
+        .how-it-works-steps {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px; /* Added gap between steps */
+            margin-top: 20px;
+        }
+
         .service-box, .how-it-works-step {
-            width: 240px;
-            margin: 10px;
-            padding: 20px;
-            background: #fff0e0;
-            border-radius: 10px;
-            box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-            transition: transform 0.3s ease, background-color 0.3s ease;
-            font-size: 0.9em;
-            text-align: left;
+            width: 280px;
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            font-size: 0.95em;
+            text-align: center; /* Centered text for a cleaner look */
+            background: linear-gradient(135deg, #fce9f2, #fbf0f5); /* Soft gradient */
+            border: 1px solid #f8bbd0;
         }
+
         .service-box:hover, .how-it-works-step:hover {
-            transform: translateY(-3px) scale(1.01);
-            background-color: #ffe6f0;
+            transform: translateY(-5px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
         }
-        .how-it-works-step h3, .service-box h3 {
-            color: #d81b60;
-            margin-bottom: 8px;
-            font-size: 1.2em;
+
+        .service-box h3, .how-it-works-step h3 {
+            color: #ad1457;
+            margin-bottom: 10px;
+            font-size: 1.3em;
+            font-weight: bold;
         }
-        .how-it-works-step p, .service-box p {
+        .service-box p, .how-it-works-step p {
             color: #555;
             font-size: 0.9em;
+            line-height: 1.5;
+        }
+
+        /* Icons and Numbers for How It Works */
+        .how-it-works-step .step-icon-container {
+            position: relative;
+            width: 80px;
+            height: 80px;
+            margin: 0 auto 20px;
+            border-radius: 50%;
+            background-color: #fff0f5;
+            border: 3px solid #d81b60;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 0 10px rgba(0,0,0,0.05);
+        }
+
+        .how-it-works-step .step-icon-container .step-icon {
+            font-size: 2.5em;
+            color: #ad1457;
+        }
+        .how-it-works-step .step-icon-container .step-number {
+            position: absolute;
+            top: -10px;
+            left: -10px;
+            width: 35px;
+            height: 35px;
+            background-color: #d81b60;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 1.2em;
+            font-weight: bold;
+            border: 2px solid white;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+        }
+
+        /* Icons for Our Services */
+        .service-box .service-icon {
+            font-size: 3em;
+            color: #d81b60;
+            margin-bottom: 15px;
+            animation: bounceIn 0.5s ease-out; /* Add a subtle icon animation */
+        }
+
+        /* Keyframes for animation */
+        @keyframes bounceIn {
+            0% { transform: scale(0.5); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
         }
 
         /* Footer styles */
@@ -476,21 +544,40 @@
 
         /* Hero Section Styles */
         .hero-section {
-            background-color: #fce4ec; /* Light Pink */
+            background-image: url('https://i.imgur.com/GlHrytt.jpeg'); /* Updated Image URL */
+            background-size: cover;
+            background-position: center;
             padding: 60px 15px; /* Reduced hero padding */
             text-align: center;
-            color: #880e4f; /* Dark Pink */
+            color: #fff; /* White text for better contrast */
+            position: relative; /* Needed for overlay */
+        }
+        .hero-section::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.4); /* Dark overlay */
+            z-index: 1;
+        }
+        .hero-section > * {
+            position: relative;
+            z-index: 2;
         }
         .hero-section h1 {
             font-size: 2.8em; /* Reduced hero heading size */
             margin-bottom: 10px;
-            color: #ad1457;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.6);
         }
         .hero-section p {
             font-size: 1.1em;
             max-width: 90%;
-            margin: 0 auto = 25px;
+            margin: 0 auto 25px;
             line-height: 1.5;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.6);
         }
         .hero-section .btn {
             display: inline-block;
@@ -510,12 +597,29 @@
         }
 
         /* Testimonials/Success Stories Styles */
+        /* Carousel container */
+        .testimonial-carousel {
+            position: relative;
+            width: 100%;
+            max-width: 900px; /* Adjust as needed */
+            margin: 0 auto;
+            overflow: hidden; /* Hide excess slides */
+        }
+
+        /* Carousel slides container */
+        .carousel-slides {
+            display: flex;
+            transition: transform 0.5s ease-in-out;
+        }
+
         .testimonial-box {
             background: #ffffff;
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 3px 8px rgba(0,0,0,0.08);
-            width: 260px;
+            min-width: calc(100% / 3); /* Display 3 per view initially */
+            flex-shrink: 0; /* Prevents shrinking */
+            margin: 0 10px; /* Space between slides */
             text-align: left;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
             font-size: 0.9em;
@@ -547,6 +651,50 @@
             box-shadow: 0 2px 4px rgba(0,0,0,0.05);
         }
 
+        /* Carousel Navigation Buttons */
+        .carousel-nav-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(255, 255, 255, 0.7);
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            z-index: 10;
+            font-size: 2em;
+            color: #d81b60;
+            border-radius: 50%;
+            transition: background-color 0.3s;
+        }
+        .carousel-nav-btn:hover {
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        .prev-btn {
+            left: 0;
+        }
+        .next-btn {
+            right: 0;
+        }
+        
+        .success-story-cta {
+            display: inline-block;
+            background: linear-gradient(45deg, #d81b60, #ad1457);
+            color: white;
+            padding: 18px 40px;
+            font-size: 1.2em;
+            font-weight: bold;
+            border-radius: 10px;
+            text-decoration: none;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            margin-top: 30px;
+        }
+        .success-story-cta:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
+        }
+
+
         /* Blog Section Styles */
         #blog .blog-post-card {
             background: #ffffff;
@@ -562,7 +710,7 @@
 
         #blog .blog-post-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 5px 12px rgba(0,0,0,0.1);
+            box-shadow: 5px 12px rgba(0,0,0,0.1);
         }
         #blog .blog-post-card h3 {
             color: #d81b60;
@@ -661,12 +809,23 @@
             }
             .service-box, .how-it-works-step {
                 width: 90%;
-                max-width: 300px;
+                max-width: 350px;
             }
             .container {
                 padding: 20px 10px;
             }
-            /* No change to body padding-top here, it's consistent for the fixed bar */
+            /* Adjustments for testimonial carousel on smaller screens */
+            .testimonial-carousel {
+                max-width: 100%;
+            }
+            .testimonial-box {
+                min-width: 100%;
+                margin: 0 10px;
+            }
+            .carousel-nav-btn {
+                font-size: 1.5em;
+                padding: 8px;
+            }
         }
 
         @media (min-width: 769px) {
@@ -702,6 +861,11 @@
             .hero-section p { font-size: 1.2em; }
             .container { max-width: 1000px; margin: 0 auto; } /* Center and constrain content */
             .service-box, .how-it-works-step { width: 280px; } /* Slightly larger boxes */
+
+            /* For Desktop: Show 3 slides at a time */
+            .testimonial-box {
+                min-width: calc(33.33% - 20px); /* 3 boxes per view minus gap */
+            }
         }
 
         /* Accordion styles */
@@ -753,8 +917,6 @@
 
         /* Parallax Effect Class */
         .parallax {
-            background-image: url('https://i.imgur.com/eTb8MqS.jpeg');
-            min-height: 500px;
             background-attachment: fixed;
             background-position: center;
             background-repeat: no-repeat;
@@ -768,15 +930,17 @@
             font-size: 2em;
             font-weight: bold;
             text-align: center;
+            /* Optimized background-image for modern browsers first, then fallback */
+            background-image: url('https://i.imgur.com/eTb8MqS.webp'), url('https://i.imgur.com/eTb8MqS.jpeg');
         }
+
     </style>
     <meta content="Shaadi Shanstha is a trusted matrimonial service based in Bihar. We help you find verified, compatible matches with cultural values and full family support." name="description"/>
     <meta content="matrimonial, shaadi, marriage bureau, all india matrimony, indian matchmaking, verified profiles, shaadi shanstha, trusted marriage bureau" name="keywords"/>
     <meta content="Shaadi Shanstha | Verified Matrimonial Service in all India" property="og:title"/>
     <meta content="Helping you find the perfect match with transparency, tradition and family values." property="og:description"/>
-    <meta content="https://shaadis.netlify.app/" property="og:url"/>
+    <meta content="https://shaadishanstha.in/" property="og:url"/>
     <meta content="website" property="og:type"/>
-    <link href="logo.png" rel="icon" type="image/png"/>
 </head>
 <body>
 
@@ -798,7 +962,7 @@
 <div class="off-canvas-menu" id="off-canvas-menu">
     <div class="menu-content">
         <div class="close-btn-container">
-            <a href="#" id="close-menu">&times;</a>
+            <a href="#" id="close-menu">×</a>
         </div>
         
         <div class="menu-header">
@@ -835,7 +999,7 @@
 <header>
     <img src="https://i.imgur.com/H0bLJPq.png" alt="Shaadi Shanstha Logo" class="header-logo">
     <h1>Shaadi Shanstha</h1>
-    <p>Trusted &amp; Transparent Matrimonial Service</p>
+    <p>Trusted & Transparent Matrimonial Service</p>
     <p>💼 Serving families since 2016</p>
 </header>
 
@@ -859,12 +1023,10 @@
     <div class="hero-section">
         <h1>Your Perfect Life Partner Awaits!</h1>
         <p>India's most trusted matrimonial service, connecting you with the right match through tradition and transparency.</p>
-        <p style="font-size: 1.5em; margin-bottom: 25px; color: #ad1457; font-weight: bold;">Take the first step towards your dream wedding today!</p>
-        <p style="font-size: 1.2em; color: #d81b60; font-weight: bold; margin-bottom: 20px; text-shadow: 1px 1px 2px rgba(0,0,0,0.1);">
-            ❤️ Creating a profile is completely Free!
+        <p style="font-size: 1.5em; margin-bottom: 25px; color: #fff; font-weight: bold; text-shadow: 1px 1px 2px rgba(0,0,0,0.6);">
+            Take the first step towards your dream wedding today!
         </p>
         <a href="registration.html" class="btn" style="font-size: 1.3em; padding: 18px 40px; background-color: #d81b60; margin-bottom: 20px;">Get Started!</a>
-        <a class="btn" href="#registration">Learn More</a>
     </div>
 
     <section id="why-choose-us" class="container" style="background: #fdf5f8;">
@@ -916,27 +1078,47 @@
 
     <div class="container" id="how-it-works">
         <h2>💖 How It Works</h2>
-        <p style="font-size: 1.1em; max-width: 800px; margin: 0 auto 30px; color: #555;">Finding your perfect match with Shaadi Shanstha is simple and transparent. Follow these easy steps:</p>
-        <div class="services"> 
+        <p style="font-size: 1.1em; max-width: 800px; margin: 0 auto 30px; color: #555;">Finding your perfect match with us is a simple and transparent process. Here’s how it works:</p>
+        <div class="how-it-works-steps">
             <div class="how-it-works-step">
-                <h3>Step 1: Register Your Profile</h3>
-                <p>Fill out our online form or contact us via WhatsApp to create your detailed profile. Provide accurate information about yourself and your preferences.</p>
+                <div class="step-icon-container">
+                    <span class="step-number">1</span>
+                    <i class="fas fa-file-alt step-icon"></i>
+                </div>
+                <h3>Register Your Profile</h3>
+                <p>Fill out our simple form and provide accurate details about yourself and your family.</p>
             </div>
             <div class="how-it-works-step">
-                <h3>Step 2: Profile Verification</h3>
-                <p>Our team meticulously verifies all submitted biodatas to ensure authenticity and genuineness, maintaining a trustworthy environment.</p>
+                <div class="step-icon-container">
+                    <span class="step-number">2</span>
+                    <i class="fas fa-id-badge step-icon"></i>
+                </div>
+                <h3>Get Verified</h3>
+                <p>Our team meticulously verifies your profile to ensure authenticity and a secure experience for all members.</p>
             </div>
             <div class="how-it-works-step">
-                <h3>Step 3: Receive Curated Matches</h3>
-                <p>Based on your preferences and our extensive database, we'll share highly compatible and verified profiles directly with you.</p>
+                <div class="step-icon-container">
+                    <span class="step-number">3</span>
+                    <i class="fas fa-search-location step-icon"></i>
+                </div>
+                <h3>Receive Handpicked Matches</h3>
+                <p>Based on your criteria, we share highly compatible and verified profiles with you directly.</p>
             </div>
             <div class="how-it-works-step">
-                <h3>Step 4: Connect & Interact</h3>
-                <p>Once you find an interesting profile, we facilitate the connection process, helping families interact and get to know each other.</p>
+                <div class="step-icon-container">
+                    <span class="step-number">4</span>
+                    <i class="fas fa-comments step-icon"></i>
+                </div>
+                <h3>Connect with Families</h3>
+                <p>Once you are interested in a profile, we will help you connect with the family for further discussions.</p>
             </div>
             <div class="how-it-works-step">
-                <h3>Step 5: Finalize Your Alliance</h3>
-                <p>With our personalized guidance and support, proceed with confidence towards finalizing your alliance and building a happy future!</p>
+                <div class="step-icon-container">
+                    <span class="step-number">5</span>
+                    <i class="fas fa-ring step-icon"></i>
+                </div>
+                <h3>Find Your Life Partner</h3>
+                <p>With our support, finalize your alliance and take the first step towards a happy married life.</p>
             </div>
         </div>
         <a class="btn" href="#registration" style="margin-top: 40px; background-color: #28a745;">Ready to Start? Register Now!</a>
@@ -946,28 +1128,34 @@
         <h2>💖 Our Services</h2>
         <div class="services">
             <div class="service-box">
-                <h3>💍 Personalized Matchmaking</h3>
-                <p>Carefully matched biodatas for serious inquiries only.</p>
+                <i class="fas fa-hand-holding-heart service-icon"></i>
+                <h3>Personalized Matchmaking</h3>
+                <p>We provide personalized and verified biodatas to help you find your ideal match with complete transparency.</p>
             </div>
             <div class="service-box">
-                <h3>🔮 Horoscope Compatibility</h3>
-                <p>Optional Kundali match for those who prefer tradition.</p>
+                <i class="fas fa-gem service-icon"></i>
+                <h3>Horoscope & Kundali</h3>
+                <p>Our experts offer optional horoscope and Kundali compatibility matching to ensure a harmonious future.</p>
             </div>
             <div class="service-box">
-                <h3>✅ Verified Profiles</h3>
-                <p>Only real, genuine people from trusted sources.</p>
+                <i class="fas fa-shield-alt service-icon"></i>
+                <h3>Verified & Authentic Profiles</h3>
+                <p>Every single profile is manually verified by our team to protect you from fake and fraudulent profiles.</p>
             </div>
             <div class="service-box">
-                <h3>📞 Telephonic Guidance</h3>
-                <p>Personal assistance at every step of your journey.</p>
+                <i class="fas fa-phone-alt service-icon"></i>
+                <h3>Direct Telephonic Guidance</h3>
+                <p>Our team is available to guide you at every step of your journey, ensuring a smooth and stress-free experience.</p>
             </div>
             <div class="service-box">
-                <h3>👪 Family Focused</h3>
-                <p>We help you connect with families who truly value relationships.</p>
+                <i class="fas fa-users service-icon"></i>
+                <h3>Family-Oriented Approach</h3>
+                <p>We focus on uniting families with similar values, ensuring your relationship is built on strong, traditional foundations.</p>
             </div>
             <div class="service-box">
-                <h3>📋 Verified Biodata Sharing</h3>
-                <p>Receive and send verified profiles to serious candidates only.</p>
+                <i class="fas fa-id-card service-icon"></i>
+                <h3>Confidential Biodata Sharing</h3>
+                <p>Your personal information is kept private and shared only with serious and verified candidates with your consent.</p>
             </div>
         </div>
         <div style="text-align: center; margin-top: 30px;">
@@ -975,7 +1163,7 @@
         </div>
     </div>
 
-    <section class="parallax" style="background-image: url('https://i.imgur.com/eTb8MqS.jpeg');">
+    <section class="parallax">
         <div style="padding: 20px; background-color: rgba(0,0,0,0.4); border-radius: 10px;">
             <h2 style="color: white; margin-bottom: 0;">💖 Your Journey to Happiness Begins Here</h2>
         </div>
@@ -1004,27 +1192,58 @@
         </div>
     </div>
 
-    <section id="success-stories" style="padding: 40px; background-color: #fffafc; margin: 50px auto; max-width: 900px; border-radius: 12px;">
+    <section id="success-stories" style="padding: 40px; background-color: #fffafc; margin: 50px auto; max-width: 900px; border-radius: 12px; text-align: center;">
         <h2 style="color: #d81b60; text-align: center;">👩‍❤️‍👨 Our Success Stories</h2>
-        <div style="display: flex; flex-wrap: wrap; gap: 20px; justify-content: center; margin-top: 30px;">
-            <div class="testimonial-box">
-                <p>"With Shaadi Shanstha's help, I found my life partner. Their transparency and support made everything so easy!"</p>
-                <p class="author">- Priya &amp; Rahul, Patna</p>
-                <img alt="Happy Couple 1" src="https://i.imgur.com/OnAviii.jpeg" class="no-download-img"/>
+        <div class="testimonial-carousel">
+            <div class="carousel-slides">
+                <div class="testimonial-box">
+                    <p>"Thanks to Shaadi Shanstha, we were able to marry without any dowry and they supported us throughout the process."</p>
+                    <p class="author">— Anjali & Rohit (Married in 2023)</p>
+                    <picture>
+                        <source srcset="https://i.imgur.com/D8HqfU0.webp" type="image/webp"/>
+                        <img alt="Happy Couple" src="https://i.imgur.com/D8HqfU0.jpeg" class="no-download-img"/>
+                    </picture>
+                </div>
+                <div class="testimonial-box">
+                    <p>"With Shaadi Shanstha's help, I found my life partner. Their transparency and support made everything so easy!"</p>
+                    <p class="author">- Priya & Rahul, Patna</p>
+                    <picture>
+                        <source srcset="https://i.imgur.com/ThgIppe.webp" type="image/webp"/>
+                        <img alt="Happy Couple 1" src="https://i.imgur.com/ThgIppe.jpeg" class="no-download-img"/>
+                    </picture>
+                </div>
+                <div class="testimonial-box">
+                    <p>"We never thought we'd find such a compatible match so easily. A big thank you to Shaadi Shanstha!"</p>
+                    <p class="author">- Anjali & Vivek, Ranchi</p>
+                    <picture>
+                        <source srcset="https://i.imgur.com/8YUmGuw.webp" type="image/webp"/>
+                        <img alt="Happy Couple 2" src="https://i.imgur.com/8YUmGuw.jpeg" class="no-download-img"/>
+                    </picture>
+                </div>
+                <div class="testimonial-box">
+                    <p>"It's not just a service, it's like a family that genuinely cares for your happiness. I'm so glad I found them."</p>
+                    <p class="author">- Neha & Sameer, Bhagalpur</p>
+                    <picture>
+                        <source srcset="https://i.imgur.com/onxrwmr.webp" type="image/webp"/>
+                        <img alt="Happy Couple 3" src="https://i.imgur.com/onxrwmr.jpeg" class="no-download-img"/>
+                    </picture>
+                </div>
+                <div class="testimonial-box">
+                    <p>"Their personalized approach truly made a difference. We found a family, not just a partner. Highly recommended!"</p>
+                    <p class="author">- Sunita & Alok, Gaya</p>
+                    <picture>
+                        <source srcset="https://i.imgur.com/VxijeBu.webp" type="image/webp"/>
+                        <img alt="Happy Couple 4" src="https://i.imgur.com/VxijeBu.jpeg" class="no-download-img"/>
+                    </picture>
+                </div>
             </div>
-            <div class="testimonial-box">
-                <p>"We never thought we'd find such a compatible match so easily. A big thank you to Shaadi Shanstha!"</p>
-                <p class="author">- Anjali &amp; Vivek, Ranchi</p>
-                <img alt="Happy Couple 2" src="https://i.imgur.com/OKpFGCb.jpeg" class="no-download-img"/>
-            </div>
-            <div class="testimonial-box">
-                <p>"It's not just a service, it's like a family that genuinely cares for your happiness. I'm so glad I found them."</p>
-                <p class="author">- Neha &amp; Sameer, Bhagalpur</p>
-                <img alt="Happy Couple 3" src="https://i.imgur.com/onxrwmr.jpeg" class="no-download-img"/>
-            </div>
-            <div class="testimonial-box"><p>"Thanks to Shaadi Shanstha, we were able to marry without any dowry and they supported us throughout the process."</p><p class="author">— Anjali &amp; Rohit (Married in 2023)</p><img alt="Dowry-Free Couple" src="https://i.imgur.com/cxCQBsr.jpeg" class="no-download-img"/></div>
+            <button class="carousel-nav-btn prev-btn" onclick="moveCarousel(-1)">❮</button>
+            <button class="carousel-nav-btn next-btn" onclick="moveCarousel(1)">❯</button>
         </div>
-        <p style="text-align: center; margin-top: 30px; font-size: 1.1em; color: #ad1457;">Ready to share your own success story? <a href="#contact" style="color: #d81b60; text-decoration: none; font-weight: bold;">Contact Us!</a></p>
+        
+        <div style="text-align: center; margin-top: 30px;">
+             <a class="success-story-cta" href="#registration">Ready to Start Your Own Success Story?</a>
+        </div>
     </section>
 
     <section id="blog" class="container" style="background-color: #fce4ec; padding: 40px; margin: 50px auto; border-radius: 12px; max-width: 900px; box-shadow: 0 4px 10px rgba(0,0,0,0.1);">
@@ -1048,23 +1267,23 @@
     <section id="achievements" style="padding: 40px; background-color: #fff8f9; margin: 40px auto; border-radius: 12px;">
         <h2 style="color: #ad1457; text-align: center;">🏆 Our Achievements</h2>
         <ul style="list-style: none; padding: 0; font-size: 18px; line-height: 2; color: #444;">
-            <li>🎉 <strong>10,000+ Successful Matches</strong> made with love &amp; trust</li>
+            <li>🎉 <strong>10,000+ Successful Matches</strong> made with love & trust</li>
             <li>👪 <strong>7,000+ Families</strong> personally served across India</li>
             <li>📅 <strong>9+ Years</strong> of experience in trusted matchmaking</li>
-            <li>🌐 Clients from <strong>Bihar, Jharkhand, UP &amp; more</strong></li>
+            <li>🌐 Clients from <strong>Bihar, Jharkhand, UP & more</strong></li>
         </ul>
     </section>
 
     <section id="request-callback" style="padding: 40px; background-color: #fce4ec; border-radius: 12px; margin: 50px auto; max-width: 900px; padding: 40px;">
         <h2 style="text-align: center; color: #ad1457;">📋 Request a Call Back</h2>
         <form action="https://formsubmit.co/shaadishanstha.in@gmail.com" method="POST" style="display: flex; flex-direction: column; align-items: center;">
-            <input name="_redirect" type="hidden" value="https://shaadishanstha.netlify.app/thank-you.html"/>
+            <input name="_redirect" type="hidden" value="https://shaadishanstha.in/thank-you.html"/>
             <input name="name" placeholder="Your Name" required="" style="margin: 10px 0; padding: 12px; width: 90%; max-width: 400px; border: 1px solid #ccc; border-radius: 6px;" type="text"/>
             <input name="phone" placeholder="Your Mobile Number" required="" style="margin: 10px 0; padding: 12px; width: 90%; max-width: 400px; border: 1px solid #ccc; border-radius: 6px;" type="tel"/>
             <input name="city" placeholder="City" required="" style="margin: 10px 0; padding: 12px; width: 90%; max-width: 400px; border: 1px solid #ccc; border-radius: 6px;" type="text"/>
             <button style="margin-top: 20px; padding: 12px 30px; background-color: #d81b60; color: white; border: none; border-radius: 6px; font-size: 16px; font-weight: bold; cursor: pointer; transition: background-color 0.3s ease;">Submit</button>
             <input name="_captcha" type="hidden" value="false"/>
-            <input name="_next" type="hidden" value="https://shaadishanstha.netlify.app/thank-you.html"/>
+            <input name="_next" type="hidden" value="https://shaadishanstha.in/thank-you.html"/>
         </form>
     </section>
 
@@ -1164,9 +1383,8 @@
                 <i class="fas fa-envelope"></i> Email Us
             </a>
         </div>
-        <p style="margin-top: 30px; font-size: 1.1em; color: #ad1457; font-weight: bold;">We're committed to helping you find your perfect match with trust and transparency.</p>
     </div>
-
+    
     <div class="container" id="terms">
         <h2>💖 Terms and Conditions</h2>
         <p style="text-align: center; font-size: 1.1em; max-width: 800px; margin: 20px auto; color: #555;">
@@ -1192,9 +1410,9 @@
         <a href="termscon.html" style="color: #d81b60; text-decoration: none; margin: 0 10px; font-weight: bold;">Terms and Conditions</a>
     </div>
     <div style="margin-top: 15px; font-size: 24px;">
-        <a href="https://www.facebook.com/your_page_link" style="color: #3b5998; margin: 0 8px; text-decoration: none;" target="_blank">📘</a>
-        <a href="https://www.instagram.com/your_page_link" style="color: #C13584; margin: 0 8px; text-decoration: none;" target="_blank">📸</a>
-        <a href="https://twitter.com/your_page_link" style="color: #1DA1F2; margin: 0 8px; text-decoration: none;" target="_blank">🐦</a>
+        <a href="#" style="color: #3b5998; margin: 0 8px; text-decoration: none;" target="_blank"><i class="fab fa-facebook-square"></i></a>
+        <a href="#" style="color: #C13584; margin: 0 8px; text-decoration: none;" target="_blank"><i class="fab fa-instagram-square"></i></a>
+        <a href="#" style="color: #1DA1F2; margin: 0 8px; text-decoration: none;" target="_blank"><i class="fab fa-twitter-square"></i></a>
     </div>
 </footer>
 
@@ -1280,6 +1498,45 @@
                 content.style.display = isExpanded ? 'none' : 'block';
             });
         });
+
+        // Success Stories Carousel Logic
+        let currentSlide = 0;
+        const slidesContainer = document.querySelector('.carousel-slides');
+        const slides = document.querySelectorAll('.testimonial-box');
+        let slideWidth = slides[0].offsetWidth + 20; // width + margin
+        const totalSlides = slides.length;
+        const slidesToShow = window.innerWidth <= 768 ? 1 : 3;
+
+        // Function to update slide width on resize
+        function updateSlideWidth() {
+            const firstSlide = document.querySelector('.testimonial-box');
+            if (firstSlide) {
+                slideWidth = firstSlide.offsetWidth + 20; // Re-calculate based on current size
+            }
+        }
+        
+        window.addEventListener('resize', () => {
+            updateSlideWidth();
+            // Recenter the carousel on resize
+            slidesContainer.style.transform = `translateX(${-currentSlide * slideWidth}px)`;
+        });
+
+        // Function to move the carousel
+        window.moveCarousel = function(direction) {
+            currentSlide += direction;
+            if (currentSlide < 0) {
+                currentSlide = totalSlides - slidesToShow;
+            } else if (currentSlide > totalSlides - slidesToShow) {
+                currentSlide = 0;
+            }
+            const offset = -currentSlide * slideWidth;
+            slidesContainer.style.transform = `translateX(${offset}px)`;
+        };
+
+        // Auto-play the carousel
+        setInterval(() => {
+            window.moveCarousel(1);
+        }, 5000); // Change slide every 5 seconds
     });
 </script>
 </body>
