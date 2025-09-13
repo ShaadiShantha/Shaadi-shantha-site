@@ -215,6 +215,27 @@
       margin-top: 15px;
       text-align: center;
     }
+    .download-btn {
+      display: inline-block;
+      background: #880e4f;
+      color: white;
+      padding: 10px 20px;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 600;
+      margin-top: 10px;
+      transition: all 0.3s ease;
+      cursor: pointer;
+    }
+    .download-btn:hover {
+      background: #6a1b9a;
+      transform: translateY(-2px);
+    }
+    .instruction-note {
+      font-size: 14px;
+      color: #555;
+      margin-top: 10px;
+    }
   </style>
 </head>
 <body>
@@ -250,11 +271,15 @@
 
     <div id="qr-details" class="payment-details" style="display: none;">
       <div class="qr-scan">
-        <a href="https://i.postimg.cc/k4rqQ43d/qr-code.jpg" download="Shaadi_Shanstha_QR_Code.jpeg">
-          <img src="https://i.postimg.cc/k4rqQ43d/qr-code.jpg" alt="UPI QR Scanner" />
-        </a>
+        <img src="https://i.postimg.cc/k4rqQ43d/qr-code.jpg" alt="UPI QR Scanner" />
         <p>📷 Scan & Pay</p>
-        <p class="download-note">⬇️ QR code download karne ke liye image par click karein.</p>
+        
+        <a href="https://i.postimg.cc/k4rqQ43d/qr-code.jpg" class="download-btn" onclick="alert('On some devices, you may need to long-press the QR code to download the image.');">
+          Download QR Code
+        </a>
+        <p class="instruction-note">
+          **Tip:** Agar download na ho, toh image par **long-press** karke **'Download Image'** option chunein.
+        </p>
       </div>
     </div>
     
