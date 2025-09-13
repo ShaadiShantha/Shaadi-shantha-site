@@ -107,16 +107,26 @@
       text-align:center; 
       margin-top:15px;
     }
+    .qr-scan a {
+        display: inline-block;
+        border:3px solid #e91e63; 
+        border-radius:12px; 
+        box-shadow:0 0 12px rgba(233,30,99,0.4);
+    }
     .qr-scan img {
       width:200px; 
-      border:3px solid #e91e63; 
-      border-radius:12px; 
-      box-shadow:0 0 12px rgba(233,30,99,0.4);
+      display:block;
     }
     .qr-scan p {
       font-size:13px; 
       color:#555; 
       margin-top:8px;
+    }
+    .qr-scan .download-note {
+      font-size: 12px;
+      color: #880e4f;
+      margin-top: 10px;
+      font-weight: 600;
     }
     .copy-btn {
       background: #e0e0e0;
@@ -210,7 +220,7 @@
 <body>
   <div class="container">
     <p class="secure">🔒 Secure Payment Page</p>
-    <img src="https://i.imgur.com/fuZ78Ft.png" alt="Shaadi Shanstha Logo" class="logo" />
+    <img src="https://i.postimg.cc/m2d4dVfj/logo.png" alt="Shaadi Shanstha Logo" class="logo" />
     <h1>Shaadi Shanstha</h1>
     <h2>💳 Registration Payment</h2>
     <p class="price">₹35,500 <span>One-time Registration Charges</span></p>
@@ -238,11 +248,13 @@
       <button class="copy-btn" onclick="copyToClipboard('upi-id')">Copy</button>
     </div>
 
-    <!-- Updated Scanner Section -->
     <div id="qr-details" class="payment-details" style="display: none;">
       <div class="qr-scan">
-        <img src="https://i.imgur.com/wgrFdrX.jpeg" alt="UPI QR Scanner" />
+        <a href="https://i.postimg.cc/k4rqQ43d/qr-code.jpg" download="Shaadi_Shanstha_QR_Code.jpeg">
+          <img src="https://i.postimg.cc/k4rqQ43d/qr-code.jpg" alt="UPI QR Scanner" />
+        </a>
         <p>📷 Scan & Pay</p>
+        <p class="download-note">⬇️ QR code download karne ke liye image par click karein.</p>
       </div>
     </div>
     
@@ -321,7 +333,6 @@
       const tempInput = document.createElement('textarea');
       tempInput.value = text;
       document.body.appendChild(tempInput);
-      tempInput.select();
       document.execCommand('copy');
       document.body.removeChild(tempInput);
       alert("Copied: " + text);
