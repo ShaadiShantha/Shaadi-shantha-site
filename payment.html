@@ -250,6 +250,10 @@
       <button class="payment-button" onclick="showPaymentForm('bank')">🏦 Bank Account Transfer</button>
       <button class="payment-button" onclick="showPaymentForm('upi')">📲 UPI Payment</button>
       <button class="payment-button" onclick="showPaymentForm('qr')">📷 QR Code</button>
+      <button class="payment-button" id="phonepe-button">
+        <img src="https://i.postimg.cc/prgQ8F7j/phonepe-logo.png" alt="PhonePe Logo" style="height: 18px; width: 18px;" />
+        Pay with PhonePe
+      </button>
     </div>
 
     <div id="bank-details" class="payment-details" style="display: none;">
@@ -358,10 +362,55 @@
       const tempInput = document.createElement('textarea');
       tempInput.value = text;
       document.body.appendChild(tempInput);
+      tempInput.select();
       document.execCommand('copy');
       document.body.removeChild(tempInput);
       alert("Copied: " + text);
     }
+
+    // 👉 यहाँ नया JavaScript कोड जोड़ें
+    document.getElementById('phonepe-button').addEventListener('click', async () => {
+      // अन्य फ़ॉर्म और डिटेल्स को छुपाएँ
+      document.getElementById('bank-details').style.display = 'none';
+      document.getElementById('upi-details').style.display = 'none';
+      document.getElementById('qr-details').style.display = 'none';
+      document.getElementById('payment-form').style.display = 'none';
+      
+      // बटन को एक्टिव करें
+      document.querySelectorAll('.payment-button').forEach(btn => btn.classList.remove('active'));
+      document.getElementById('phonepe-button').classList.add('active');
+
+      // पेमेंट शुरू करने के लिए API कॉल करें
+      // ⚠️ 'YOUR_RENDER_BACKEND_URL' को अपने Render URL से बदलें
+      const YOUR_RENDER_BACKEND_URL = 'https://phonepe-backend-0vq5.onrender.com';
+      const amountInRupees = 35500; 
+
+      try {
+        const response = await fetch(`${YOUR_RENDER_BACKEND_URL}/pay`, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            amount: amountInRupees,
+            mobileNumber: '9999999999' 
+          }),
+        });
+
+        const data = await response.json();
+
+        if (data.success && data.redirectUrl) {
+          window.location.href = data.redirectUrl;
+        } else {
+          alert('Payment initiation failed: ' + (data.error || 'Unknown error'));
+          console.error('API Response:', data);
+        }
+      } catch (error) {
+        console.error('Error initiating PhonePe payment:', error);
+        alert('An error occurred during payment initiation. Please try again later.');
+      }
+    });
+
   </script>
 </body>
 </html>
