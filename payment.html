@@ -104,22 +104,22 @@
       font-weight: 600;
     }
     .qr-scan {
-      text-align:center; 
+      text-align:center;
       margin-top:15px;
     }
     .qr-scan a {
         display: inline-block;
-        border:3px solid #e91e63; 
-        border-radius:12px; 
+        border:3px solid #e91e63;
+        border-radius:12px;
         box-shadow:0 0 12px rgba(233,30,99,0.4);
     }
     .qr-scan img {
-      width:200px; 
+      width:200px;
       display:block;
     }
     .qr-scan p {
-      font-size:13px; 
-      color:#555; 
+      font-size:13px;
+      color:#555;
       margin-top:8px;
     }
     .qr-scan .download-note {
@@ -260,16 +260,16 @@
       <p>Please make a payment to the following account and then submit your details below:</p>
       <strong>Account Holder:</strong> Shaadi Shanstha
       <br>
-      <strong>Account No:</strong> <span id="bank-acc-num">8123333103</span> 
+      <strong>Account No:</strong> <span id="bank-acc-num">8123333103</span>
       <button class="copy-btn" onclick="copyToClipboard('bank-acc-num')">Copy</button>
       <br>
-      <strong>IFSC Code:</strong> <span id="ifsc-code">IDIB000K196</span> 
+      <strong>IFSC Code:</strong> <span id="ifsc-code">IDIB000K196</span>
       <button class="copy-btn" onclick="copyToClipboard('ifsc-code')">Copy</button>
     </div>
 
     <div id="upi-details" class="payment-details" style="display: none;">
       <p>You can pay directly via UPI using the ID below:</p>
-      <strong>UPI ID:</strong> <span id="upi-id">shaadishanstha@indianbank</span> 
+      <strong>UPI ID:</strong> <span id="upi-id">shaadishanstha@indianbank</span>
       <button class="copy-btn" onclick="copyToClipboard('upi-id')">Copy</button>
     </div>
 
@@ -368,7 +368,7 @@
       alert("Copied: " + text);
     }
 
-    // 👉 यहाँ नया JavaScript कोड जोड़ें
+    // ✅ यहाँ PhonePe का नया JavaScript कोड है जो आपके Vercel Backend से बात करेगा
     document.getElementById('phonepe-button').addEventListener('click', async () => {
       // अन्य फ़ॉर्म और डिटेल्स को छुपाएँ
       document.getElementById('bank-details').style.display = 'none';
@@ -380,20 +380,27 @@
       document.querySelectorAll('.payment-button').forEach(btn => btn.classList.remove('active'));
       document.getElementById('phonepe-button').classList.add('active');
 
+      // यहाँ से मोबाइल नंबर लें
+      const mobileNumber = document.getElementById('phone').value;
+
+      if (!mobileNumber) {
+        alert('कृपया अपना फ़ोन नंबर दर्ज करें।');
+        return; // अगर नंबर खाली है तो रुकें
+      }
+
       // पेमेंट शुरू करने के लिए API कॉल करें
-      // ⚠️ 'YOUR_RENDER_BACKEND_URL' को अपने Render URL से बदलें
-      const YOUR_RENDER_BACKEND_URL = 'https://phonepe-backend-0vq5.onrender.com';
+      const YOUR_VERCEL_BACKEND_URL = 'https://phonepe-backend-jade.vercel.app';
       const amountInRupees = 35500; 
 
       try {
-        const response = await fetch(`${YOUR_RENDER_BACKEND_URL}/pay`, {
+        const response = await fetch(`${YOUR_VERCEL_BACKEND_URL}/pay`, {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
           },
           body: JSON.stringify({
             amount: amountInRupees,
-            mobileNumber: '9999999999' 
+            mobileNumber: mobileNumber // अब यहाँ इनपुट से आया हुआ नंबर है
           }),
         });
 
