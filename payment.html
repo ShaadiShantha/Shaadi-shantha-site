@@ -331,7 +331,6 @@
       document.getElementById('qr-details').style.display = 'none';
       
       document.getElementById('payment-form').style.display = 'none';
-      document.getElementById('transaction-label').style.display = 'block';
 
       document.querySelectorAll('.payment-button').forEach(btn => btn.classList.remove('active'));
 
@@ -341,23 +340,21 @@
         document.querySelector('.payment-options button:nth-child(1)').classList.add('active');
         document.getElementById('transaction').name = 'Bank Transaction ID';
         document.getElementById('transaction').placeholder = 'Enter Bank Transaction ID (e.g., UTR/NEFT/IMPS)';
+        document.getElementById('transaction-label').style.display = 'block';
       } else if (method === 'upi') {
         document.getElementById('upi-details').style.display = 'block';
         document.getElementById('payment-form').style.display = 'block';
         document.querySelector('.payment-options button:nth-child(2)').classList.add('active');
         document.getElementById('transaction').name = 'UPI Transaction ID';
         document.getElementById('transaction').placeholder = 'Enter UPI Transaction ID (e.g., G-pay, PhonePe)';
+        document.getElementById('transaction-label').style.display = 'block';
       } else if (method === 'qr') {
         document.getElementById('qr-details').style.display = 'block';
         document.getElementById('payment-form').style.display = 'block';
         document.querySelector('.payment-options button:nth-child(3)').classList.add('active');
         document.getElementById('transaction').name = 'QR Transaction ID';
         document.getElementById('transaction').placeholder = 'Enter QR Transaction ID (after scanning)';
-      } else if (method === 'phonepe') {
-        // PhonePe के लिए सिर्फ़ पेमेंट फ़ॉर्म दिखाएँ
-        document.getElementById('payment-form').style.display = 'block';
-        document.getElementById('transaction-label').style.display = 'none';
-        document.getElementById('phonepe-button').classList.add('active');
+        document.getElementById('transaction-label').style.display = 'block';
       }
     }
     
@@ -376,17 +373,19 @@
 
     // ✅ यहाँ PhonePe का नया और सही JavaScript कोड है
     document.getElementById('phonepe-button').addEventListener('click', async () => {
-      // पहले फ़ोन नंबर फ़ॉर्म को दिखाएं
-      showPaymentForm('phonepe');
+      // अन्य फ़ॉर्म और डिटेल्स को छुपाएं
+      document.getElementById('bank-details').style.display = 'none';
+      document.getElementById('upi-details').style.display = 'none';
+      document.getElementById('qr-details').style.display = 'none';
+      document.getElementById('payment-form').style.display = 'none';
       
-      // मोबाइल नंबर लें
-      const mobileNumber = document.getElementById('phone').value;
+      // बटन को एक्टिव करें
+      document.querySelectorAll('.payment-button').forEach(btn => btn.classList.remove('active'));
+      document.getElementById('phonepe-button').classList.add('active');
 
-      if (!mobileNumber || mobileNumber.length !== 10) {
-        alert('कृपया एक वैध 10-अंकों का फ़ोन नंबर दर्ज करें।');
-        return; // अगर नंबर खाली या ग़लत है, तो यहीं रुकें
-      }
-
+      // सीधे हार्डकोडेड मोबाइल नंबर का उपयोग करें
+      const mobileNumber = '9135361511';
+      
       // पेमेंट शुरू करने के लिए API कॉल करें
       const YOUR_VERCEL_BACKEND_URL = 'https://phonepe-backend-jade.vercel.app';
       const amountInRupees = 35500; 
