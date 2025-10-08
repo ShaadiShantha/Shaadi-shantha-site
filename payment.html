@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <title>Shaadi Shanstha - Secure Payment</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-width, initial-scale=1.0" />
   <style>
     body {
       font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
@@ -250,10 +250,6 @@
       <button class="payment-button" onclick="showPaymentForm('bank')">🏦 Bank Account Transfer</button>
       <button class="payment-button" onclick="showPaymentForm('upi')">📲 UPI Payment</button>
       <button class="payment-button" onclick="showPaymentForm('qr')">📷 QR Code</button>
-      <button class="payment-button" id="phonepe-button">
-        <img src="https://i.postimg.cc/prgQ8F7j/phonepe-logo.png" alt="PhonePe Logo" style="height: 18px; width: 18px;" />
-        Pay with PhonePe
-      </button>
     </div>
 
     <div id="bank-details" class="payment-details" style="display: none;">
@@ -263,7 +259,7 @@
       <strong>Account No:</strong> <span id="bank-acc-num">8123333103</span>
       <button class="copy-btn" onclick="copyToClipboard('bank-acc-num')">Copy</button>
       <br>
-      <strong>IFSC Code:</strong> <span id="ifsc-code">IDIB000K196</span>
+      <strong>IFSC Code:</strong> <span id="ifsc-code">IDIB000K574</span>
       <button class="copy-btn" onclick="copyToClipboard('ifsc-code')">Copy</button>
     </div>
 
@@ -370,52 +366,6 @@
       document.body.removeChild(tempInput);
       alert("Copied: " + text);
     }
-
-    // ✅ यहाँ PhonePe का नया और सही JavaScript कोड है
-    document.getElementById('phonepe-button').addEventListener('click', async () => {
-      // अन्य फ़ॉर्म और डिटेल्स को छुपाएं
-      document.getElementById('bank-details').style.display = 'none';
-      document.getElementById('upi-details').style.display = 'none';
-      document.getElementById('qr-details').style.display = 'none';
-      document.getElementById('payment-form').style.display = 'none';
-      
-      // बटन को एक्टिव करें
-      document.querySelectorAll('.payment-button').forEach(btn => btn.classList.remove('active'));
-      document.getElementById('phonepe-button').classList.add('active');
-
-      // सीधे हार्डकोडेड मोबाइल नंबर का उपयोग करें
-      const mobileNumber = '9135361511';
-      
-      // पेमेंट शुरू करने के लिए API कॉल करें
-      const YOUR_VERCEL_BACKEND_URL = 'https://phonepe-backend-jade.vercel.app';
-      const amountInRupees = 35500; 
-
-      try {
-        const response = await fetch(`${YOUR_VERCEL_BACKEND_URL}/pay`, {
-          method: 'POST',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({
-            amount: amountInRupees,
-            mobileNumber: mobileNumber 
-          }),
-        });
-
-        const data = await response.json();
-
-        if (data.success && data.redirectUrl) {
-          window.location.href = data.redirectUrl;
-        } else {
-          alert('Payment initiation failed: ' + (data.error || 'Unknown error'));
-          console.error('API Response:', data);
-        }
-      } catch (error) {
-        console.error('Error initiating PhonePe payment:', error);
-        alert('An error occurred during payment initiation. Please try again later.');
-      }
-    });
-
   </script>
 </body>
 </html>
